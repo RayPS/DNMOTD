@@ -12,6 +12,7 @@
 		7119876F1EDEC50C00A3A406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7119876D1EDEC50C00A3A406 /* Main.storyboard */; };
 		711987711EDEC50C00A3A406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711987701EDEC50C00A3A406 /* Assets.xcassets */; };
 		711987741EDEC50C00A3A406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */; };
+		712683951EDEF4830041EF28 /* GetMOTD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712683941EDEF4830041EF28 /* GetMOTD.swift */; };
 		C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		711987701EDEC50C00A3A406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711987731EDEC50C00A3A406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711987751EDEC50C00A3A406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		712683941EDEF4830041EF28 /* GetMOTD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMOTD.swift; sourceTree = "<group>"; };
 		7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.release.xcconfig"; sourceTree = "<group>"; };
 		89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNMOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				711987701EDEC50C00A3A406 /* Assets.xcassets */,
 				711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */,
 				711987751EDEC50C00A3A406 /* Info.plist */,
+				712683941EDEF4830041EF28 /* GetMOTD.swift */,
 			);
 			path = DNMOTD;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7119876C1EDEC50C00A3A406 /* ViewController.swift in Sources */,
+				712683951EDEF4830041EF28 /* GetMOTD.swift in Sources */,
 				7119876A1EDEC50C00A3A406 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +385,7 @@
 				7119877A1EDEC50C00A3A406 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
