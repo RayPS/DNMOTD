@@ -12,6 +12,7 @@
 		7119876F1EDEC50C00A3A406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7119876D1EDEC50C00A3A406 /* Main.storyboard */; };
 		711987711EDEC50C00A3A406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711987701EDEC50C00A3A406 /* Assets.xcassets */; };
 		711987741EDEC50C00A3A406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */; };
+		C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		711987701EDEC50C00A3A406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711987731EDEC50C00A3A406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711987751EDEC50C00A3A406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.release.xcconfig"; sourceTree = "<group>"; };
+		89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNMOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A7F3EC8525B331E4ECA835A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */,
+				7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2CCFCBFC8E362A292AB7AEB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7119875D1EDEC50C00A3A406 = {
 			isa = PBXGroup;
 			children = (
 				711987681EDEC50C00A3A406 /* DNMOTD */,
 				711987671EDEC50C00A3A406 /* Products */,
+				0A7F3EC8525B331E4ECA835A /* Pods */,
+				2CCFCBFC8E362A292AB7AEB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 711987781EDEC50C00A3A406 /* Build configuration list for PBXNativeTarget "DNMOTD" */;
 			buildPhases = (
+				3F830349E7D4BF976DB4A6C8 /* [CP] Check Pods Manifest.lock */,
 				711987621EDEC50C00A3A406 /* Sources */,
 				711987631EDEC50C00A3A406 /* Frameworks */,
 				711987641EDEC50C00A3A406 /* Resources */,
+				415B1E30DD6954471679D7DF /* [CP] Embed Pods Frameworks */,
+				FE9E017FBD78812251EB805E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F830349E7D4BF976DB4A6C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		415B1E30DD6954471679D7DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE9E017FBD78812251EB805E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		711987621EDEC50C00A3A406 /* Sources */ = {
@@ -261,6 +336,7 @@
 		};
 		711987791EDEC50C00A3A406 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MGAF98TG33;
@@ -274,6 +350,7 @@
 		};
 		7119877A1EDEC50C00A3A406 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MGAF98TG33;
