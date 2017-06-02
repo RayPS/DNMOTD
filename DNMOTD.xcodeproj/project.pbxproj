@@ -13,8 +13,36 @@
 		711987711EDEC50C00A3A406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711987701EDEC50C00A3A406 /* Assets.xcassets */; };
 		711987741EDEC50C00A3A406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */; };
 		712683951EDEF4830041EF28 /* GetMOTD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712683941EDEF4830041EF28 /* GetMOTD.swift */; };
+		713C20EF1EE13A7300B03338 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713C20EE1EE13A7300B03338 /* NotificationCenter.framework */; };
+		713C20F21EE13A7300B03338 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713C20F11EE13A7300B03338 /* TodayViewController.swift */; };
+		713C20F51EE13A7300B03338 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 713C20F31EE13A7300B03338 /* MainInterface.storyboard */; };
+		713C20F91EE13A7300B03338 /* DNMOTD-Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 713C20ED1EE13A7300B03338 /* DNMOTD-Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		713C20F71EE13A7300B03338 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7119875E1EDEC50C00A3A406 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 713C20EC1EE13A7300B03338;
+			remoteInfo = "DNMOTD-Widget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		713C20FD1EE13A7400B03338 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				713C20F91EE13A7300B03338 /* DNMOTD-Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		711987661EDEC50C00A3A406 /* DNMOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNMOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,6 +53,11 @@
 		711987731EDEC50C00A3A406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711987751EDEC50C00A3A406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		712683941EDEF4830041EF28 /* GetMOTD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMOTD.swift; sourceTree = "<group>"; };
+		713C20ED1EE13A7300B03338 /* DNMOTD-Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DNMOTD-Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		713C20EE1EE13A7300B03338 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		713C20F11EE13A7300B03338 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		713C20F41EE13A7300B03338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		713C20F61EE13A7300B03338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.release.xcconfig"; sourceTree = "<group>"; };
 		89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNMOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -36,6 +69,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		713C20EA1EE13A7300B03338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				713C20EF1EE13A7300B03338 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */,
+				713C20EE1EE13A7300B03338 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -63,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				711987681EDEC50C00A3A406 /* DNMOTD */,
+				713C20F01EE13A7300B03338 /* DNMOTD-Widget */,
 				711987671EDEC50C00A3A406 /* Products */,
 				0A7F3EC8525B331E4ECA835A /* Pods */,
 				2CCFCBFC8E362A292AB7AEB9 /* Frameworks */,
@@ -73,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				711987661EDEC50C00A3A406 /* DNMOTD.app */,
+				713C20ED1EE13A7300B03338 /* DNMOTD-Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +135,16 @@
 			path = DNMOTD;
 			sourceTree = "<group>";
 		};
+		713C20F01EE13A7300B03338 /* DNMOTD-Widget */ = {
+			isa = PBXGroup;
+			children = (
+				713C20F11EE13A7300B03338 /* TodayViewController.swift */,
+				713C20F31EE13A7300B03338 /* MainInterface.storyboard */,
+				713C20F61EE13A7300B03338 /* Info.plist */,
+			);
+			path = "DNMOTD-Widget";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,15 +158,34 @@
 				711987641EDEC50C00A3A406 /* Resources */,
 				415B1E30DD6954471679D7DF /* [CP] Embed Pods Frameworks */,
 				FE9E017FBD78812251EB805E /* [CP] Copy Pods Resources */,
+				713C20FD1EE13A7400B03338 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				713C20F81EE13A7300B03338 /* PBXTargetDependency */,
 			);
 			name = DNMOTD;
 			productName = DNMOTD;
 			productReference = 711987661EDEC50C00A3A406 /* DNMOTD.app */;
 			productType = "com.apple.product-type.application";
+		};
+		713C20EC1EE13A7300B03338 /* DNMOTD-Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 713C20FC1EE13A7400B03338 /* Build configuration list for PBXNativeTarget "DNMOTD-Widget" */;
+			buildPhases = (
+				713C20E91EE13A7300B03338 /* Sources */,
+				713C20EA1EE13A7300B03338 /* Frameworks */,
+				713C20EB1EE13A7300B03338 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DNMOTD-Widget";
+			productName = "DNMOTD-Widget";
+			productReference = 713C20ED1EE13A7300B03338 /* DNMOTD-Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -125,6 +198,11 @@
 				ORGANIZATIONNAME = rayps;
 				TargetAttributes = {
 					711987651EDEC50C00A3A406 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = MGAF98TG33;
+						ProvisioningStyle = Automatic;
+					};
+					713C20EC1EE13A7300B03338 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = MGAF98TG33;
 						ProvisioningStyle = Automatic;
@@ -145,6 +223,7 @@
 			projectRoot = "";
 			targets = (
 				711987651EDEC50C00A3A406 /* DNMOTD */,
+				713C20EC1EE13A7300B03338 /* DNMOTD-Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -157,6 +236,14 @@
 				711987741EDEC50C00A3A406 /* LaunchScreen.storyboard in Resources */,
 				711987711EDEC50C00A3A406 /* Assets.xcassets in Resources */,
 				7119876F1EDEC50C00A3A406 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		713C20EB1EE13A7300B03338 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				713C20F51EE13A7300B03338 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +308,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		713C20E91EE13A7300B03338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				713C20F21EE13A7300B03338 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		713C20F81EE13A7300B03338 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 713C20EC1EE13A7300B03338 /* DNMOTD-Widget */;
+			targetProxy = 713C20F71EE13A7300B03338 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7119876D1EDEC50C00A3A406 /* Main.storyboard */ = {
@@ -238,6 +341,14 @@
 				711987731EDEC50C00A3A406 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		713C20F31EE13A7300B03338 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				713C20F41EE13A7300B03338 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -342,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MGAF98TG33;
 				INFOPLIST_FILE = DNMOTD/Info.plist;
@@ -356,12 +468,39 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MGAF98TG33;
 				INFOPLIST_FILE = DNMOTD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rayps.DNMOTD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		713C20FA1EE13A7400B03338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MGAF98TG33;
+				INFOPLIST_FILE = "DNMOTD-Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "rayps.DNMOTD.DNMOTD-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		713C20FB1EE13A7400B03338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = MGAF98TG33;
+				INFOPLIST_FILE = "DNMOTD-Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "rayps.DNMOTD.DNMOTD-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -386,6 +525,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		713C20FC1EE13A7400B03338 /* Build configuration list for PBXNativeTarget "DNMOTD-Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				713C20FA1EE13A7400B03338 /* Debug */,
+				713C20FB1EE13A7400B03338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
