@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScA-Ij-FOe" userLabel="Container">
-                                <rect key="frame" x="32" y="80" width="311" height="400"/>
+                                <rect key="frame" x="32" y="88" width="311" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-2I-xtv" userLabel="Loading Effect View">
-                                        <rect key="frame" x="0.0" y="-0.5" width="311" height="400"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="311" height="300"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFa-ym-qWT" userLabel="Fake Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="18"/>
@@ -79,7 +80,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
-                                        <rect key="frame" x="0.0" y="-0.5" width="311" height="400"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="311" height="300"/>
                                         <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <nil key="textColor"/>
@@ -95,7 +96,7 @@
                                     <constraint firstAttribute="bottom" secondItem="vbd-nK-XZ9" secondAttribute="bottom" id="RoX-iV-pdR"/>
                                     <constraint firstItem="ldN-2I-xtv" firstAttribute="leading" secondItem="ScA-Ij-FOe" secondAttribute="leading" id="ZZZ-Zl-Sae"/>
                                     <constraint firstAttribute="trailing" secondItem="ldN-2I-xtv" secondAttribute="trailing" id="hWi-2O-RHC"/>
-                                    <constraint firstAttribute="height" constant="400" id="loA-2X-S5g"/>
+                                    <constraint firstAttribute="height" constant="300" id="loA-2X-S5g"/>
                                     <constraint firstItem="vbd-nK-XZ9" firstAttribute="top" secondItem="ScA-Ij-FOe" secondAttribute="top" id="uZI-on-SIk"/>
                                 </constraints>
                             </view>
@@ -105,17 +106,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="O5b-Dr-pYI">
+                                <rect key="frame" x="32" y="32" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="ALl-wa-Bio"/>
+                                    <constraint firstAttribute="width" constant="32" id="bgJ-mI-TmO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="●">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="O5b-Dr-pYI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="32" id="1Kh-Vr-LAR"/>
                             <constraint firstItem="ScA-Ij-FOe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="32" id="BQA-pr-pe9"/>
                             <constraint firstAttribute="trailing" secondItem="ScA-Ij-FOe" secondAttribute="trailing" constant="32" id="U8f-Ug-koW"/>
+                            <constraint firstItem="O5b-Dr-pYI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="32" id="acb-yU-hTS"/>
                             <constraint firstItem="rIJ-uv-81y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="32" id="chU-WC-jcw"/>
-                            <constraint firstItem="ScA-Ij-FOe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="qNA-hD-col"/>
+                            <constraint firstItem="ScA-Ij-FOe" firstAttribute="top" secondItem="O5b-Dr-pYI" secondAttribute="bottom" constant="24" id="s1Z-MB-M7h"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rIJ-uv-81y" secondAttribute="bottom" constant="32" id="zJI-Vl-y6l"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dotButton" destination="O5b-Dr-pYI" id="W4e-rb-WmA"/>
                         <outlet property="loadingEffectView" destination="ldN-2I-xtv" id="LL7-A7-pou"/>
                         <outlet property="messageLabel" destination="vbd-nK-XZ9" id="Ywr-dr-Xg6"/>
                         <outlet property="votesLabel" destination="rIJ-uv-81y" id="zWl-58-ePg"/>
