@@ -26,6 +26,9 @@ class ViewController: UIViewController {
  
         
         // TODO: Reachability for first launch
+        // TODO: Font settings
+        // TODO: About
+        
         
         messageLabel.layer.opacity = 0
         votesLabel.layer.opacity = 0
