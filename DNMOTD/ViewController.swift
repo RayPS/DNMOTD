@@ -15,8 +15,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var loadingEffectView: UIView!
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+ 
         
         // TODO: Reachability for first launch
         
