@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScA-Ij-FOe" userLabel="Container">
-                                <rect key="frame" x="32" y="88" width="311" height="300"/>
+                                <rect key="frame" x="32" y="88" width="311" height="491"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-2I-xtv" userLabel="Loading Effect View">
-                                        <rect key="frame" x="0.0" y="-0.5" width="311" height="300"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="311" height="200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFa-ym-qWT" userLabel="Fake Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="18"/>
@@ -78,9 +78,12 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="5UI-vg-8If"/>
+                                        </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
-                                        <rect key="frame" x="0.0" y="-0.5" width="311" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="420.5"/>
                                         <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <nil key="textColor"/>
@@ -89,19 +92,20 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vbd-nK-XZ9" secondAttribute="bottom" id="2fU-ei-pe2"/>
                                     <constraint firstItem="vbd-nK-XZ9" firstAttribute="leading" secondItem="ScA-Ij-FOe" secondAttribute="leading" id="95r-jQ-kjl"/>
                                     <constraint firstAttribute="trailing" secondItem="vbd-nK-XZ9" secondAttribute="trailing" id="BCT-1l-bOC"/>
-                                    <constraint firstAttribute="bottom" secondItem="ldN-2I-xtv" secondAttribute="bottom" id="Ijf-6g-3am"/>
                                     <constraint firstItem="ldN-2I-xtv" firstAttribute="top" secondItem="ScA-Ij-FOe" secondAttribute="top" id="Ra9-Vf-Uex"/>
-                                    <constraint firstAttribute="bottom" secondItem="vbd-nK-XZ9" secondAttribute="bottom" id="RoX-iV-pdR"/>
                                     <constraint firstItem="ldN-2I-xtv" firstAttribute="leading" secondItem="ScA-Ij-FOe" secondAttribute="leading" id="ZZZ-Zl-Sae"/>
                                     <constraint firstAttribute="trailing" secondItem="ldN-2I-xtv" secondAttribute="trailing" id="hWi-2O-RHC"/>
-                                    <constraint firstAttribute="height" constant="300" id="loA-2X-S5g"/>
                                     <constraint firstItem="vbd-nK-XZ9" firstAttribute="top" secondItem="ScA-Ij-FOe" secondAttribute="top" id="uZI-on-SIk"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+40 / -14" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIJ-uv-81y" userLabel="Votes Label">
-                                <rect key="frame" x="32" y="613.5" width="80" height="21.5"/>
+                                <rect key="frame" x="32" y="611" width="80" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="JkS-Te-K7Z"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -126,6 +130,7 @@
                             <constraint firstItem="O5b-Dr-pYI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="32" id="acb-yU-hTS"/>
                             <constraint firstItem="rIJ-uv-81y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="32" id="chU-WC-jcw"/>
                             <constraint firstItem="ScA-Ij-FOe" firstAttribute="top" secondItem="O5b-Dr-pYI" secondAttribute="bottom" constant="24" id="s1Z-MB-M7h"/>
+                            <constraint firstItem="rIJ-uv-81y" firstAttribute="top" secondItem="ScA-Ij-FOe" secondAttribute="bottom" constant="32" id="vve-s3-E02"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rIJ-uv-81y" secondAttribute="bottom" constant="32" id="zJI-Vl-y6l"/>
                         </constraints>
                     </view>
