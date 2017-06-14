@@ -8,8 +8,8 @@
 
 import Kanna
 
-
 func getID(completion: @escaping (_ id: String) -> Void) {
+    
     let url = URL(string: "https://www.designernews.co")
     
     let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
@@ -22,4 +22,32 @@ func getID(completion: @escaping (_ id: String) -> Void) {
     }
     
     task.resume()
+}
+
+
+func getMOTD(completion: @escaping (_ motd: Any) -> Void) {
+    
+    getID { (id) in
+        
+        let url = URL(string: "https://api.designernews.co/api/v2/motds/\(id)")
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            
+            if let jsondata = data, let json = dataToJSON(data: jsondata) {
+                completion(json)
+            }
+        }
+
+        task.resume()
+    }
+}
+
+
+func dataToJSON(data: Data) -> Any? {
+    do {
+        return try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+    } catch let myJSONError {
+        print(myJSONError)
+    }
+    return nil
 }

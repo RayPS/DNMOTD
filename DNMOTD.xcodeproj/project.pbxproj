@@ -126,11 +126,11 @@
 			children = (
 				711987691EDEC50C00A3A406 /* AppDelegate.swift */,
 				7119876B1EDEC50C00A3A406 /* ViewController.swift */,
+				712683941EDEF4830041EF28 /* GetMOTD.swift */,
 				7119876D1EDEC50C00A3A406 /* Main.storyboard */,
 				711987701EDEC50C00A3A406 /* Assets.xcassets */,
 				711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */,
 				711987751EDEC50C00A3A406 /* Info.plist */,
-				712683941EDEF4830041EF28 /* GetMOTD.swift */,
 			);
 			path = DNMOTD;
 			sourceTree = "<group>";
@@ -533,6 +533,7 @@
 				713C20FB1EE13A7400B03338 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
