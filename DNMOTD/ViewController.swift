@@ -12,19 +12,28 @@ import SwiftyJSON
 class ViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var loadingEffectView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        messageLabel.layer.opacity = 0
+        Loader.addLoadersTo(loadingEffectView)
         
         getMOTD { (motd) in
-//            print(motd["motds"][0]["message"].string)
-            
             if let message = motd["motds"][0]["message"].string {
+                debugPrint(message)
                 self.messageLabel.text = message
-                print(message)
+                self.showMessageLabel()
+                Loader.removeLoadersFrom(self.loadingEffectView)
             }
-            
+        }
+    }
+    
+    
+    func showMessageLabel() {
+        UIView.animate(withDuration: 0.5) { 
+            self.messageLabel.layer.opacity = 1
         }
     }
 
