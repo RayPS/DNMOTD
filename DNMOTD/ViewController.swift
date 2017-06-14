@@ -23,49 +23,71 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
- 
-        
         // TODO: Reachability for first launch
         // TODO: Font settings
         // TODO: About
         
-        
+        initial()
+    }
+    
+    
+    func initial() {
         messageLabel.layer.opacity = 0
         votesLabel.layer.opacity = 0
         dotButton.layer.opacity = 0.1
-        Loader.addLoadersTo(loadingEffectView)
         
-        getMOTD { (json) in
+        Loader.addLoadersTo(loadingEffectView)
+
+        getlatestID {
+            currentID = latestID
+            self.renderMOTD()
+        }
+    }
+    
+    
+    func renderMOTD() {
+        
+        showLoadEffect()
+        
+        getMOTD(byID: currentID, completion: { (json) in
             let motd      = json["motds"][0]
             let message   = motd["message"].string!
             let upvotes   = motd["links"]["upvotes"]
             let downvotes = motd["links"]["downvotes"]
             
-            
             debugPrint(message)
+            
             self.messageLabel.text = message
-            
-            
             self.votesLabel.text = "+\(upvotes.count) / -\(downvotes.count)"
+            
             self.showMessageLabel()
-            Loader.removeLoadersFrom(self.loadingEffectView)
-        }
+            self.hideLoadEffect()
+        })
     }
     
     
+    
+    
+    
+    
     func showMessageLabel() {
-        UIView.animate(withDuration: 0.5) { 
+        UIView.animate(withDuration: 0.5) {
             self.messageLabel.layer.opacity = 1
             self.votesLabel.layer.opacity = 1
             self.dotButton.layer.opacity = 1
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func showLoadEffect() {
+        UIView.animate(withDuration: 0.2) { 
+            self.loadingEffectView.layer.opacity = 1
+        }
     }
-
-
+    
+    func hideLoadEffect() {
+        UIView.animate(withDuration: 0.2) {
+            self.loadingEffectView.layer.opacity = 0
+        }
+    }
 }
 

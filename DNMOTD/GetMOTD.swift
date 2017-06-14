@@ -9,7 +9,12 @@
 import Kanna
 import SwiftyJSON
 
-func getID(completion: @escaping (_ id: String) -> Void) {
+
+var currentID: Int = 0
+var latestID: Int = 0
+
+
+func getlatestID(completion: @escaping () -> Void) {
     
     let url = URL(string: "https://www.designernews.co")
     
@@ -18,7 +23,8 @@ func getID(completion: @escaping (_ id: String) -> Void) {
             if let result = doc.css("#feed-motd-container").first {
                 let id = result["data-id"]!
                 DispatchQueue.main.async {
-                    completion(id)
+                    latestID = Int(id)!
+                    completion()
                 }
             }
         }
@@ -28,21 +34,18 @@ func getID(completion: @escaping (_ id: String) -> Void) {
 }
 
 
-func getMOTD(completion: @escaping (_ json: JSON) -> Void) {
+func getMOTD(byID id: Int, completion: @escaping (_ json: JSON) -> Void) {
     
-    getID { (id) in
+    let url = URL(string: "https://api.designernews.co/api/v2/motds/\(id)")
+    
+    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
         
-        let url = URL(string: "https://api.designernews.co/api/v2/motds/\(id)")
-        
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-            
-            if let jsondata = data {
-                DispatchQueue.main.async {
-                    completion(JSON(data: jsondata))
-                }
+        if let jsondata = data {
+            DispatchQueue.main.async {
+                completion(JSON(data: jsondata))
             }
         }
-
-        task.resume()
     }
+
+    task.resume()
 }
