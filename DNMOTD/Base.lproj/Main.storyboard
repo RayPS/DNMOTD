@@ -78,7 +78,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
                                         <rect key="frame" x="0.0" y="-0.5" width="311" height="400"/>
                                         <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
@@ -99,17 +99,26 @@
                                     <constraint firstItem="vbd-nK-XZ9" firstAttribute="top" secondItem="ScA-Ij-FOe" secondAttribute="top" id="uZI-on-SIk"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+40 / -14" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIJ-uv-81y" userLabel="Votes Label">
+                                <rect key="frame" x="32" y="614.5" width="75.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ScA-Ij-FOe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="32" id="BQA-pr-pe9"/>
                             <constraint firstAttribute="trailing" secondItem="ScA-Ij-FOe" secondAttribute="trailing" constant="32" id="U8f-Ug-koW"/>
+                            <constraint firstItem="rIJ-uv-81y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="32" id="chU-WC-jcw"/>
                             <constraint firstItem="ScA-Ij-FOe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="qNA-hD-col"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rIJ-uv-81y" secondAttribute="bottom" constant="32" id="zJI-Vl-y6l"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loadingEffectView" destination="ldN-2I-xtv" id="LL7-A7-pou"/>
                         <outlet property="messageLabel" destination="vbd-nK-XZ9" id="Ywr-dr-Xg6"/>
+                        <outlet property="votesLabel" destination="rIJ-uv-81y" id="zWl-58-ePg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

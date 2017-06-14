@@ -12,21 +12,32 @@ import SwiftyJSON
 class ViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var loadingEffectView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // TODO: Reachability for first launch
+        
         messageLabel.layer.opacity = 0
+        votesLabel.layer.opacity = 0
         Loader.addLoadersTo(loadingEffectView)
         
-        getMOTD { (motd) in
-            if let message = motd["motds"][0]["message"].string {
-                debugPrint(message)
-                self.messageLabel.text = message
-                self.showMessageLabel()
-                Loader.removeLoadersFrom(self.loadingEffectView)
-            }
+        getMOTD { (json) in
+            let motd      = json["motds"][0]
+            let message   = motd["message"].string!
+            let upvotes   = motd["links"]["upvotes"]
+            let downvotes = motd["links"]["downvotes"]
+            
+            
+            debugPrint(message)
+            self.messageLabel.text = message
+            
+            
+            self.votesLabel.text = "+\(upvotes.count) / -\(downvotes.count)"
+            self.showMessageLabel()
+            Loader.removeLoadersFrom(self.loadingEffectView)
         }
     }
     
@@ -34,6 +45,7 @@ class ViewController: UIViewController {
     func showMessageLabel() {
         UIView.animate(withDuration: 0.5) { 
             self.messageLabel.layer.opacity = 1
+            self.votesLabel.layer.opacity = 1
         }
     }
 
