@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         getMOTD { (motd) in
-            print(motd)
+//            print(motd["motds"][0]["message"].string)
+            
+            if let message = motd["motds"][0]["message"].string {
+                self.messageLabel.text = message
+                print(message)
+            }
+            
         }
     }
 

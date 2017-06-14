@@ -7,6 +7,7 @@
 //
 
 import Kanna
+import SwiftyJSON
 
 func getID(completion: @escaping (_ id: String) -> Void) {
     
@@ -16,7 +17,9 @@ func getID(completion: @escaping (_ id: String) -> Void) {
         if let html = data, let doc = HTML(html: html, encoding: .utf8) {
             if let result = doc.css("#feed-motd-container").first {
                 let id = result["data-id"]!
-                completion(id)
+                DispatchQueue.main.async {
+                    completion(id)
+                }
             }
         }
     }
@@ -25,7 +28,7 @@ func getID(completion: @escaping (_ id: String) -> Void) {
 }
 
 
-func getMOTD(completion: @escaping (_ motd: Any) -> Void) {
+func getMOTD(completion: @escaping (_ json: JSON) -> Void) {
     
     getID { (id) in
         
@@ -33,21 +36,13 @@ func getMOTD(completion: @escaping (_ motd: Any) -> Void) {
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             
-            if let jsondata = data, let json = dataToJSON(data: jsondata) {
-                completion(json)
+            if let jsondata = data {
+                DispatchQueue.main.async {
+                    completion(JSON(data: jsondata))
+                }
             }
         }
 
         task.resume()
     }
-}
-
-
-func dataToJSON(data: Data) -> Any? {
-    do {
-        return try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-    } catch let myJSONError {
-        print(myJSONError)
-    }
-    return nil
 }
