@@ -8,18 +8,16 @@
 
 import Kanna
 
-func get(completion: @escaping (_ message: String, _ author: String) -> Void) {
-    
+
+func getID(completion: @escaping (_ id: String) -> Void) {
     let url = URL(string: "https://www.designernews.co")
     
     let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-        
         if let html = data, let doc = HTML(html: html, encoding: .utf8) {
-            
-            let message = doc.css("#feed-motd-message").first!.text!
-            let author  = doc.css("#feed-motd-author a").first!.text!
-            
-            completion(message, author)
+            if let result = doc.css("#feed-motd-container").first {
+                let id = result["data-id"]!
+                completion(id)
+            }
         }
     }
     
