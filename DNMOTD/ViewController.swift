@@ -8,12 +8,12 @@
 
 import UIKit
 import SwiftyJSON
-import Walker
 import Kingfisher
+import Spring
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerView: SpringView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var loadingEffectView: UIView!
@@ -113,19 +113,14 @@ class ViewController: UIViewController {
     
     
     @IBAction func userButtonTapped(_ sender: Any) {
-        
-        
-        if containerView.frame.origin.y < -1 {
-            
-            spring(containerView, spring: 30, friction: 30, mass: 10) {
-                $0.y = 0
-            }
-            
+        if containerView.frame.origin.y == 0 {
+            userButton.setTitle("     ▼", for: .normal)
+            containerView.y = -coverImage.frame.height
+            containerView.animateTo()
         } else {
-            
-            spring(containerView, spring: 30, friction: 30, mass: 10) {
-                $0.y -= coverImage.frame.height
-            }
+            userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
+            containerView.y = 0
+            containerView.animateTo()
         }
     }
     
