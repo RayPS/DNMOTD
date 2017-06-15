@@ -8,15 +8,22 @@
 
 import UIKit
 import SwiftyJSON
-import SafariServices
+import Walker
+import Kingfisher
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var loadingEffectView: UIView!
     @IBOutlet weak var dotButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
+    
+    @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var fullnameLabel: UILabel!
+    @IBOutlet weak var jobLabel: UILabel!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -36,7 +43,7 @@ class ViewController: UIViewController {
     func initial() {
         messageLabel.layer.opacity = 0
         votesLabel.layer.opacity = 0
-        dotButton.layer.opacity = 0.1
+        dotButton.layer.opacity = 0
         userButton.layer.opacity = 0
         
         Loader.addLoadersTo(loadingEffectView)
@@ -79,24 +86,45 @@ class ViewController: UIViewController {
             
             currentUser = json["users"][0]
             
-            let first_name = currentUser["first_name"].stringValue
-            let last_name = currentUser["last_name"].stringValue
-            
-            self.userButton.setTitle(first_name + " " + last_name, for: UIControlState.normal)
+            self.userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
             
             UIView.animate(withDuration: 0.5, animations: { 
                 self.userButton.layer.opacity = 1
             })
             
+            self.renderUserProfile()
         })
     }
     
-    @IBAction func userButtonTapped(_ sender: Any) {
-        let userid = currentUser["id"].stringValue
-        let userUrl = URL(string: dn_url + "/users/\(userid)")!
+    
+    func renderUserProfile() {
+        let first_name = currentUser["first_name"].stringValue
+        let last_name = currentUser["last_name"].stringValue
+        let full_name = first_name + " " + last_name
         
-        let sfvc = SFSafariViewController(url: userUrl, entersReaderIfAvailable: false)
-        self.present(sfvc, animated: true) {}
+        fullnameLabel.text = full_name
+        jobLabel.text = currentUser["job"].stringValue
+        
+        coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
+        avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
+    }
+    
+    
+    
+    @IBAction func userButtonTapped(_ sender: Any) {
+        
+        
+        if containerView.frame.origin.y < -1 {
+            self.userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
+            spring(containerView, spring: 40, friction: 40, mass: 10) {
+                $0.y = 0
+            }
+        } else {
+            self.userButton.setTitle("Back", for: .normal)
+            spring(containerView, spring: 40, friction: 40, mass: 10) {
+                $0.y -= coverImage.frame.height
+            }
+        }
     }
     
     
