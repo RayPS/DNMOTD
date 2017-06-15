@@ -133,6 +133,39 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
+        
+        let translation = sender.translation(in: view)
+        let direction = sender.direction(in: view)
+        
+        let coverImageHeight = coverImage.frame.height
+        
+        let triggerOpen = containerView.transform.ty <= -50
+        let triggerClose = containerView.transform.ty >= -coverImageHeight + 50
+        
+        let dragEnded = sender.state == .ended
+        
+        let isUp   = direction.contains(.Up)
+        let isDown = direction.contains(.Down)
+        
+        containerView.transform = CGAffineTransform(
+            translationX: 0,
+            y: containerView.transform.ty + translation.y / 2
+        )
+        
+        sender.setTranslation(CGPoint.zero, in: view)
+        
+        if dragEnded {
+            if isUp && triggerOpen || isDown && !triggerClose {
+                containerView.y = -coverImageHeight
+            } else if isDown && triggerClose || isUp && !triggerOpen {
+                containerView.y = 0
+            }
+            containerView.animateTo()
+        }
+    }
+    
+    
     
     
     
