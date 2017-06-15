@@ -69,6 +69,8 @@ class ViewController: UIViewController {
     
     
     
+    // Animation Functions:
+    
     
     func showMessageLabel() {
         UIView.animate(withDuration: 0.5) {
