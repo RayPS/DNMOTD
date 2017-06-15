@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     
     func renderMOTD() {
         
-        showLoadEffect()
+        startLoadEffect()
         
         getMOTD(byID: currentID, completion: { (json) in
             
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
             self.votesLabel.text = "+\(upvotes.count) / -\(downvotes.count)"
             
             self.showMessageLabel()
-            self.hideLoadEffect()
+            self.stopLoadEffect()
             
             self.renderUserButton(byID: userid)
         })
@@ -147,7 +147,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func showLoadEffect() {
+    func startLoadEffect() {
         UIView.animate(withDuration: 0.2) { 
             self.loadingEffectView.layer.opacity = 1
             self.messageLabel.layer.opacity = 0
@@ -157,7 +157,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func hideLoadEffect() {
+    func stopLoadEffect() {
         UIView.animate(withDuration: 0.2) {
             self.loadingEffectView.layer.opacity = 0
             self.messageLabel.layer.opacity = 1
