@@ -6,4 +6,5 @@ target 'DNMOTD' do
 	pod 'Kanna', '~> 2.1.0'
 	pod 'SwiftyJSON'
 	pod 'Walker'
+	pod 'Kingfisher'
 end
