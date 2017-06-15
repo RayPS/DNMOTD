@@ -5,4 +5,5 @@ target 'DNMOTD' do
 	use_frameworks!
 	pod 'Kanna', '~> 2.1.0'
 	pod 'SwiftyJSON'
+	pod 'Walker'
 end
