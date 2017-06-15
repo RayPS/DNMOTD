@@ -1,21 +1,27 @@
 PODS:
+  - Haptica (1.0.2)
   - Kanna (2.1.1)
   - Kingfisher (3.5.2)
   - SwiftyJSON (3.1.4)
+  - SwiftyUserDefaults (3.0.0)
   - Walker (0.10.0)
 
 DEPENDENCIES:
+  - Haptica
   - Kanna (~> 2.1.0)
   - Kingfisher
   - SwiftyJSON
+  - SwiftyUserDefaults
   - Walker
 
 SPEC CHECKSUMS:
+  Haptica: 3cb74ab472b23cf339e11e1de14359af50e071b8
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
   Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   Walker: f81f549bd2742ab15a6f0dc51e070f85cd8df4f1
 
-PODFILE CHECKSUM: 6404e3e17edd77c5e6f7612c7f0b81e53e16c6e0
+PODFILE CHECKSUM: 9b22ed0c988910a462d116d7ddf76e5cffb797e9
 
 COCOAPODS: 1.2.1

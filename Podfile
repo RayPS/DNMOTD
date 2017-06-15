@@ -7,4 +7,6 @@ target 'DNMOTD' do
 	pod 'SwiftyJSON'
 	pod 'Walker'
 	pod 'Kingfisher'
+	pod 'Haptica'
+	pod 'SwiftyUserDefaults'
 end

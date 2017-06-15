@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         // TODO: Reachability for first launch
         // TODO: Font settings
         // TODO: About
+        // TODO: Haptic feedback
         
         initial()
     }
