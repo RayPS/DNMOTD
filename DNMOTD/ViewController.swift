@@ -87,7 +87,7 @@ class ViewController: UIViewController {
             
             currentUser = json["users"][0]
             
-            self.userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
+            self.userButtonSetTitle(isTriangle: false)
             
             UIView.animate(withDuration: 0.5, animations: { 
                 self.userButton.layer.opacity = 1
@@ -114,11 +114,11 @@ class ViewController: UIViewController {
     
     @IBAction func userButtonTapped(_ sender: Any) {
         if containerView.frame.origin.y == 0 {
-            userButton.setTitle("     ▼", for: .normal)
+            userButtonSetTitle(isTriangle: true)
             containerView.y = -coverImage.frame.height
             containerView.animateTo()
         } else {
-            userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
+            userButtonSetTitle(isTriangle: false)
             containerView.y = 0
             containerView.animateTo()
         }
@@ -145,8 +145,10 @@ class ViewController: UIViewController {
         
         let dragEnded = sender.state == .ended
         
-        let isUp   = direction.contains(.Up)
-        let isDown = direction.contains(.Down)
+        let isUp    = direction.contains(.Up)
+        let isDown  = direction.contains(.Down)
+//        let isLeft  = direction.contains(.Left)
+//        let isRight = direction.contains(.Right)
         
         containerView.transform = CGAffineTransform(
             translationX: 0,
@@ -158,8 +160,10 @@ class ViewController: UIViewController {
         if dragEnded {
             if isUp && triggerOpen || isDown && !triggerClose {
                 containerView.y = -coverImageHeight
+                userButtonSetTitle(isTriangle: true)
             } else if isDown && triggerClose || isUp && !triggerOpen {
                 containerView.y = 0
+                userButtonSetTitle(isTriangle: false)
             }
             containerView.animateTo()
         }
@@ -170,7 +174,6 @@ class ViewController: UIViewController {
     
     
     // Animation Functions:
-    
 
     func showMessageLabel() {
         UIView.animate(withDuration: 0.5) {
@@ -196,6 +199,14 @@ class ViewController: UIViewController {
             self.messageLabel.layer.opacity = 1
             self.votesLabel.layer.opacity = 1
             self.dotButton.layer.opacity = 1
+        }
+    }
+    
+    func userButtonSetTitle(isTriangle: Bool) {
+        if isTriangle {
+            userButton.setTitle("     ▼", for: .normal)
+        } else {
+            userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
         }
     }
 }
