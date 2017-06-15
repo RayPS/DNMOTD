@@ -12,11 +12,16 @@ import SwiftyJSON
 
 var currentID: Int = 0
 var latestID: Int = 0
+var currentUser: JSON = []
+
+
+let dn_url = "https://www.designernews.co/"
+let api_endpoint = dn_url + "api/v2/"
 
 
 func getlatestID(completion: @escaping () -> Void) {
     
-    let url = URL(string: "https://www.designernews.co")
+    let url = URL(string: dn_url)
     
     let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
         if let html = data, let doc = HTML(html: html, encoding: .utf8) {
@@ -36,7 +41,7 @@ func getlatestID(completion: @escaping () -> Void) {
 
 func getMOTD(byID id: Int, completion: @escaping (_ json: JSON) -> Void) {
     
-    let url = URL(string: "https://api.designernews.co/api/v2/motds/\(id)")
+    let url = URL(string: api_endpoint + "motds/\(id)")
     
     let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
         
@@ -53,7 +58,7 @@ func getMOTD(byID id: Int, completion: @escaping (_ json: JSON) -> Void) {
 
 func getUser(byID id: Int, completion: @escaping (_ json: JSON) -> Void) {
     
-    let url = URL(string: "https://api.designernews.co/api/v2/users/\(id)")
+    let url = URL(string: api_endpoint + "users/\(id)")
     
     let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
         
