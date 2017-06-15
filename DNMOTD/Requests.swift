@@ -49,3 +49,21 @@ func getMOTD(byID id: Int, completion: @escaping (_ json: JSON) -> Void) {
 
     task.resume()
 }
+
+
+func getUser(byID id: Int, completion: @escaping (_ json: JSON) -> Void) {
+    
+    let url = URL(string: "https://api.designernews.co/api/v2/users/\(id)")
+    
+    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+        
+        if let jsondata = data {
+            DispatchQueue.main.async {
+                completion(JSON(data: jsondata))
+            }
+        }
+    }
+    
+    task.resume()
+    
+}

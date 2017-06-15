@@ -12,7 +12,7 @@
 		7119876F1EDEC50C00A3A406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7119876D1EDEC50C00A3A406 /* Main.storyboard */; };
 		711987711EDEC50C00A3A406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711987701EDEC50C00A3A406 /* Assets.xcassets */; };
 		711987741EDEC50C00A3A406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */; };
-		712683951EDEF4830041EF28 /* GetMOTD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712683941EDEF4830041EF28 /* GetMOTD.swift */; };
+		712683951EDEF4830041EF28 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712683941EDEF4830041EF28 /* Requests.swift */; };
 		713C20EF1EE13A7300B03338 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 713C20EE1EE13A7300B03338 /* NotificationCenter.framework */; };
 		713C20F21EE13A7300B03338 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713C20F11EE13A7300B03338 /* TodayViewController.swift */; };
 		713C20F51EE13A7300B03338 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 713C20F31EE13A7300B03338 /* MainInterface.storyboard */; };
@@ -53,7 +53,7 @@
 		711987701EDEC50C00A3A406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711987731EDEC50C00A3A406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		711987751EDEC50C00A3A406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		712683941EDEF4830041EF28 /* GetMOTD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMOTD.swift; sourceTree = "<group>"; };
+		712683941EDEF4830041EF28 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		713C20ED1EE13A7300B03338 /* DNMOTD-Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DNMOTD-Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		713C20EE1EE13A7300B03338 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		713C20F11EE13A7300B03338 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 			children = (
 				711987691EDEC50C00A3A406 /* AppDelegate.swift */,
 				7119876B1EDEC50C00A3A406 /* ViewController.swift */,
-				712683941EDEF4830041EF28 /* GetMOTD.swift */,
+				712683941EDEF4830041EF28 /* Requests.swift */,
 				71A5C3681EF1CB160012F966 /* LoadingEffect.swift */,
 				7119876D1EDEC50C00A3A406 /* Main.storyboard */,
 				711987701EDEC50C00A3A406 /* Assets.xcassets */,
@@ -307,7 +307,7 @@
 			files = (
 				7119876C1EDEC50C00A3A406 /* ViewController.swift in Sources */,
 				71A5C3691EF1CB160012F966 /* LoadingEffect.swift in Sources */,
-				712683951EDEF4830041EF28 /* GetMOTD.swift in Sources */,
+				712683951EDEF4830041EF28 /* Requests.swift in Sources */,
 				7119876A1EDEC50C00A3A406 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
