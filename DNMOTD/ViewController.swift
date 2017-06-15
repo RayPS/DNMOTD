@@ -115,13 +115,14 @@ class ViewController: UIViewController {
         
         
         if containerView.frame.origin.y < -1 {
-            self.userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
-            spring(containerView, spring: 40, friction: 40, mass: 10) {
+            
+            spring(containerView, spring: 30, friction: 30, mass: 10) {
                 $0.y = 0
             }
+            
         } else {
-            self.userButton.setTitle("Back", for: .normal)
-            spring(containerView, spring: 40, friction: 40, mass: 10) {
+            
+            spring(containerView, spring: 30, friction: 30, mass: 10) {
                 $0.y -= coverImage.frame.height
             }
         }
@@ -130,6 +131,10 @@ class ViewController: UIViewController {
     
     
     
+    @IBAction func test(_ sender: Any) {
+        currentID -= 1
+        renderMOTD()
+    }
     
     
     
@@ -149,12 +154,19 @@ class ViewController: UIViewController {
     func showLoadEffect() {
         UIView.animate(withDuration: 0.2) { 
             self.loadingEffectView.layer.opacity = 1
+            self.messageLabel.layer.opacity = 0
+            self.votesLabel.layer.opacity = 0
+            self.dotButton.layer.opacity = 0
+            self.userButton.layer.opacity = 0
         }
     }
     
     func hideLoadEffect() {
         UIView.animate(withDuration: 0.2) {
             self.loadingEffectView.layer.opacity = 0
+            self.messageLabel.layer.opacity = 1
+            self.votesLabel.layer.opacity = 1
+            self.dotButton.layer.opacity = 1
         }
     }
 }
