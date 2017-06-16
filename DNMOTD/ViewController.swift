@@ -48,8 +48,8 @@ class ViewController: UIViewController {
         dotButton.layer.opacity = 0
         userButton.layer.opacity = 0
         
-        userButton.isHaptic = true
-        userButton.hapticType = .impact(.light)
+//        userButton.isHaptic = true
+//        userButton.hapticType = .impact(.light)
         
         Loader.addLoadersTo(loadingEffectView)
 
@@ -140,6 +140,7 @@ class ViewController: UIViewController {
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
         
         let translation = sender.translation(in: view)
+        let velocity = sender.velocity(in: view)
         let direction = sender.direction(in: view)
         
         let coverImageHeight = coverImage.frame.height
@@ -149,30 +150,38 @@ class ViewController: UIViewController {
         
         let dragEnded = sender.state == .ended
         
-        let isUp    = direction.contains(.Up)
-        let isDown  = direction.contains(.Down)
-//        let isLeft  = direction.contains(.Left)
-//        let isRight = direction.contains(.Right)
+        let hasUp    = direction.contains(.Up)
+        let hasDown  = direction.contains(.Down)
+        let hasLeft  = direction.contains(.Left)
+        let hasRight = direction.contains(.Right)
         
-        containerView.transform = CGAffineTransform(
-            translationX: 0,
-            y: containerView.transform.ty + translation.y / 2
-        )
+        let ty = containerView.transform.ty
+        let isVerticalDrag = abs(velocity.y) > abs(velocity.x)
         
-        sender.setTranslation(CGPoint.zero, in: view)
         
-        if dragEnded {
-            if isUp && triggerOpen || isDown && !triggerClose {
+        if isVerticalDrag {
+            containerView.transform = CGAffineTransform(
+                translationX: 0,
+                y: ty + translation.y / 1.5
+            )
+        } else {
+        
+        }
+        
+        if dragEnded && ty != 0 {
+            if hasUp && triggerOpen || hasDown && !triggerClose {
                 containerView.y = -coverImageHeight
                 userButtonSetTitle(isTriangle: true)
-            } else if isDown && triggerClose || isUp && !triggerOpen {
+            } else if hasDown && triggerClose || hasUp && !triggerOpen {
                 containerView.y = 0
                 userButtonSetTitle(isTriangle: false)
             }
             containerView.animateTo()
-            Haptic.impact(.light).generate()
         }
+        
+        sender.setTranslation(CGPoint.zero, in: view)
     }
+
     
     
     
@@ -213,6 +222,7 @@ class ViewController: UIViewController {
         } else {
             userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
         }
+        Haptic.impact(.light).generate()
     }
 }
 
