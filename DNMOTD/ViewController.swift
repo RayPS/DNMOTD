@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import Kingfisher
 import Spring
+import Haptica
 
 class ViewController: UIViewController {
 
@@ -46,6 +47,9 @@ class ViewController: UIViewController {
         votesLabel.layer.opacity = 0
         dotButton.layer.opacity = 0
         userButton.layer.opacity = 0
+        
+        userButton.isHaptic = true
+        userButton.hapticType = .impact(.light)
         
         Loader.addLoadersTo(loadingEffectView)
 
@@ -166,6 +170,7 @@ class ViewController: UIViewController {
                 userButtonSetTitle(isTriangle: false)
             }
             containerView.animateTo()
+            Haptic.impact(.light).generate()
         }
     }
     
