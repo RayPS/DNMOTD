@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
     
+    let screenWidth = Int(UIScreen.main.bounds.width)
+    let screenHeight = Int(UIScreen.main.bounds.height)
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -48,8 +51,6 @@ class ViewController: UIViewController {
         dotButton.layer.opacity = 0
         userButton.layer.opacity = 0
         
-//        userButton.isHaptic = true
-//        userButton.hapticType = .impact(.light)
         
         Loader.addLoadersTo(loadingEffectView)
 
@@ -57,6 +58,8 @@ class ViewController: UIViewController {
             currentID = latestID
             self.renderMOTD()
         }
+        
+        createCircle()
     }
     
     
@@ -116,6 +119,12 @@ class ViewController: UIViewController {
     
     
     
+    
+    
+    
+    
+    
+    
     @IBAction func userButtonTapped(_ sender: Any) {
         if containerView.frame.origin.y == 0 {
             userButtonSetTitle(isTriangle: true)
@@ -152,8 +161,8 @@ class ViewController: UIViewController {
         
         let hasUp    = direction.contains(.Up)
         let hasDown  = direction.contains(.Down)
-        let hasLeft  = direction.contains(.Left)
-        let hasRight = direction.contains(.Right)
+//        let hasLeft  = direction.contains(.Left)
+//        let hasRight = direction.contains(.Right)
         
         let ty = containerView.transform.ty
         let isVerticalDrag = abs(velocity.y) > abs(velocity.x)
@@ -165,7 +174,7 @@ class ViewController: UIViewController {
                 y: ty + translation.y / 1.5
             )
         } else {
-        
+            
         }
         
         if dragEnded && ty != 0 {
@@ -188,6 +197,20 @@ class ViewController: UIViewController {
     
     
     // Animation Functions:
+    
+    func createCircle() {
+        let size: Int = 200
+        let frame = CGRect(x: -size / 2, y: screenHeight / 2 - size / 2, width: size, height: size)
+        let circle = SpringView(frame: frame)
+        circle.backgroundColor = UIColor.black
+        circle.layer.cornerRadius = CGFloat(size / 2)
+        circle.scaleX = 0
+        circle.scaleY = 0
+        circle.duration = 0
+        circle.animateTo()
+        view.addSubview(circle)
+        
+    }
 
     func showMessageLabel() {
         UIView.animate(withDuration: 0.5) {
