@@ -26,8 +26,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
     
-    let screenWidth = Int(UIScreen.main.bounds.width)
-    let screenHeight = Int(UIScreen.main.bounds.height)
+    @IBOutlet weak var leftCircle: SpringView!
+    @IBOutlet weak var rightCircle: SpringView!
+    
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -51,6 +54,8 @@ class ViewController: UIViewController {
         dotButton.layer.opacity = 0
         userButton.layer.opacity = 0
         
+        leftCircle.layer.cornerRadius = 100
+        rightCircle.layer.cornerRadius = 100
         
         Loader.addLoadersTo(loadingEffectView)
 
@@ -58,8 +63,6 @@ class ViewController: UIViewController {
             currentID = latestID
             self.renderMOTD()
         }
-        
-        createCircle()
     }
     
     
@@ -140,11 +143,6 @@ class ViewController: UIViewController {
     
     
     
-    @IBAction func test(_ sender: Any) {
-        currentID -= 1
-        renderMOTD()
-    }
-    
     
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
         
@@ -161,34 +159,77 @@ class ViewController: UIViewController {
         
         let hasUp    = direction.contains(.Up)
         let hasDown  = direction.contains(.Down)
-//        let hasLeft  = direction.contains(.Left)
-//        let hasRight = direction.contains(.Right)
+        let hasLeft  = direction.contains(.Left)
+        let hasRight = direction.contains(.Right)
         
         let ty = containerView.transform.ty
+
         let isVerticalDrag = abs(velocity.y) > abs(velocity.x)
         
+        let circlesIsntMoving = (leftCircle.transform.tx + rightCircle.transform.tx == screenWidth)
         
-        if isVerticalDrag {
+        
+        
+        
+        if isVerticalDrag && circlesIsntMoving {
+            
             containerView.transform = CGAffineTransform(
                 translationX: 0,
                 y: ty + translation.y / 1.5
             )
-        } else {
             
+            sender.setTranslation(CGPoint.zero, in: view)
+            
+        } else {
+            // Horizontal Drag
+            if hasRight {
+                leftCircle.x = Modulate(input: translation.x, from: [0, screenWidth/2], to: [0, 50], limit: false)
+                leftCircle.duration = 0
+                leftCircle.animateTo()
+            } else
+            if hasLeft {
+                rightCircle.x = Modulate(input: translation.x, from: [0, -screenWidth/2], to: [0, -50], limit: false)
+                rightCircle.duration = 0
+                rightCircle.animateTo()
+            }
+            
+            if dragEnded {
+                
+                if hasRight {
+                    currentID -= 1
+                    renderMOTD()
+                } else
+                if hasLeft {
+                    currentID += 1
+                    renderMOTD()
+                }
+                
+                leftCircle.x = -200
+                leftCircle.duration = 1
+                leftCircle.animateTo()
+                
+                rightCircle.x = screenWidth + 200
+                rightCircle.duration = 1
+                rightCircle.animateTo()
+                
+                Haptic.impact(.light).generate()
+            }
         }
+        
         
         if dragEnded && ty != 0 {
             if hasUp && triggerOpen || hasDown && !triggerClose {
                 containerView.y = -coverImageHeight
                 userButtonSetTitle(isTriangle: true)
-            } else if hasDown && triggerClose || hasUp && !triggerOpen {
+            } else
+            if hasDown && triggerClose || hasUp && !triggerOpen {
                 containerView.y = 0
                 userButtonSetTitle(isTriangle: false)
             }
             containerView.animateTo()
         }
         
-        sender.setTranslation(CGPoint.zero, in: view)
+        
     }
 
     
@@ -197,20 +238,6 @@ class ViewController: UIViewController {
     
     
     // Animation Functions:
-    
-    func createCircle() {
-        let size: Int = 200
-        let frame = CGRect(x: -size / 2, y: screenHeight / 2 - size / 2, width: size, height: size)
-        let circle = SpringView(frame: frame)
-        circle.backgroundColor = UIColor.black
-        circle.layer.cornerRadius = CGFloat(size / 2)
-        circle.scaleX = 0
-        circle.scaleY = 0
-        circle.duration = 0
-        circle.animateTo()
-        view.addSubview(circle)
-        
-    }
 
     func showMessageLabel() {
         UIView.animate(withDuration: 0.5) {

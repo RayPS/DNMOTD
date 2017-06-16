@@ -188,9 +188,6 @@
                                         <state key="normal" title="●">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8aY-fr-icY"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,6 +207,22 @@
                                     <outletCollection property="gestureRecognizers" destination="dLD-oM-c9p" appends="YES" id="Prt-M9-h7q"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbR-nM-6hW" userLabel="Left Cicle" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="-200" y="233.5" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="bIc-nc-CUQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="fwe-zF-QIB"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6E-3u-QyG" userLabel="Right Cicle" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="375" y="233" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="2eD-NO-sk4"/>
+                                    <constraint firstAttribute="width" constant="200" id="Q9U-fS-jAN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -218,8 +231,12 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CLo-Ns-E9C" secondAttribute="bottom" id="L6U-5M-qYH"/>
                             <constraint firstItem="CLo-Ns-E9C" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="O7H-4h-Xbl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="bottom" id="Toq-eX-M5o"/>
+                            <constraint firstItem="nbR-nM-6hW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-200" id="VrA-Tp-llr"/>
                             <constraint firstItem="gFW-JC-hU7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YfH-sk-Jei"/>
+                            <constraint firstItem="nbR-nM-6hW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cem-cK-ACy"/>
+                            <constraint firstItem="P6E-3u-QyG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kFi-oQ-i8E"/>
                             <constraint firstAttribute="trailing" secondItem="gFW-JC-hU7" secondAttribute="trailing" id="nrw-yp-CVu"/>
+                            <constraint firstAttribute="trailing" secondItem="P6E-3u-QyG" secondAttribute="trailing" constant="-200" id="o5u-TR-ce4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -229,8 +246,10 @@
                         <outlet property="dotButton" destination="O5b-Dr-pYI" id="W4e-rb-WmA"/>
                         <outlet property="fullnameLabel" destination="hb8-TM-KGG" id="cae-f9-hFw"/>
                         <outlet property="jobLabel" destination="1HW-g0-74a" id="SK2-ND-FTF"/>
+                        <outlet property="leftCircle" destination="nbR-nM-6hW" id="NrK-O2-7Ca"/>
                         <outlet property="loadingEffectView" destination="ldN-2I-xtv" id="LL7-A7-pou"/>
                         <outlet property="messageLabel" destination="vbd-nK-XZ9" id="Ywr-dr-Xg6"/>
+                        <outlet property="rightCircle" destination="P6E-3u-QyG" id="C4c-QK-xhc"/>
                         <outlet property="userButton" destination="uAe-Bi-qbM" id="Fxt-fr-ZlC"/>
                         <outlet property="votesLabel" destination="rIJ-uv-81y" id="zWl-58-ePg"/>
                     </connections>
