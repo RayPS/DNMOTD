@@ -11,6 +11,7 @@ import SwiftyJSON
 import Kingfisher
 import Spring
 import Haptica
+import ReachabilitySwift
 
 class ViewController: UIViewController {
 
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
         // TODO: Reachability for first launch
         // TODO: Font settings
         // TODO: About
-        // TODO: Haptic feedback
+        // TODO: Tutorial for first launch
         
         initial()
     }

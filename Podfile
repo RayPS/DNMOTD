@@ -9,4 +9,5 @@ target 'DNMOTD' do
 	pod 'Haptica'
 	pod 'SwiftyUserDefaults'
 	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+	pod 'ReachabilitySwift', '~> 3'
 end

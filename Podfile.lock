@@ -2,6 +2,7 @@ PODS:
   - Haptica (1.0.2)
   - Kanna (2.1.1)
   - Kingfisher (3.10.1)
+  - ReachabilitySwift (3)
   - Spring (1.0.3)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
@@ -10,6 +11,7 @@ DEPENDENCIES:
   - Haptica
   - Kanna (~> 2.1.0)
   - Kingfisher
+  - ReachabilitySwift (~> 3)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyJSON
   - SwiftyUserDefaults
@@ -28,10 +30,11 @@ SPEC CHECKSUMS:
   Haptica: 3cb74ab472b23cf339e11e1de14359af50e071b8
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
   Kingfisher: 33a1b82140fcb14a9fc13f78dfde2a03ff8de8cb
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: bdbf51f2b9e325ac223d4e6a3cb27da602c90252
+PODFILE CHECKSUM: 43451256ef229206ba2dcc4d02d3287f235f7b91
 
 COCOAPODS: 1.2.1
