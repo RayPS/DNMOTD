@@ -154,9 +154,6 @@ class ViewController: UIViewController {
         
         let triggerOpen = ty <= -50
         let triggerClose = ty >= -coverImageHeight + 50
-
-        let willLoadID = currentID + Int(-translation.x / abs(translation.x))
-        let overload = willLoadID > latestID || willLoadID == 0
         
         switch sender.state {
         case .began:
@@ -192,6 +189,9 @@ class ViewController: UIViewController {
                 userButtonSetTitle(isTriangle: false, haptic: true)
             } else
             if (beganDirection == .left || beganDirection == .right) && !triggerOpen {
+                
+                let willLoadID = currentID + Int(-translation.x / abs(translation.x))
+                let overload = willLoadID > latestID || willLoadID == 0
                 
                 if abs(translation.x) >= 120 && !overload {
                     currentID = willLoadID
