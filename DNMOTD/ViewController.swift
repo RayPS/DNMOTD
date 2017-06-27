@@ -78,7 +78,7 @@ class ViewController: UIViewController {
             let downvotes = motd["links"]["downvotes"]
             let userid    = motd["links"]["user"].intValue
             
-            debugPrint(message)
+            print("#\(currentID): \n\(message)\n")
             
             self.messageLabel.text = message
             self.votesLabel.text = "+\(upvotes.count) / -\(downvotes.count)"
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
             
             currentUser = json["users"][0]
             
-            self.userButtonSetTitle(isTriangle: false)
+            self.userButtonSetTitle(isTriangle: false, haptic: false)
             
             UIView.animate(withDuration: 0.5, animations: { 
                 self.userButton.layer.opacity = 1
@@ -130,14 +130,13 @@ class ViewController: UIViewController {
     
     @IBAction func userButtonTapped(_ sender: Any) {
         if containerView.frame.origin.y == 0 {
-            userButtonSetTitle(isTriangle: true)
+            userButtonSetTitle(isTriangle: true, haptic: true)
             containerView.y = -coverImage.frame.height
-            containerView.animateTo()
         } else {
-            userButtonSetTitle(isTriangle: false)
+            userButtonSetTitle(isTriangle: false, haptic: true)
             containerView.y = 0
-            containerView.animateTo()
         }
+        containerView.animateTo()
     }
     
     
@@ -147,89 +146,77 @@ class ViewController: UIViewController {
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
         
         let translation = sender.translation(in: view)
-        let velocity = sender.velocity(in: view)
         let direction = sender.direction(in: view)
         
         let coverImageHeight = coverImage.frame.height
-        
-        let triggerOpen = containerView.transform.ty <= -50
-        let triggerClose = containerView.transform.ty >= -coverImageHeight + 50
-        
-        let dragEnded = sender.state == .ended
-        
-        let hasUp    = direction.contains(.Up)
-        let hasDown  = direction.contains(.Down)
-        let hasLeft  = direction.contains(.Left)
-        let hasRight = direction.contains(.Right)
-        
         let ty = containerView.transform.ty
+        
+        let triggerOpen = ty <= -50
+        let triggerClose = ty >= -coverImageHeight + 50
 
-        let isVerticalDrag = abs(velocity.y) > abs(velocity.x)
+        let willLoadID = currentID + Int(-translation.x / abs(translation.x))
+        let overload = willLoadID > latestID || willLoadID == 0
         
-        let circlesIsntMoving = (leftCircle.transform.tx + rightCircle.transform.tx == screenWidth)
+        switch sender.state {
+        case .began:
+            beganDirection = sender.direction(in: view)
         
-        
-        
-        
-        if isVerticalDrag && circlesIsntMoving {
-            
-            containerView.transform = CGAffineTransform(
-                translationX: 0,
-                y: ty + translation.y / 1.5
-            )
-            
-            sender.setTranslation(CGPoint.zero, in: view)
-            
-        } else {
-            // Horizontal Drag
-            if hasRight {
-                leftCircle.x = Modulate(input: translation.x, from: [0, screenWidth/2], to: [0, 50], limit: false)
-                leftCircle.duration = 0
-                leftCircle.animateTo()
-            } else
-            if hasLeft {
-                rightCircle.x = Modulate(input: translation.x, from: [0, -screenWidth/2], to: [0, -50], limit: false)
-                rightCircle.duration = 0
-                rightCircle.animateTo()
+        case .changed:
+            switch beganDirection {
+            case .up, .down:
+                containerView.transform = CGAffineTransform(
+                    translationX: 0,
+                    y: ty + translation.y / 1.5
+                )
+                sender.setTranslation(CGPoint.zero, in: view)
+            case .left, .right:
+                if !triggerOpen {
+                    leftCircle.x = translation.x / 4
+                    leftCircle.duration = 0
+                    leftCircle.animateTo()
+                    
+                    rightCircle.x = translation.x / 4
+                    rightCircle.duration = 0
+                    rightCircle.animateTo()
+                }
             }
-            
-            if dragEnded {
+
+        case .ended:
+            if beganDirection == .up && triggerOpen || beganDirection == .down && !triggerClose {
+                containerView.y = -coverImageHeight
+                userButtonSetTitle(isTriangle: true, haptic: true)
+            } else
+            if beganDirection == .down && triggerClose || beganDirection == .up && !triggerOpen {
+                containerView.y = 0
+                userButtonSetTitle(isTriangle: false, haptic: true)
+            } else
+            if (beganDirection == .left || beganDirection == .right) && !triggerOpen {
                 
-                if hasRight {
-                    currentID -= 1
+                if abs(translation.x) >= 120 && !overload {
+                    currentID = willLoadID
                     renderMOTD()
-                } else
-                if hasLeft {
-                    currentID += 1
-                    renderMOTD()
+                    Haptic.impact(.light).generate()
                 }
                 
+                if direction == .right {
+                    
+                } else {
+                    
+                }
+
                 leftCircle.x = -200
                 leftCircle.duration = 1
                 leftCircle.animateTo()
-                
+
                 rightCircle.x = screenWidth + 200
                 rightCircle.duration = 1
                 rightCircle.animateTo()
-                
-                Haptic.impact(.light).generate()
             }
-        }
-        
-        
-        if dragEnded && ty != 0 {
-            if hasUp && triggerOpen || hasDown && !triggerClose {
-                containerView.y = -coverImageHeight
-                userButtonSetTitle(isTriangle: true)
-            } else
-            if hasDown && triggerClose || hasUp && !triggerOpen {
-                containerView.y = 0
-                userButtonSetTitle(isTriangle: false)
-            }
+            
             containerView.animateTo()
+        default:
+            break
         }
-        
-        
     }
 
     
@@ -266,13 +253,15 @@ class ViewController: UIViewController {
         }
     }
     
-    func userButtonSetTitle(isTriangle: Bool) {
+    func userButtonSetTitle(isTriangle: Bool, haptic: Bool) {
         if isTriangle {
             userButton.setTitle("     ▼", for: .normal)
         } else {
             userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
         }
-        Haptic.impact(.light).generate()
+        if haptic {
+            Haptic.impact(.light).generate()
+        }
     }
 }
 
