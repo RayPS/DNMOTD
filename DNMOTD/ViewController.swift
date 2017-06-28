@@ -15,6 +15,7 @@ import ReachabilitySwift
 class ViewController: UIViewController {
 
     @IBOutlet weak var containerView: SpringView!
+    @IBOutlet weak var contentView: SpringView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var loadingEffectView: UIView!
@@ -36,6 +37,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initial()
+        
+        
+        
+        
+        //                    TODO: UserDefaults
+        //                    TODO: ParseMedia
+        //                    TODO: UserData
+        //                    TODO: Open UserPage
+        //                    TODO: Open My Website
+        //                    TODO: TodayWidget
+        
+        
+        
+        
     }
     
     var underView: UnderContainerViewController!
@@ -44,7 +59,13 @@ class ViewController: UIViewController {
         if segue.identifier == "UnderContainerViewSegue" {
             underView = segue.destination as? UnderContainerViewController
             underView.setFont = { [weak self] font in
-                self?.messageLabel.font = font
+                self?.contentView.animation = "fadeOut"
+                self?.contentView.duration = 0.25
+                self?.contentView.animateNext {
+                    self?.messageLabel.font = font
+                    self?.contentView.animation = "fadeIn"
+                    self?.contentView.animate()
+                }
             }
         }
     }

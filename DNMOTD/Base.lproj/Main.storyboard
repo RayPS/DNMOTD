@@ -31,7 +31,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLo-Ns-E9C" userLabel="Container View" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScA-Ij-FOe" userLabel="Content View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScA-Ij-FOe" userLabel="Content View" customClass="SpringView" customModule="Spring">
                                         <rect key="frame" x="32" y="88" width="311" height="491"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-2I-xtv" userLabel="Loading Effect View">
@@ -205,6 +205,7 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="CLo-Ns-E9C" id="l5n-vr-UgU"/>
+                        <outlet property="contentView" destination="ScA-Ij-FOe" id="k2n-aP-FrO"/>
                         <outlet property="leftCircle" destination="nbR-nM-6hW" id="NrK-O2-7Ca"/>
                         <outlet property="loadingEffectView" destination="ldN-2I-xtv" id="LL7-A7-pou"/>
                         <outlet property="menuButton" destination="O5b-Dr-pYI" id="OWC-a8-Au2"/>
@@ -259,7 +260,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulh-3W-fXh" userLabel="Credit">
-                                        <rect key="frame" x="0.0" y="152" width="128" height="24"/>
+                                        <rect key="frame" x="0.0" y="160" width="128" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="Ovm-gz-MQK"/>
@@ -286,8 +287,9 @@
                                             <action selector="fontSegmentedTapped:" destination="2tb-sj-4ZD" eventType="valueChanged" id="MVZ-Ic-sOK"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXK-Zx-06K">
-                                        <rect key="frame" x="0.0" y="96" width="48" height="56"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXK-Zx-06K">
+                                        <rect key="frame" x="0.0" y="96" width="48" height="64"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="■ Bold">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -298,23 +300,27 @@
                                             <action selector="boldButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="Hwr-zt-Z0V"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4f-RS-tQa">
-                                        <rect key="frame" x="72" y="96" width="50" height="56"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4f-RS-tQa">
+                                        <rect key="frame" x="72" y="96" width="50" height="64"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="□ Italic">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="italicButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="VqB-Xa-7iH"/>
+                                            <action selector="italicButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="hVP-Iy-5uA"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="WXK-Zx-06K" firstAttribute="top" secondItem="CD1-Ij-f7O" secondAttribute="bottom" id="0La-y2-35R"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ulh-3W-fXh" secondAttribute="bottom" constant="24" id="200-qN-yOV"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ulh-3W-fXh" secondAttribute="bottom" constant="16" id="200-qN-yOV"/>
                                     <constraint firstItem="yrb-Er-IVi" firstAttribute="leading" secondItem="jzp-cM-IeQ" secondAttribute="leading" id="3FO-UO-VP8"/>
                                     <constraint firstItem="b4f-RS-tQa" firstAttribute="top" secondItem="CD1-Ij-f7O" secondAttribute="bottom" id="6Mx-d3-Yhk"/>
                                     <constraint firstAttribute="trailing" secondItem="UaP-U5-gvd" secondAttribute="trailing" id="HNO-2N-JXj"/>
@@ -377,6 +383,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndo-dg-yjL" userLabel="User Page Button">
                                         <rect key="frame" x="308" y="24" width="35" height="30"/>
                                         <state key="normal" title="Page"/>
+                                        <connections>
+                                            <action selector="userPageButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="05J-65-bLn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -412,9 +421,9 @@
                         <outlet property="avatarImage" destination="zpt-Nn-9Zm" id="HmI-Fr-OEZ"/>
                         <outlet property="coverImage" destination="OF8-mZ-1bI" id="t0r-rM-pB5"/>
                         <outlet property="dataLabel" destination="vXm-Iq-egh" id="fxn-SA-HcP"/>
+                        <outlet property="fontItalicButton" destination="b4f-RS-tQa" id="q53-7h-UWp"/>
                         <outlet property="fullnameLabel" destination="hb8-TM-KGG" id="pF3-hY-6B2"/>
                         <outlet property="jobLabel" destination="1HW-g0-74a" id="7cs-B9-biK"/>
-                        <outlet property="userPageButtonTapped" destination="Ndo-dg-yjL" id="g5s-Lu-vgY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-Cg-0fN" userLabel="First Responder" sceneMemberID="firstResponder"/>
