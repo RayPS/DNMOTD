@@ -10,7 +10,6 @@ import UIKit
 import SwiftyJSON
 import Kingfisher
 import Spring
-import Haptica
 import ReachabilitySwift
 
 class ViewController: UIViewController {

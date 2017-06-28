@@ -6,7 +6,6 @@ target 'DNMOTD' do
 	pod 'Kanna', '~> 2.1.0'
 	pod 'SwiftyJSON'
 	pod 'Kingfisher'
-	pod 'Haptica'
 	pod 'SwiftyUserDefaults'
 	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 	pod 'ReachabilitySwift', '~> 3'
