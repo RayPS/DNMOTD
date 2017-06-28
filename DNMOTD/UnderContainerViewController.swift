@@ -15,7 +15,7 @@ class UnderContainerViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
 
-    var chooseColor: ((UIColor) -> Void)?
+    var setFont: ((UIFont) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,15 @@ class UnderContainerViewController: UIViewController {
     @IBAction func fontSegmentedTapped(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            chooseColor?(.red)
+            setFont?(UIFont.systemFont(ofSize: 32, weight: UIFontWeightBold))
         case 1:
-            chooseColor?(.green)
+            setFont?(UIFont(name: "Georgia-Bold", size: 32)!)
+        case 2:
+            setFont?(UIFont(name: "Georgia-BoldItalic", size: 32)!.)
+        case 3:
+            setFont?(UIFont(name: "Palatino-Bold", size: 32)!)
         default:
-                break
+            break
         }
     }
 }

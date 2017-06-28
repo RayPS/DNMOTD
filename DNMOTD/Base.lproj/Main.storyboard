@@ -7,13 +7,18 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="dLD-oM-c9p" userLabel="Container View Pan Gesture Recognizer">
+                    <connections>
+                        <action selector="containerViewOnDrag:" destination="BYZ-38-t0r" id="gQJ-Q4-zXP"/>
+                    </connections>
+                </panGestureRecognizer>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -93,9 +98,9 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="420.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="475"/>
                                                 <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -215,12 +220,6 @@
                         <outlet property="votesLabel" destination="rIJ-uv-81y" id="zWl-58-ePg"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="dLD-oM-c9p" userLabel="Container View Pan Gesture Recognizer">
-                    <connections>
-                        <action selector="containerViewOnDrag:" destination="BYZ-38-t0r" id="gQJ-Q4-zXP"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
@@ -237,18 +236,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DNMOTD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaP-U5-gvd">
-                                <rect key="frame" x="32" y="40" width="105.5" height="32"/>
+                                <rect key="frame" x="32" y="40" width="311" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Qw1-iw-15Y"/>
+                                    <constraint firstAttribute="height" constant="24" id="hfy-vR-V6O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designer News Message of The Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrb-Er-IVi">
-                                <rect key="frame" x="32" y="80" width="233.5" height="16"/>
+                                <rect key="frame" x="32" y="72" width="233.5" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="xdu-Bx-j0s"/>
+                                    <constraint firstAttribute="height" constant="16" id="xwk-vn-GxV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -299,29 +298,44 @@
                                     <constraint firstAttribute="trailing" secondItem="OF8-mZ-1bI" secondAttribute="trailing" id="qjI-DU-0yF"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-Ij-f7O">
-                                <rect key="frame" x="32" y="136" width="185" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-Ij-f7O">
+                                <rect key="frame" x="32" y="120" width="311" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Dyo-wR-PmI"/>
+                                </constraints>
                                 <segments>
                                     <segment title="System Font"/>
-                                    <segment title="Custom Font"/>
+                                    <segment title="Palatino"/>
+                                    <segment title="Georgia"/>
+                                    <segment title="Palatino"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="fontSegmentedTapped:" destination="2tb-sj-4ZD" eventType="valueChanged" id="MVZ-Ic-sOK"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulh-3W-fXh">
+                                <rect key="frame" x="32" y="204" width="82" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Made by Ray ›">
+                                    <color key="titleColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yrb-Er-IVi" firstAttribute="leading" secondItem="UaP-U5-gvd" secondAttribute="leading" id="0T5-TK-X3D"/>
-                            <constraint firstItem="UaP-U5-gvd" firstAttribute="leading" secondItem="Liy-1J-kfa" secondAttribute="leading" constant="32" id="7wh-bk-Pa2"/>
-                            <constraint firstItem="yrb-Er-IVi" firstAttribute="top" secondItem="UaP-U5-gvd" secondAttribute="bottom" constant="8" id="8JJ-Ua-g1Y"/>
-                            <constraint firstItem="UaP-U5-gvd" firstAttribute="top" secondItem="Liy-1J-kfa" secondAttribute="topMargin" constant="40" id="Bcx-M4-gMO"/>
-                            <constraint firstItem="CD1-Ij-f7O" firstAttribute="top" secondItem="yrb-Er-IVi" secondAttribute="bottom" constant="40" id="BhX-aH-Cd3"/>
+                            <constraint firstItem="yrb-Er-IVi" firstAttribute="leading" secondItem="UaP-U5-gvd" secondAttribute="leading" id="8UV-4c-IWb"/>
                             <constraint firstItem="9yj-wr-86J" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="bottom" id="E9z-Qb-Sao"/>
                             <constraint firstItem="gFW-JC-hU7" firstAttribute="leading" secondItem="Liy-1J-kfa" secondAttribute="leading" id="JXy-UW-lST"/>
+                            <constraint firstItem="CD1-Ij-f7O" firstAttribute="top" secondItem="yrb-Er-IVi" secondAttribute="bottom" constant="32" id="O7P-JI-tJd"/>
                             <constraint firstAttribute="trailing" secondItem="gFW-JC-hU7" secondAttribute="trailing" id="QCy-fA-OGj"/>
-                            <constraint firstItem="CD1-Ij-f7O" firstAttribute="leading" secondItem="yrb-Er-IVi" secondAttribute="leading" id="cBw-4h-4cm"/>
+                            <constraint firstItem="UaP-U5-gvd" firstAttribute="leading" secondItem="Liy-1J-kfa" secondAttribute="leading" constant="32" id="Qiu-4U-TAy"/>
+                            <constraint firstItem="yrb-Er-IVi" firstAttribute="top" secondItem="UaP-U5-gvd" secondAttribute="bottom" constant="8" id="a41-iz-MFX"/>
+                            <constraint firstItem="CD1-Ij-f7O" firstAttribute="width" secondItem="UaP-U5-gvd" secondAttribute="width" id="hb6-t9-bAT"/>
+                            <constraint firstItem="CD1-Ij-f7O" firstAttribute="leading" secondItem="UaP-U5-gvd" secondAttribute="leading" id="iND-JU-S2P"/>
+                            <constraint firstItem="UaP-U5-gvd" firstAttribute="top" secondItem="peG-fc-nJF" secondAttribute="bottom" constant="40" id="iO5-fJ-OR2"/>
+                            <constraint firstAttribute="trailing" secondItem="UaP-U5-gvd" secondAttribute="trailing" constant="32" id="pMl-IM-qNm"/>
                         </constraints>
                     </view>
                     <connections>

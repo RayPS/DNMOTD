@@ -44,8 +44,8 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UnderContainerViewSegue" {
             underView = segue.destination as? UnderContainerViewController
-            underView.chooseColor = { [weak self] color in
-                self?.messageLabel.textColor = color
+            underView.setFont = { [weak self] font in
+                self?.messageLabel.font = font
             }
         }
     }
@@ -154,7 +154,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
-        containerView.y = screenWidth
+        if containerView.frame.origin.y == 0 {
+            containerView.y = 240
+        } else {
+            containerView.y = 0
+        }
         containerView.animateTo()
     }
     
@@ -174,16 +178,15 @@ class ViewController: UIViewController {
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
         
         let translation = sender.translation(in: view)
-        let direction = sender.direction(in: view)
+//        let direction = sender.direction(in: view)
         
         let coverImageHeight = underView.coverImage.frame.height
         let ty = containerView.transform.ty
         
-        let triggerOpen = ty <= -50
-        let triggerClose = ty >= -coverImageHeight + 50
-        
-        
         let isLoading = self.loadingEffectView.layer.opacity != 0
+        let containerViewNotMoved = Int(ty) == 0
+        
+        containerView.duration = 0.5
         
         if !isLoading {
             switch sender.state {
@@ -199,7 +202,7 @@ class ViewController: UIViewController {
                     )
                     sender.setTranslation(CGPoint.zero, in: view)
                 case .left, .right:
-                    if !triggerOpen {
+                    if containerViewNotMoved {
                         leftCircle.x = translation.x / 4
                         leftCircle.duration = 0
                         leftCircle.animateTo()
@@ -211,29 +214,50 @@ class ViewController: UIViewController {
                 }
 
             case .ended:
-                if beganDirection == .up && triggerOpen || beganDirection == .down && !triggerClose {
-                    containerView.y = -coverImageHeight
-                    userButtonSetTitle(isTriangle: true, haptic: true)
+                
+                let triggerProfileOpen  = ty <= -50
+                let triggerProfileClose = ty >= -coverImageHeight + 50
+                let triggerMenuOpen  = ty > 80
+                let triggerMenuClose = ty < 240 - 80
+                
+                if ty < 0 {
+                    if beganDirection == .up && triggerProfileOpen || beganDirection == .down && !triggerProfileClose {
+                        containerView.y = -coverImageHeight
+                        userButtonSetTitle(isTriangle: true, haptic: true)
+                    } else
+                    if beganDirection == .down && triggerProfileClose || beganDirection == .up && !triggerProfileOpen {
+                        containerView.y = 0
+                        userButtonSetTitle(isTriangle: false, haptic: true)
+                    }
+                    containerView.animateTo()
                 } else
-                if beganDirection == .down && triggerClose || beganDirection == .up && !triggerOpen {
-                    containerView.y = 0
-                    userButtonSetTitle(isTriangle: false, haptic: true)
-                } else
-                if (beganDirection == .left || beganDirection == .right) && !triggerOpen {
+                if ty > 0 {
+                    if beganDirection == .down && triggerMenuOpen {
+                        containerView.y = 240
+                    } else
+                    if beganDirection == .up && triggerMenuClose {
+                        containerView.y = 0
+                    }
+                    Haptic.impact(.light).generate()
+                    containerView.animateTo()
+                }
+                
+                
+                
+                if (beganDirection == .left || beganDirection == .right) && containerViewNotMoved {
                     
                     let willLoadID = currentID + Int(-translation.x / abs(translation.x))
                     let overload = willLoadID > latestID || willLoadID == 0
+                    let validPanDistance = abs(translation.x) >= 120
                     
-                    if abs(translation.x) >= 120 && !overload {
-                        currentID = willLoadID
-                        renderMOTD()
-                        Haptic.impact(.light).generate()
-                    }
-                    
-                    if direction == .right {
-                        
-                    } else {
-                        
+                    if validPanDistance {
+                        if !overload {
+                            currentID = willLoadID
+                            renderMOTD()
+                            Haptic.impact(.light).generate()
+                        } else {
+                            Haptic.notification(.error).generate()
+                        }
                     }
 
                     leftCircle.x = -200
@@ -244,8 +268,8 @@ class ViewController: UIViewController {
                     rightCircle.duration = 1
                     rightCircle.animateTo()
                 }
+
                 
-                containerView.animateTo()
             default:
                 break
             }
