@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
+    let reachability = Reachability()!
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -60,13 +62,39 @@ class ViewController: UIViewController {
         
         Loader.addLoadersTo(loadingEffectView)
 
-        getlatestID {
-            currentID = latestID
-            self.renderMOTD()
+        networkCheck {
+            getlatestID {
+                currentID = latestID
+                self.renderMOTD()
+            }
         }
+        
+        
     }
     
     
+    func networkCheck(success: @escaping() -> Void) {
+        reachability.whenReachable = { reachability in
+            // UI updates must be on the main thread
+            success()
+            reachability.stopNotifier()
+        }
+        reachability.whenUnreachable = { reachability in
+            // UI updates must be on the main thread
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Network Error", message: "Please check your network configurations.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+
+
     func renderMOTD() {
         
         startLoadEffect()
@@ -90,8 +118,8 @@ class ViewController: UIViewController {
             self.renderUserButton(byID: userid)
         })
     }
-    
-    
+
+
     func renderUserButton(byID id: Int) {
         
         getUser(byID: id, completion: { (json) in
@@ -107,8 +135,8 @@ class ViewController: UIViewController {
             self.renderUserProfile()
         })
     }
-    
-    
+
+
     func renderUserProfile() {
         let first_name = currentUser["first_name"].stringValue
         let last_name = currentUser["last_name"].stringValue
@@ -124,11 +152,6 @@ class ViewController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
     @IBAction func userButtonTapped(_ sender: Any) {
         if containerView.frame.origin.y == 0 {
             userButtonSetTitle(isTriangle: true, haptic: true)
@@ -139,10 +162,6 @@ class ViewController: UIViewController {
         }
         containerView.animateTo()
     }
-    
-    
-    
-    
     
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
         
@@ -155,68 +174,72 @@ class ViewController: UIViewController {
         let triggerOpen = ty <= -50
         let triggerClose = ty >= -coverImageHeight + 50
         
-        switch sender.state {
-        case .began:
-            beganDirection = sender.direction(in: view)
+        let isLoading = self.loadingEffectView.layer.opacity != 0
         
-        case .changed:
-            switch beganDirection {
-            case .up, .down:
-                containerView.transform = CGAffineTransform(
-                    translationX: 0,
-                    y: ty + translation.y / 1.5
-                )
-                sender.setTranslation(CGPoint.zero, in: view)
-            case .left, .right:
-                if !triggerOpen {
-                    leftCircle.x = translation.x / 4
-                    leftCircle.duration = 0
-                    leftCircle.animateTo()
+        if !isLoading {
+            switch sender.state {
+            case .began:
+                beganDirection = sender.direction(in: view)
+            
+            case .changed:
+                switch beganDirection {
+                case .up, .down:
+                    containerView.transform = CGAffineTransform(
+                        translationX: 0,
+                        y: ty + translation.y / 1.5
+                    )
+                    sender.setTranslation(CGPoint.zero, in: view)
+                case .left, .right:
+                    if !triggerOpen {
+                        leftCircle.x = translation.x / 4
+                        leftCircle.duration = 0
+                        leftCircle.animateTo()
+                        
+                        rightCircle.x = translation.x / 4
+                        rightCircle.duration = 0
+                        rightCircle.animateTo()
+                    }
+                }
+
+            case .ended:
+                if beganDirection == .up && triggerOpen || beganDirection == .down && !triggerClose {
+                    containerView.y = -coverImageHeight
+                    userButtonSetTitle(isTriangle: true, haptic: true)
+                } else
+                if beganDirection == .down && triggerClose || beganDirection == .up && !triggerOpen {
+                    containerView.y = 0
+                    userButtonSetTitle(isTriangle: false, haptic: true)
+                } else
+                if (beganDirection == .left || beganDirection == .right) && !triggerOpen {
                     
-                    rightCircle.x = translation.x / 4
-                    rightCircle.duration = 0
+                    let willLoadID = currentID + Int(-translation.x / abs(translation.x))
+                    let overload = willLoadID > latestID || willLoadID == 0
+                    
+                    if abs(translation.x) >= 120 && !overload {
+                        currentID = willLoadID
+                        renderMOTD()
+                        Haptic.impact(.light).generate()
+                    }
+                    
+                    if direction == .right {
+                        
+                    } else {
+                        
+                    }
+
+                    leftCircle.x = -200
+                    leftCircle.duration = 1
+                    leftCircle.animateTo()
+
+                    rightCircle.x = screenWidth + 200
+                    rightCircle.duration = 1
                     rightCircle.animateTo()
                 }
+                
+                containerView.animateTo()
+            default:
+                break
             }
-
-        case .ended:
-            if beganDirection == .up && triggerOpen || beganDirection == .down && !triggerClose {
-                containerView.y = -coverImageHeight
-                userButtonSetTitle(isTriangle: true, haptic: true)
-            } else
-            if beganDirection == .down && triggerClose || beganDirection == .up && !triggerOpen {
-                containerView.y = 0
-                userButtonSetTitle(isTriangle: false, haptic: true)
-            } else
-            if (beganDirection == .left || beganDirection == .right) && !triggerOpen {
-                
-                let willLoadID = currentID + Int(-translation.x / abs(translation.x))
-                let overload = willLoadID > latestID || willLoadID == 0
-                
-                if abs(translation.x) >= 120 && !overload {
-                    currentID = willLoadID
-                    renderMOTD()
-                    Haptic.impact(.light).generate()
-                }
-                
-                if direction == .right {
-                    
-                } else {
-                    
-                }
-
-                leftCircle.x = -200
-                leftCircle.duration = 1
-                leftCircle.animateTo()
-
-                rightCircle.x = screenWidth + 200
-                rightCircle.duration = 1
-                rightCircle.animateTo()
-            }
-            
-            containerView.animateTo()
-        default:
-            break
         }
     }
 
