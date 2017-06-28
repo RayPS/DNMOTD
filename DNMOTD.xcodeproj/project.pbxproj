@@ -19,6 +19,7 @@
 		713C20F91EE13A7300B03338 /* DNMOTD-Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 713C20ED1EE13A7300B03338 /* DNMOTD-Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		71527BD71EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */; };
 		71752BFD1EF42D3D00B68428 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71752BFC1EF42D3D00B68428 /* Utilities.swift */; };
+		717C19701F03615B00FFD85A /* UnderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717C196F1F03615B00FFD85A /* UnderViewController.swift */; };
 		71A5C3691EF1CB160012F966 /* LoadingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5C3681EF1CB160012F966 /* LoadingEffect.swift */; };
 		C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		713C20F61EE13A7300B03338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer-Extesion.swift"; sourceTree = "<group>"; };
 		71752BFC1EF42D3D00B68428 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		717C196F1F03615B00FFD85A /* UnderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderViewController.swift; sourceTree = "<group>"; };
 		71A5C3681EF1CB160012F966 /* LoadingEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingEffect.swift; sourceTree = "<group>"; };
 		7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.release.xcconfig"; sourceTree = "<group>"; };
 		89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNMOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 				711987701EDEC50C00A3A406 /* Assets.xcassets */,
 				711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */,
 				711987751EDEC50C00A3A406 /* Info.plist */,
+				717C196F1F03615B00FFD85A /* UnderViewController.swift */,
 			);
 			path = DNMOTD;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				71752BFD1EF42D3D00B68428 /* Utilities.swift in Sources */,
 				71527BD71EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift in Sources */,
 				7119876C1EDEC50C00A3A406 /* ViewController.swift in Sources */,
+				717C19701F03615B00FFD85A /* UnderViewController.swift in Sources */,
 				71A5C3691EF1CB160012F966 /* LoadingEffect.swift in Sources */,
 				712683951EDEF4830041EF28 /* Requests.swift in Sources */,
 				7119876A1EDEC50C00A3A406 /* AppDelegate.swift in Sources */,

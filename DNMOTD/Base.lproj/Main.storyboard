@@ -277,6 +277,10 @@
         <scene sceneID="a1c-Qf-CuV">
             <objects>
                 <viewController id="2tb-sj-4ZD" userLabel="Under View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="peG-fc-nJF"/>
+                        <viewControllerLayoutGuide type="bottom" id="9yj-wr-86J"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Liy-1J-kfa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,6 +303,11 @@
                                 <color key="textColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfg-rL-FgU">
+                                <rect key="frame" x="32" y="104" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Set Font"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

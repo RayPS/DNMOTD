@@ -146,6 +146,11 @@ class ViewController: UIViewController {
     
     
     
+    @IBAction func menuButtonTapped(_ sender: UIButton) {
+    
+    }
+    
+    
     @IBAction func userButtonTapped(_ sender: Any) {
         if containerView.frame.origin.y == 0 {
             userButtonSetTitle(isTriangle: true, haptic: true)
