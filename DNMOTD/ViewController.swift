@@ -22,11 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
     
-    @IBOutlet weak var coverImage: UIImageView!
-    @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var fullnameLabel: UILabel!
-    @IBOutlet weak var jobLabel: UILabel!
-    
     @IBOutlet weak var leftCircle: SpringView!
     @IBOutlet weak var rightCircle: SpringView!
     
@@ -42,6 +37,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initial()
+    }
+    
+    var underView: UnderContainerViewController!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UnderContainerViewSegue" {
+            underView = segue.destination as? UnderContainerViewController
+        }
     }
     
     
@@ -136,14 +139,15 @@ class ViewController: UIViewController {
         let last_name = currentUser["last_name"].stringValue
         let full_name = first_name + " " + last_name
         
-        fullnameLabel.text = full_name
-        jobLabel.text = currentUser["job"].stringValue
+        underView.fullnameLabel.text = full_name
+        underView.jobLabel.text = currentUser["job"].stringValue
         
-        coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
-        avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
+        underView.coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
+        underView.avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
     }
     
     
+
     
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
@@ -152,10 +156,11 @@ class ViewController: UIViewController {
     }
     
     
+    
     @IBAction func userButtonTapped(_ sender: Any) {
         if containerView.frame.origin.y == 0 {
             userButtonSetTitle(isTriangle: true, haptic: true)
-            containerView.y = -coverImage.frame.height
+            containerView.y = -underView.coverImage.frame.height
         } else {
             userButtonSetTitle(isTriangle: false, haptic: true)
             containerView.y = 0
@@ -168,7 +173,7 @@ class ViewController: UIViewController {
         let translation = sender.translation(in: view)
         let direction = sender.direction(in: view)
         
-        let coverImageHeight = coverImage.frame.height
+        let coverImageHeight = underView.coverImage.frame.height
         let ty = containerView.transform.ty
         
         let triggerOpen = ty <= -50
