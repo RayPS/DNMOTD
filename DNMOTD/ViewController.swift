@@ -147,7 +147,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
-    
+        containerView.y = screenWidth
+        containerView.animateTo()
     }
     
     
