@@ -160,9 +160,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-Bi-qbM" userLabel="User Button">
-                                                <rect key="frame" x="244" y="0.0" width="67" height="24"/>
+                                                <rect key="frame" x="249" y="0.0" width="62" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                <state key="normal" title="Ray Yip.">
+                                                <state key="normal" title="Sjors T.">
                                                     <color key="titleColor" red="0.17254901960784313" green="0.44705882352941173" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -178,14 +178,14 @@
                                             <constraint firstItem="uAe-Bi-qbM" firstAttribute="top" secondItem="Adt-ia-AUp" secondAttribute="top" id="RZy-kH-hvE"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="O5b-Dr-pYI">
-                                        <rect key="frame" x="32" y="32" width="32" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="O5b-Dr-pYI" userLabel="Menu Button">
+                                        <rect key="frame" x="32" y="32" width="48" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="ALl-wa-Bio"/>
-                                            <constraint firstAttribute="width" constant="32" id="bgJ-mI-TmO"/>
+                                            <constraint firstAttribute="width" constant="48" id="bgJ-mI-TmO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                        <state key="normal" title="●">
+                                        <state key="normal" title="▬">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -243,11 +243,11 @@
                         <outlet property="avatarImage" destination="zpt-Nn-9Zm" id="omL-wp-Qlr"/>
                         <outlet property="containerView" destination="CLo-Ns-E9C" id="l5n-vr-UgU"/>
                         <outlet property="coverImage" destination="OF8-mZ-1bI" id="i8A-uj-KeC"/>
-                        <outlet property="dotButton" destination="O5b-Dr-pYI" id="W4e-rb-WmA"/>
                         <outlet property="fullnameLabel" destination="hb8-TM-KGG" id="cae-f9-hFw"/>
                         <outlet property="jobLabel" destination="1HW-g0-74a" id="SK2-ND-FTF"/>
                         <outlet property="leftCircle" destination="nbR-nM-6hW" id="NrK-O2-7Ca"/>
                         <outlet property="loadingEffectView" destination="ldN-2I-xtv" id="LL7-A7-pou"/>
+                        <outlet property="menuButton" destination="O5b-Dr-pYI" id="OWC-a8-Au2"/>
                         <outlet property="messageLabel" destination="vbd-nK-XZ9" id="Ywr-dr-Xg6"/>
                         <outlet property="rightCircle" destination="P6E-3u-QyG" id="C4c-QK-xhc"/>
                         <outlet property="userButton" destination="uAe-Bi-qbM" id="Fxt-fr-ZlC"/>

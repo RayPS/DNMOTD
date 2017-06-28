@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var loadingEffectView: UIView!
-    @IBOutlet weak var dotButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
     
     @IBOutlet weak var coverImage: UIImageView!
@@ -42,7 +42,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: Reachability for first launch
         // TODO: Font settings
         // TODO: About
         // TODO: Tutorial for first launch
@@ -54,7 +53,7 @@ class ViewController: UIViewController {
     func initial() {
         messageLabel.layer.opacity = 0
         votesLabel.layer.opacity = 0
-        dotButton.layer.opacity = 0
+        menuButton.layer.opacity = 0
         userButton.layer.opacity = 0
         
         leftCircle.layer.cornerRadius = 100
@@ -254,7 +253,7 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.5) {
             self.messageLabel.layer.opacity = 1
             self.votesLabel.layer.opacity = 1
-            self.dotButton.layer.opacity = 1
+            self.menuButton.layer.opacity = 1
         }
     }
     
@@ -263,7 +262,7 @@ class ViewController: UIViewController {
             self.loadingEffectView.layer.opacity = 1
             self.messageLabel.layer.opacity = 0
             self.votesLabel.layer.opacity = 0
-            self.dotButton.layer.opacity = 0
+            self.menuButton.layer.opacity = 0
             self.userButton.layer.opacity = 0
         }
     }
@@ -273,7 +272,7 @@ class ViewController: UIViewController {
             self.loadingEffectView.layer.opacity = 0
             self.messageLabel.layer.opacity = 1
             self.votesLabel.layer.opacity = 1
-            self.dotButton.layer.opacity = 1
+            self.menuButton.layer.opacity = 1
         }
     }
     
