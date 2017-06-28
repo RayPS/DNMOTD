@@ -15,6 +15,7 @@ class UnderContainerViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
 
+    var chooseColor: ((UIColor) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,14 @@ class UnderContainerViewController: UIViewController {
         
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    @IBAction func fontSegmentedTapped(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            chooseColor?(.red)
+        case 1:
+            chooseColor?(.green)
+        default:
+                break
+        }
     }
-
 }

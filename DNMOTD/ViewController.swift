@@ -44,6 +44,9 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UnderContainerViewSegue" {
             underView = segue.destination as? UnderContainerViewController
+            underView.chooseColor = { [weak self] color in
+                self?.messageLabel.textColor = color
+            }
         }
     }
     
@@ -178,6 +181,7 @@ class ViewController: UIViewController {
         
         let triggerOpen = ty <= -50
         let triggerClose = ty >= -coverImageHeight + 50
+        
         
         let isLoading = self.loadingEffectView.layer.opacity != 0
         

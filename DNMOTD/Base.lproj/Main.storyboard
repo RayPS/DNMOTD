@@ -254,11 +254,6 @@
                                 <color key="textColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfg-rL-FgU">
-                                <rect key="frame" x="32" y="104" width="58" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Set Font"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFW-JC-hU7" userLabel="User View">
                                 <rect key="frame" x="0.0" y="491.5" width="375" height="175.5"/>
                                 <subviews>
@@ -304,6 +299,17 @@
                                     <constraint firstAttribute="trailing" secondItem="OF8-mZ-1bI" secondAttribute="trailing" id="qjI-DU-0yF"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-Ij-f7O">
+                                <rect key="frame" x="32" y="136" width="185" height="29"/>
+                                <segments>
+                                    <segment title="System Font"/>
+                                    <segment title="Custom Font"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="fontSegmentedTapped:" destination="2tb-sj-4ZD" eventType="valueChanged" id="MVZ-Ic-sOK"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -311,9 +317,11 @@
                             <constraint firstItem="UaP-U5-gvd" firstAttribute="leading" secondItem="Liy-1J-kfa" secondAttribute="leading" constant="32" id="7wh-bk-Pa2"/>
                             <constraint firstItem="yrb-Er-IVi" firstAttribute="top" secondItem="UaP-U5-gvd" secondAttribute="bottom" constant="8" id="8JJ-Ua-g1Y"/>
                             <constraint firstItem="UaP-U5-gvd" firstAttribute="top" secondItem="Liy-1J-kfa" secondAttribute="topMargin" constant="40" id="Bcx-M4-gMO"/>
+                            <constraint firstItem="CD1-Ij-f7O" firstAttribute="top" secondItem="yrb-Er-IVi" secondAttribute="bottom" constant="40" id="BhX-aH-Cd3"/>
                             <constraint firstItem="9yj-wr-86J" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="bottom" id="E9z-Qb-Sao"/>
                             <constraint firstItem="gFW-JC-hU7" firstAttribute="leading" secondItem="Liy-1J-kfa" secondAttribute="leading" id="JXy-UW-lST"/>
                             <constraint firstAttribute="trailing" secondItem="gFW-JC-hU7" secondAttribute="trailing" id="QCy-fA-OGj"/>
+                            <constraint firstItem="CD1-Ij-f7O" firstAttribute="leading" secondItem="yrb-Er-IVi" secondAttribute="leading" id="cBw-4h-4cm"/>
                         </constraints>
                     </view>
                     <connections>
