@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,6 +23,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfB-5W-ENa" userLabel="Under Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="2tb-sj-4ZD" kind="embed" id="yH8-Da-EbB"/>
+                                </connections>
+                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFW-JC-hU7" userLabel="User View">
                                 <rect key="frame" x="0.0" y="491" width="375" height="175.5"/>
                                 <subviews>
@@ -51,7 +58,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.95770236784140972" green="0.95770236784140972" blue="0.95770236784140972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="zpt-Nn-9Zm" firstAttribute="leading" secondItem="gFW-JC-hU7" secondAttribute="leading" constant="32" id="070-Nm-qf7"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1HW-g0-74a" secondAttribute="trailing" constant="32" id="5oh-2L-Fri"/>
@@ -228,15 +234,19 @@
                         <constraints>
                             <constraint firstItem="CLo-Ns-E9C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2pb-TO-Rmy"/>
                             <constraint firstAttribute="trailing" secondItem="CLo-Ns-E9C" secondAttribute="trailing" id="62I-Cy-HAk"/>
+                            <constraint firstItem="P6E-3u-QyG" firstAttribute="leading" secondItem="tfB-5W-ENa" secondAttribute="trailing" id="9fi-iv-j23"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tfB-5W-ENa" secondAttribute="bottom" id="Bjt-iw-uht"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CLo-Ns-E9C" secondAttribute="bottom" id="L6U-5M-qYH"/>
                             <constraint firstItem="CLo-Ns-E9C" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="O7H-4h-Xbl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="bottom" id="Toq-eX-M5o"/>
                             <constraint firstItem="nbR-nM-6hW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-200" id="VrA-Tp-llr"/>
                             <constraint firstItem="gFW-JC-hU7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YfH-sk-Jei"/>
                             <constraint firstItem="nbR-nM-6hW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cem-cK-ACy"/>
+                            <constraint firstItem="tfB-5W-ENa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jnm-bh-yTU"/>
                             <constraint firstItem="P6E-3u-QyG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kFi-oQ-i8E"/>
                             <constraint firstAttribute="trailing" secondItem="gFW-JC-hU7" secondAttribute="trailing" id="nrw-yp-CVu"/>
                             <constraint firstAttribute="trailing" secondItem="P6E-3u-QyG" secondAttribute="trailing" constant="-200" id="o5u-TR-ce4"/>
+                            <constraint firstItem="tfB-5W-ENa" firstAttribute="leading" secondItem="nbR-nM-6hW" secondAttribute="trailing" id="tf9-ld-Ead"/>
                         </constraints>
                     </view>
                     <connections>
@@ -262,6 +272,46 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Under View Controller-->
+        <scene sceneID="a1c-Qf-CuV">
+            <objects>
+                <viewController id="2tb-sj-4ZD" userLabel="Under View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Liy-1J-kfa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DNMOTD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaP-U5-gvd">
+                                <rect key="frame" x="32" y="40" width="105.5" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Qw1-iw-15Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designer News Message of The Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrb-Er-IVi">
+                                <rect key="frame" x="32" y="80" width="233.5" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="xdu-Bx-j0s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yrb-Er-IVi" firstAttribute="leading" secondItem="UaP-U5-gvd" secondAttribute="leading" id="0T5-TK-X3D"/>
+                            <constraint firstItem="UaP-U5-gvd" firstAttribute="leading" secondItem="Liy-1J-kfa" secondAttribute="leading" constant="32" id="7wh-bk-Pa2"/>
+                            <constraint firstItem="yrb-Er-IVi" firstAttribute="top" secondItem="UaP-U5-gvd" secondAttribute="bottom" constant="8" id="8JJ-Ua-g1Y"/>
+                            <constraint firstItem="UaP-U5-gvd" firstAttribute="top" secondItem="Liy-1J-kfa" secondAttribute="topMargin" constant="40" id="Bcx-M4-gMO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-Cg-0fN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.6" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>

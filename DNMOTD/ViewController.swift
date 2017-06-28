@@ -41,11 +41,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: Font settings
-        // TODO: About
-        // TODO: Tutorial for first launch
-        
         initial()
     }
     
