@@ -132,17 +132,17 @@
 		711987681EDEC50C00A3A406 /* DNMOTD */ = {
 			isa = PBXGroup;
 			children = (
-				711987691EDEC50C00A3A406 /* AppDelegate.swift */,
+				7119876D1EDEC50C00A3A406 /* Main.storyboard */,
 				7119876B1EDEC50C00A3A406 /* ViewController.swift */,
+				717F54661F03A22A001260A2 /* UnderContainerViewController.swift */,
 				712683941EDEF4830041EF28 /* Requests.swift */,
 				71A5C3681EF1CB160012F966 /* LoadingEffect.swift */,
-				7119876D1EDEC50C00A3A406 /* Main.storyboard */,
 				71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */,
 				71752BFC1EF42D3D00B68428 /* Utilities.swift */,
 				711987701EDEC50C00A3A406 /* Assets.xcassets */,
 				711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */,
 				711987751EDEC50C00A3A406 /* Info.plist */,
-				717F54661F03A22A001260A2 /* UnderContainerViewController.swift */,
+				711987691EDEC50C00A3A406 /* AppDelegate.swift */,
 			);
 			path = DNMOTD;
 			sourceTree = "<group>";
