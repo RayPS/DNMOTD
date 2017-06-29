@@ -34,6 +34,28 @@ class UnderContainerViewController: UIViewController {
         let systemFontName = UIFont.systemFont(ofSize: 32).fontName
         fonts = [systemFontName, "Georgia", "HelveticaNeue", "Palatino"]
     }
+
+    
+    
+    
+    
+    func renderUserProfile() {
+        let first_name = currentUser["first_name"].stringValue
+        let last_name = currentUser["last_name"].stringValue
+        let full_name = first_name + " " + last_name
+        
+        fullnameLabel.text = " \(full_name) "
+        jobLabel.text = " \(currentUser["job"].stringValue) "
+        
+        coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
+        avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
+    }
+    
+    
+    
+    
+    
+    
     
     func customFont() {
 
@@ -56,6 +78,16 @@ class UnderContainerViewController: UIViewController {
         setFont?(UIFont(name: fontName, size: 32)!)
         Haptic.impact(.light).generate()
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     @IBAction func fontSegmentedTapped(_ sender: UISegmentedControl) {
         fontIndex = sender.selectedSegmentIndex

@@ -157,25 +157,9 @@ class ViewController: UIViewController {
                 self.userButton.layer.opacity = 1
             })
             
-            self.renderUserProfile()
+            self.underView.renderUserProfile()
         })
     }
-
-
-    func renderUserProfile() {
-        let first_name = currentUser["first_name"].stringValue
-        let last_name = currentUser["last_name"].stringValue
-        let full_name = first_name + " " + last_name
-        
-        underView.fullnameLabel.text = " \(full_name) "
-        underView.jobLabel.text = " \(currentUser["job"].stringValue) "
-        
-        underView.coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
-        underView.avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
-    }
-    
-    
-
     
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
