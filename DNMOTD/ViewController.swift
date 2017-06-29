@@ -11,6 +11,12 @@ import SwiftyJSON
 import Kingfisher
 import Spring
 import ReachabilitySwift
+import SwiftyUserDefaults
+
+extension DefaultsKeys {
+    static let fontName = DefaultsKey<String?>("fontName")
+    static let firstLaunch = DefaultsKey<Int>("firstLaunch")
+}
 
 class ViewController: UIViewController {
 
@@ -81,6 +87,8 @@ class ViewController: UIViewController {
         rightCircle.layer.cornerRadius = 100
         
         Loader.addLoadersTo(loadingEffectView)
+        
+        initialFont()
 
         networkCheck {
             getlatestID {
@@ -338,6 +346,12 @@ class ViewController: UIViewController {
         }
         if haptic {
             Haptic.impact(.light).generate()
+        }
+    }
+    
+    func initialFont() {
+        if let fontName = Defaults[.fontName] {
+            messageLabel.font = UIFont(name: fontName, size: 32)
         }
     }
 }

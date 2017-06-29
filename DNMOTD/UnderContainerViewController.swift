@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class UnderContainerViewController: UIViewController {
     
@@ -30,7 +31,7 @@ class UnderContainerViewController: UIViewController {
         super.viewDidLoad()
         
         let systemFontName = UIFont.systemFont(ofSize: 32).fontName
-        fonts = [systemFontName, "Georgia", "Helvetica", "Palatino"]
+        fonts = [systemFontName, "Georgia", "HelveticaNeue", "Palatino"]
     }
     
     func customFont() {
@@ -48,6 +49,8 @@ class UnderContainerViewController: UIViewController {
             (fontBold || fontItalic ? "-" : "") +
             (fontBold   ? "Bold"   : "")        +
             (fontItalic ? "Italic" : "")
+        
+        Defaults[.fontName] = fontName
         
         setFont?(UIFont(name: fontName, size: 32)!)
         Haptic.impact(.light).generate()
