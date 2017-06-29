@@ -18,49 +18,98 @@ class UnderContainerViewController: UIViewController {
     @IBOutlet weak var jobLabel: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
 
+    @IBOutlet weak var fontSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var fontBoldButton: UIButton!
     @IBOutlet weak var fontItalicButton: UIButton!
     
     var setFont: ((UIFont) -> Void)?
     
-    var fonts: [String] = []
-    
-    var fontIndex: Int   = 0
-    var fontBold: Bool   = true
-    var fontItalic: Bool = false
+    let fonts = ["SF Pro Display", "Georgia", "Avenir Next", "Palatino"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let systemFontName = UIFont.systemFont(ofSize: 32).fontName
-        fonts = [systemFontName, "Georgia", "HelveticaNeue", "Palatino"]
     }
 
     
 
     func customFont() {
+        
+        let fontIndex = Defaults[.fontIndex]!
+        let fontBold = Defaults[.fontBold]!
+        let fontItalic = Defaults[.fontItalic]!
 
-        // Because System font doesn't have Italic.
-        fontItalicButton.isEnabled = (fontIndex != 0)
-        if fontIndex == 0 {
-            fontItalic = false
-            fontItalicButton.setTitle("□ Italic", for: .disabled)
-            fontItalicButton.setTitle("□ Italic", for: .normal)
-        }
-        // ---
+        //        Another working implement:
+        //        let descriptor = UIFontDescriptor(name: "Avenir Next", size: 32).withSymbolicTraits([.traitBold, .traitItalic])
         
-        let fontName: String = fonts[fontIndex] +
-            (fontBold || fontItalic ? "-" : "") +
-            (fontBold   ? "Bold"   : "")        +
-            (fontItalic ? "Italic" : "")
+        let descriptor = UIFontDescriptor(fontAttributes:
+            [
+                UIFontDescriptorFamilyAttribute: fonts[fontIndex],
+                UIFontDescriptorTraitsAttribute: [
+                    UIFontWeightTrait: fontBold ? UIFontWeightBold : UIFontWeightRegular,
+                    UIFontSlantTrait: fontItalic ? 1.0 : 0.0
+                ]
+            ]
+        )
         
-        Defaults[.fontName] = fontName
+        let font = UIFont(descriptor: descriptor, size: 32)
         
-        setFont?(UIFont(name: fontName, size: 32)!)
+        setFont?(font)
+        
+        Defaults[.fontName] = font.fontName
+        
         Haptic.impact(.light).generate()
     }
     
     
     
+    func initialFontSettingsUIStates() {
+        let fontIndex = Defaults[.fontIndex]!
+        let fontBold = Defaults[.fontBold]!
+        let fontItalic = Defaults[.fontItalic]!
+        
+        fontSegmentedControl.selectedSegmentIndex = fontIndex
+        fontBoldButton.isSelected = fontBold
+        fontItalicButton.isSelected = fontItalic
+    }
+    
+    
+
+    
+
+    @IBAction func fontSegmentedTapped(_ sender: UISegmentedControl) {
+        Defaults[.fontIndex] = sender.selectedSegmentIndex
+        customFont()
+    }
+    
+    
+    @IBAction func boldButtonTapped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        Defaults[.fontBold] = sender.isSelected
+        customFont()
+    }
+    
+    
+    @IBAction func italicButtonTapped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        Defaults[.fontItalic] = sender.isSelected
+        customFont()
+    }
+
+    @IBAction func creditButtonTapped(_ sender: Any) {
+        URL(string: "http://rayps.com")!.svcOpen(inView: self)
+    }
+    
+    @IBAction func userViewTapped(_ sender: Any) {
+        let id = currentUser["id"].stringValue
+        URL(string: dn_url + "users/" + id)!.svcOpen(inView: self)
+    }
+    
+    
+    
+    
+    
+    
+    // User View:
     
     func renderUserProfile() {
         let first_name = currentUser["first_name"].stringValue
@@ -72,50 +121,6 @@ class UnderContainerViewController: UIViewController {
         
         coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
         avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
-    }
-    
-    
-    
-    
-
-    @IBAction func fontSegmentedTapped(_ sender: UISegmentedControl) {
-        fontIndex = sender.selectedSegmentIndex
-        customFont()
-    }
-    
-    
-    @IBAction func boldButtonTapped(_ sender: UIButton) {
-        // 😅😅😅
-        if sender.titleLabel?.text == "■ Bold" {
-            sender.setTitle("□ Bold", for: .normal)
-            fontBold = false
-        } else {
-            sender.setTitle("■ Bold", for: .normal)
-            fontBold = true
-        }
-        customFont()
-    }
-    
-    
-    @IBAction func italicButtonTapped(_ sender: UIButton) {
-        // 😅😅😅
-        if sender.titleLabel?.text == "■ Italic" {
-            sender.setTitle("□ Italic", for: .normal)
-            fontItalic = false
-        } else {
-            sender.setTitle("■ Italic", for: .normal)
-            fontItalic = true
-        }
-        customFont()
-    }
-
-    @IBAction func creditButtonTapped(_ sender: Any) {
-        URL(string: "http://rayps.com")!.svcOpen(inView: self)
-    }
-    
-    @IBAction func userViewTapped(_ sender: Any) {
-        let id = currentUser["id"].stringValue
-        URL(string: dn_url + "users/" + id)!.svcOpen(inView: self)
     }
 }
 

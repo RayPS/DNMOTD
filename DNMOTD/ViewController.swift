@@ -14,8 +14,10 @@ import ReachabilitySwift
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
+    static let fontIndex = DefaultsKey<Int?>("fontIndex")
+    static let fontBold = DefaultsKey<Bool?>("fontBold")
+    static let fontItalic = DefaultsKey<Bool?>("fontItalic")
     static let fontName = DefaultsKey<String?>("fontName")
-    static let firstLaunch = DefaultsKey<Int>("firstLaunch")
 }
 
 class ViewController: UIViewController {
@@ -43,9 +45,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initial()
-        
-        
-        
+        initialFont()
+        initialFirstLaunch()
         
         //                    TODO: ParseMedia
         //                    TODO: UserData
@@ -84,8 +85,6 @@ class ViewController: UIViewController {
         rightCircle.layer.cornerRadius = 100
         
         Loader.addLoadersTo(loadingEffectView)
-        
-        initialFont()
 
         networkCheck {
             getlatestID {
@@ -330,9 +329,20 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    func initialFirstLaunch() {
+        
+    }
+    
     func initialFont() {
         if let fontName = Defaults[.fontName] {
             messageLabel.font = UIFont(name: fontName, size: 32)
+            underView.initialFontSettingsUIStates()
+        } else {
+            // Is first launch
+            Defaults[.fontIndex] = 0
+            Defaults[.fontBold] = true
+            Defaults[.fontItalic] = false
         }
     }
 }

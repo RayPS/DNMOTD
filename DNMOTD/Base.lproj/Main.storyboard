@@ -9,6 +9,11 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Bold.otf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -32,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScA-Ij-FOe" userLabel="Content View" customClass="SpringView" customModule="Spring">
-                                        <rect key="frame" x="32" y="88" width="311" height="491"/>
+                                        <rect key="frame" x="32" y="80" width="311" height="499"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-2I-xtv" userLabel="Loading Effect View">
                                                 <rect key="frame" x="0.0" y="-0.5" width="311" height="200"/>
@@ -92,9 +97,9 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="420.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="382"/>
                                                 <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -157,7 +162,7 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Adt-ia-AUp" firstAttribute="leading" secondItem="CLo-Ns-E9C" secondAttribute="leading" constant="32" id="4eR-vO-4p9"/>
-                                    <constraint firstItem="ScA-Ij-FOe" firstAttribute="top" secondItem="O5b-Dr-pYI" secondAttribute="bottom" constant="24" id="NyX-hR-zZF"/>
+                                    <constraint firstItem="ScA-Ij-FOe" firstAttribute="top" secondItem="O5b-Dr-pYI" secondAttribute="bottom" constant="16" id="NyX-hR-zZF"/>
                                     <constraint firstAttribute="bottom" secondItem="Adt-ia-AUp" secondAttribute="bottom" constant="32" id="P9W-ff-gzJ"/>
                                     <constraint firstItem="ScA-Ij-FOe" firstAttribute="leading" secondItem="CLo-Ns-E9C" secondAttribute="leading" constant="32" id="TjK-ll-Ee9"/>
                                     <constraint firstItem="O5b-Dr-pYI" firstAttribute="leading" secondItem="CLo-Ns-E9C" secondAttribute="leading" constant="32" id="USb-Jr-Xfg"/>
@@ -282,7 +287,7 @@
                                         <segments>
                                             <segment title="System Font"/>
                                             <segment title="Georgia"/>
-                                            <segment title="Helvetica"/>
+                                            <segment title="Avenir Next"/>
                                             <segment title="Palatino"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -290,20 +295,20 @@
                                             <action selector="fontSegmentedTapped:" destination="2tb-sj-4ZD" eventType="valueChanged" id="MVZ-Ic-sOK"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXK-Zx-06K">
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXK-Zx-06K">
                                         <rect key="frame" x="0.0" y="96" width="48" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="■ Bold">
+                                        <state key="normal" title="□ Bold">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected">
+                                        <state key="selected" title="■ Bold">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="boldButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="Hwr-zt-Z0V"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4f-RS-tQa">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4f-RS-tQa">
                                         <rect key="frame" x="72" y="96" width="50" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="□ Italic">
@@ -312,7 +317,7 @@
                                         <state key="disabled">
                                             <color key="titleColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="selected">
+                                        <state key="selected" title="■ Italic">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -388,7 +393,6 @@
                                 <constraints>
                                     <constraint firstItem="1HW-g0-74a" firstAttribute="top" secondItem="hb8-TM-KGG" secondAttribute="bottom" constant="7.5" id="FKN-NV-0UE"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1HW-g0-74a" secondAttribute="trailing" constant="32" id="L3Z-Ft-fqr"/>
-                                    <constraint firstAttribute="bottom" secondItem="vXm-Iq-egh" secondAttribute="bottom" constant="16" id="Wr8-3S-p3d"/>
                                     <constraint firstAttribute="width" secondItem="gFW-JC-hU7" secondAttribute="height" multiplier="620:290" id="Zo6-IG-bT5"/>
                                     <constraint firstItem="hb8-TM-KGG" firstAttribute="leading" secondItem="zpt-Nn-9Zm" secondAttribute="trailing" constant="8" id="a7M-wU-wz2"/>
                                     <constraint firstItem="vXm-Iq-egh" firstAttribute="leading" secondItem="zpt-Nn-9Zm" secondAttribute="leading" id="bIQ-09-KHJ"/>
@@ -424,7 +428,9 @@
                         <outlet property="avatarImage" destination="zpt-Nn-9Zm" id="HmI-Fr-OEZ"/>
                         <outlet property="coverImage" destination="OF8-mZ-1bI" id="t0r-rM-pB5"/>
                         <outlet property="dataLabel" destination="vXm-Iq-egh" id="fxn-SA-HcP"/>
+                        <outlet property="fontBoldButton" destination="WXK-Zx-06K" id="aHk-v4-3F5"/>
                         <outlet property="fontItalicButton" destination="b4f-RS-tQa" id="q53-7h-UWp"/>
+                        <outlet property="fontSegmentedControl" destination="CD1-Ij-f7O" id="Ewv-nB-CO5"/>
                         <outlet property="fullnameLabel" destination="hb8-TM-KGG" id="pF3-hY-6B2"/>
                         <outlet property="jobLabel" destination="1HW-g0-74a" id="7cs-B9-biK"/>
                     </connections>

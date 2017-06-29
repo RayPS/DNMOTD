@@ -21,6 +21,10 @@
 		71752BFD1EF42D3D00B68428 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71752BFC1EF42D3D00B68428 /* Utilities.swift */; };
 		717F54671F03A22A001260A2 /* UnderContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717F54661F03A22A001260A2 /* UnderContainerViewController.swift */; };
 		71A5C3691EF1CB160012F966 /* LoadingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5C3681EF1CB160012F966 /* LoadingEffect.swift */; };
+		71F699171F059CFB00154B52 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699131F059CFB00154B52 /* SF-Pro-Display-Bold.otf */; };
+		71F699181F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699141F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf */; };
+		71F699191F059CFB00154B52 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699151F059CFB00154B52 /* SF-Pro-Display-Regular.otf */; };
+		71F6991A1F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699161F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf */; };
 		C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +70,10 @@
 		71752BFC1EF42D3D00B68428 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		717F54661F03A22A001260A2 /* UnderContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderContainerViewController.swift; sourceTree = "<group>"; };
 		71A5C3681EF1CB160012F966 /* LoadingEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingEffect.swift; sourceTree = "<group>"; };
+		71F699131F059CFB00154B52 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		71F699141F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
+		71F699151F059CFB00154B52 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		71F699161F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-RegularItalic.otf"; sourceTree = "<group>"; };
 		7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.release.xcconfig"; sourceTree = "<group>"; };
 		89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNMOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +140,10 @@
 		711987681EDEC50C00A3A406 /* DNMOTD */ = {
 			isa = PBXGroup;
 			children = (
+				71F699131F059CFB00154B52 /* SF-Pro-Display-Bold.otf */,
+				71F699141F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf */,
+				71F699151F059CFB00154B52 /* SF-Pro-Display-Regular.otf */,
+				71F699161F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf */,
 				7119876D1EDEC50C00A3A406 /* Main.storyboard */,
 				7119876B1EDEC50C00A3A406 /* ViewController.swift */,
 				717F54661F03A22A001260A2 /* UnderContainerViewController.swift */,
@@ -245,8 +257,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F699181F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				711987741EDEC50C00A3A406 /* LaunchScreen.storyboard in Resources */,
+				71F6991A1F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				711987711EDEC50C00A3A406 /* Assets.xcassets in Resources */,
+				71F699171F059CFB00154B52 /* SF-Pro-Display-Bold.otf in Resources */,
+				71F699191F059CFB00154B52 /* SF-Pro-Display-Regular.otf in Resources */,
 				7119876F1EDEC50C00A3A406 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
