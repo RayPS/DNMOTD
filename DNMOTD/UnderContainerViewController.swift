@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 import SwiftyUserDefaults
 
 class UnderContainerViewController: UIViewController {
@@ -87,6 +88,14 @@ class UnderContainerViewController: UIViewController {
         customFont()
     }
 
+    @IBAction func creditButtonTapped(_ sender: Any) {
+        let svc = SFSafariViewController(url: URL(string: "http://rayps.com")!)
+        svc.modalPresentationStyle = .overCurrentContext
+        svc.preferredBarTintColor = UIColor.white
+        svc.preferredControlTintColor = UIColor.black
+        present(svc, animated: true, completion: nil)
+    }
+    
     
     @IBAction func userPageButtonTapped(_ sender: UIButton) {
     }

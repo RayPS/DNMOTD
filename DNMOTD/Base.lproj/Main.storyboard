@@ -270,6 +270,9 @@
                                         <state key="normal" title="Made by Ray ›">
                                             <color key="titleColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="creditButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="bt4-Ru-jrW"/>
+                                        </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-Ij-f7O" userLabel="Font Segmented Control">
                                         <rect key="frame" x="0.0" y="72" width="311" height="25"/>
