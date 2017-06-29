@@ -49,7 +49,6 @@ class ViewController: UIViewController {
         
         //                    TODO: ParseMedia
         //                    TODO: UserData
-        //                    TODO: Open UserPage
         //                    TODO: TodayWidget
         
         

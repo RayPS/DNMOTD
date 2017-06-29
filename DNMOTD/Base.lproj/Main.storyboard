@@ -352,7 +352,7 @@
                                 <rect key="frame" x="0.0" y="491" width="375" height="175.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OF8-mZ-1bI" userLabel="Cover Image View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="175.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zpt-Nn-9Zm" userLabel="Avatar Image View">
@@ -383,29 +383,29 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndo-dg-yjL" userLabel="User Page Button">
-                                        <rect key="frame" x="308" y="24" width="35" height="30"/>
-                                        <state key="normal" title="Page"/>
-                                        <connections>
-                                            <action selector="userPageButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="05J-65-bLn"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="1HW-g0-74a" firstAttribute="top" secondItem="hb8-TM-KGG" secondAttribute="bottom" constant="7.5" id="FKN-NV-0UE"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1HW-g0-74a" secondAttribute="trailing" constant="32" id="L3Z-Ft-fqr"/>
-                                    <constraint firstItem="Ndo-dg-yjL" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="top" constant="24" id="LbU-Vs-64E"/>
                                     <constraint firstAttribute="bottom" secondItem="vXm-Iq-egh" secondAttribute="bottom" constant="16" id="Wr8-3S-p3d"/>
                                     <constraint firstAttribute="width" secondItem="gFW-JC-hU7" secondAttribute="height" multiplier="620:290" id="Zo6-IG-bT5"/>
                                     <constraint firstItem="hb8-TM-KGG" firstAttribute="leading" secondItem="zpt-Nn-9Zm" secondAttribute="trailing" constant="8" id="a7M-wU-wz2"/>
                                     <constraint firstItem="vXm-Iq-egh" firstAttribute="leading" secondItem="zpt-Nn-9Zm" secondAttribute="leading" id="bIQ-09-KHJ"/>
                                     <constraint firstItem="zpt-Nn-9Zm" firstAttribute="leading" secondItem="gFW-JC-hU7" secondAttribute="leading" constant="32" id="cGB-wC-zKs"/>
                                     <constraint firstItem="1HW-g0-74a" firstAttribute="leading" secondItem="hb8-TM-KGG" secondAttribute="leading" id="cyl-co-LwS"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ndo-dg-yjL" secondAttribute="trailing" constant="32" id="iB0-SY-GKN"/>
                                     <constraint firstItem="zpt-Nn-9Zm" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="top" constant="32" id="iIr-X7-fMb"/>
                                     <constraint firstItem="hb8-TM-KGG" firstAttribute="top" secondItem="zpt-Nn-9Zm" secondAttribute="top" id="nRp-fW-5s7"/>
-                                    <constraint firstItem="Ndo-dg-yjL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hb8-TM-KGG" secondAttribute="trailing" constant="24" id="pMs-1J-MoX"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hb8-TM-KGG" secondAttribute="trailing" constant="32" id="riF-OD-5au"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="vXm-Iq-egh"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="jZf-DW-vRm" appends="YES" id="kGS-TV-MTO"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -430,6 +430,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-Cg-0fN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="jZf-DW-vRm" userLabel="User View Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="userViewTapped:" destination="2tb-sj-4ZD" id="vef-BK-8wd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1021.6" y="138.98050974512745"/>
         </scene>

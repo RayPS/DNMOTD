@@ -89,14 +89,22 @@ class UnderContainerViewController: UIViewController {
     }
 
     @IBAction func creditButtonTapped(_ sender: Any) {
-        let svc = SFSafariViewController(url: URL(string: "http://rayps.com")!)
-        svc.modalPresentationStyle = .overCurrentContext
-        svc.preferredBarTintColor = UIColor.white
-        svc.preferredControlTintColor = UIColor.black
-        present(svc, animated: true, completion: nil)
+        URL(string: "http://rayps.com")!.svcOpen(inView: self)
     }
     
-    
-    @IBAction func userPageButtonTapped(_ sender: UIButton) {
+    @IBAction func userViewTapped(_ sender: Any) {
+        let id = currentUser["id"].stringValue
+        URL(string: dn_url + "users/" + id)!.svcOpen(inView: self)
+    }
+}
+
+
+extension URL {
+    func svcOpen(inView view: UIViewController) {
+        let svc = SFSafariViewController(url: self)
+//        svc.modalPresentationStyle = .overCurrentContext
+        svc.preferredBarTintColor = UIColor.white
+        svc.preferredControlTintColor = UIColor.black
+        view.present(svc, animated: true, completion: nil)
     }
 }
