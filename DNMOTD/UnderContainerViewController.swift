@@ -30,7 +30,7 @@ class UnderContainerViewController: UIViewController {
         super.viewDidLoad()
         
         let systemFontName = UIFont.systemFont(ofSize: 32).fontName
-        fonts = [systemFontName, "Georgia", "GillSans", "Palatino"]
+        fonts = [systemFontName, "Georgia", "Helvetica", "Palatino"]
     }
     
     func customFont() {

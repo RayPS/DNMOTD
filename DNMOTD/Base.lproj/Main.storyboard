@@ -279,7 +279,7 @@
                                         <segments>
                                             <segment title="System Font"/>
                                             <segment title="Georgia"/>
-                                            <segment title="Gill Sans"/>
+                                            <segment title="Helvetica"/>
                                             <segment title="Palatino"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
