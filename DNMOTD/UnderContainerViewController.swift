@@ -36,27 +36,7 @@ class UnderContainerViewController: UIViewController {
     }
 
     
-    
-    
-    
-    func renderUserProfile() {
-        let first_name = currentUser["first_name"].stringValue
-        let last_name = currentUser["last_name"].stringValue
-        let full_name = first_name + " " + last_name
-        
-        fullnameLabel.text = " \(full_name) "
-        jobLabel.text = " \(currentUser["job"].stringValue) "
-        
-        coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
-        avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
-    }
-    
-    
-    
-    
-    
-    
-    
+
     func customFont() {
 
         // Because System font doesn't have Italic.
@@ -82,8 +62,17 @@ class UnderContainerViewController: UIViewController {
     
     
     
-    
-    
+    func renderUserProfile() {
+        let first_name = currentUser["first_name"].stringValue
+        let last_name = currentUser["last_name"].stringValue
+        let full_name = first_name + " " + last_name
+        
+        fullnameLabel.text = " \(full_name) "
+        jobLabel.text = " \(currentUser["job"].stringValue) "
+        
+        coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
+        avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
+    }
     
     
     
