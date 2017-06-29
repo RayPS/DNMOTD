@@ -50,6 +50,7 @@ class UnderContainerViewController: UIViewController {
             (fontItalic ? "Italic" : "")
         
         setFont?(UIFont(name: fontName, size: 32)!)
+        Haptic.impact(.light).generate()
     }
 
     @IBAction func fontSegmentedTapped(_ sender: UISegmentedControl) {
