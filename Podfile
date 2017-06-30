@@ -10,3 +10,8 @@ target 'DNMOTD' do
 	pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 	pod 'ReachabilitySwift', '~> 3'
 end
+
+target 'DNMOTD-Widget' do
+    use_frameworks!
+    pod 'Kanna', '~> 2.1.0'
+end

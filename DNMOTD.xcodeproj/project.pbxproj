@@ -26,6 +26,7 @@
 		71F699191F059CFB00154B52 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699151F059CFB00154B52 /* SF-Pro-Display-Regular.otf */; };
 		71F6991A1F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699161F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf */; };
 		71F699251F05CD0100154B52 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F699241F05CD0100154B52 /* TutorialViewController.swift */; };
+		ACEB39940801158AA3E9F00C /* Pods_DNMOTD_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5CB6D216499B4B845C608F /* Pods_DNMOTD_Widget.framework */; };
 		C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		47B7DB6FFEAA1B9B1571727E /* Pods-DNMOTD-Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD-Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD-Widget/Pods-DNMOTD-Widget.release.xcconfig"; sourceTree = "<group>"; };
 		711987661EDEC50C00A3A406 /* DNMOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNMOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		711987691EDEC50C00A3A406 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7119876B1EDEC50C00A3A406 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,8 @@
 		7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.release.xcconfig"; sourceTree = "<group>"; };
 		89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNMOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.debug.xcconfig"; sourceTree = "<group>"; };
+		BC5CB6D216499B4B845C608F /* Pods_DNMOTD_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNMOTD_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8377827E7B5356170261C3B /* Pods-DNMOTD-Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD-Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD-Widget/Pods-DNMOTD-Widget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				713C20EF1EE13A7300B03338 /* NotificationCenter.framework in Frameworks */,
+				ACEB39940801158AA3E9F00C /* Pods_DNMOTD_Widget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,8 @@
 			children = (
 				9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */,
 				7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */,
+				F8377827E7B5356170261C3B /* Pods-DNMOTD-Widget.debug.xcconfig */,
+				47B7DB6FFEAA1B9B1571727E /* Pods-DNMOTD-Widget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -115,6 +122,7 @@
 			children = (
 				89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */,
 				713C20EE1EE13A7300B03338 /* NotificationCenter.framework */,
+				BC5CB6D216499B4B845C608F /* Pods_DNMOTD_Widget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 713C20FC1EE13A7400B03338 /* Build configuration list for PBXNativeTarget "DNMOTD-Widget" */;
 			buildPhases = (
+				B2F7286DF782290CC763BFE7 /* [CP] Check Pods Manifest.lock */,
 				713C20E91EE13A7300B03338 /* Sources */,
 				713C20EA1EE13A7300B03338 /* Frameworks */,
 				713C20EB1EE13A7300B03338 /* Resources */,
+				1229A0C916B5CF08D4056E00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +299,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1229A0C916B5CF08D4056E00 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DNMOTD-Widget/Pods-DNMOTD-Widget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3F830349E7D4BF976DB4A6C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +342,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2F7286DF782290CC763BFE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FE9E017FBD78812251EB805E /* [CP] Copy Pods Resources */ = {
@@ -525,6 +565,7 @@
 		};
 		713C20FA1EE13A7400B03338 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8377827E7B5356170261C3B /* Pods-DNMOTD-Widget.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = MGAF98TG33;
 				INFOPLIST_FILE = "DNMOTD-Widget/Info.plist";
@@ -538,6 +579,7 @@
 		};
 		713C20FB1EE13A7400B03338 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47B7DB6FFEAA1B9B1571727E /* Pods-DNMOTD-Widget.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = MGAF98TG33;
 				INFOPLIST_FILE = "DNMOTD-Widget/Info.plist";

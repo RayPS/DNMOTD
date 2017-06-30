@@ -8,17 +8,32 @@
 
 import UIKit
 import NotificationCenter
+import Kanna
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
+        
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        
+        getLatestMOTD { (message, author) in
+            self.messageLabel.text = message
+            self.authorLabel.text = "— " + author
+        }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        switch activeDisplayMode {
+        case .expanded:
+            self.preferredContentSize.height = 200
+//            self.preferredContentSize.height = messageLabel.frame.size.height + authorLabel.frame.size.height + 16 * 3
+        case .compact:
+            self.preferredContentSize = maxSize
+        }
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -29,6 +44,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's an update, use NCUpdateResult.NewData
         
         completionHandler(NCUpdateResult.newData)
+    }
+    
+    
+    
+    
+    
+    func getLatestMOTD(completion: @escaping(_ message: String, _ author: String) -> Void) {
+        
+        let url = URL(string: "https://www.designernews.co/")
+        
+        if let doc = HTML(url: url!, encoding: .utf8) {
+            if let message = doc.at_css("#feed-motd-message"),
+                let author = doc.at_css("#feed-motd-author a") {
+                completion(message.text!, author.text!)
+            }
+        }
+        
     }
     
 }

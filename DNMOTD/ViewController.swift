@@ -50,7 +50,6 @@ class ViewController: UIViewController {
         initialFont()
         
         //                    TODO: ParseMedia
-        //                    TODO: UserData
         //                    TODO: TodayWidget
     }
 
