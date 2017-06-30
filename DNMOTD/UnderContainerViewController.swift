@@ -16,7 +16,6 @@ class UnderContainerViewController: UIViewController {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
-    @IBOutlet weak var dataLabel: UILabel!
 
     @IBOutlet weak var fontSegmentedControl: UISegmentedControl!
     @IBOutlet weak var fontBoldButton: UIButton!
@@ -121,6 +120,13 @@ class UnderContainerViewController: UIViewController {
         
         coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
         avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
+        
+//        let stories = currentUser["links"]["stories"].count
+//        let comments = currentUser["links"]["comments"].count
+//        let upvotes = currentUser["links"]["upvotes"].count
+//        let karma = currentUser["karma"].stringValue
+        
+//        dataLabel.text = "\(stories) stories, \(comments) comments, \(upvotes) upvotes, \(karma) karma"
         
         completion()
     }

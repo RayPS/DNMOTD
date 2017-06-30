@@ -469,9 +469,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFW-JC-hU7" userLabel="User View">
                                 <rect key="frame" x="0.0" y="491" width="375" height="175.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OF8-mZ-1bI" userLabel="Cover Image View">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OF8-mZ-1bI" userLabel="Cover Image View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zpt-Nn-9Zm" userLabel="Avatar Image View">
                                         <rect key="frame" x="32" y="32" width="40" height="40"/>
@@ -495,31 +494,23 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 stories  42 comments  162 upvotes  68 karma" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXm-Iq-egh" userLabel="Data Label">
-                                        <rect key="frame" x="32" y="145" width="276.5" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="1HW-g0-74a" firstAttribute="top" secondItem="hb8-TM-KGG" secondAttribute="bottom" constant="7.5" id="FKN-NV-0UE"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1HW-g0-74a" secondAttribute="trailing" constant="32" id="L3Z-Ft-fqr"/>
+                                    <constraint firstItem="OF8-mZ-1bI" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="top" id="WXS-z5-2yc"/>
+                                    <constraint firstItem="OF8-mZ-1bI" firstAttribute="leading" secondItem="gFW-JC-hU7" secondAttribute="leading" id="XA1-mm-jAE"/>
                                     <constraint firstAttribute="width" secondItem="gFW-JC-hU7" secondAttribute="height" multiplier="620:290" id="Zo6-IG-bT5"/>
                                     <constraint firstItem="hb8-TM-KGG" firstAttribute="leading" secondItem="zpt-Nn-9Zm" secondAttribute="trailing" constant="8" id="a7M-wU-wz2"/>
-                                    <constraint firstItem="vXm-Iq-egh" firstAttribute="leading" secondItem="zpt-Nn-9Zm" secondAttribute="leading" id="bIQ-09-KHJ"/>
                                     <constraint firstItem="zpt-Nn-9Zm" firstAttribute="leading" secondItem="gFW-JC-hU7" secondAttribute="leading" constant="32" id="cGB-wC-zKs"/>
                                     <constraint firstItem="1HW-g0-74a" firstAttribute="leading" secondItem="hb8-TM-KGG" secondAttribute="leading" id="cyl-co-LwS"/>
+                                    <constraint firstAttribute="bottom" secondItem="OF8-mZ-1bI" secondAttribute="bottom" id="dos-gg-Kyb"/>
+                                    <constraint firstAttribute="trailing" secondItem="OF8-mZ-1bI" secondAttribute="trailing" id="hcL-hl-tdG"/>
                                     <constraint firstItem="zpt-Nn-9Zm" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="top" constant="32" id="iIr-X7-fMb"/>
                                     <constraint firstItem="hb8-TM-KGG" firstAttribute="top" secondItem="zpt-Nn-9Zm" secondAttribute="top" id="nRp-fW-5s7"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hb8-TM-KGG" secondAttribute="trailing" constant="32" id="riF-OD-5au"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="vXm-Iq-egh"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="jZf-DW-vRm" appends="YES" id="kGS-TV-MTO"/>
                                 </connections>
@@ -540,7 +531,6 @@
                     <connections>
                         <outlet property="avatarImage" destination="zpt-Nn-9Zm" id="HmI-Fr-OEZ"/>
                         <outlet property="coverImage" destination="OF8-mZ-1bI" id="t0r-rM-pB5"/>
-                        <outlet property="dataLabel" destination="vXm-Iq-egh" id="fxn-SA-HcP"/>
                         <outlet property="fontBoldButton" destination="WXK-Zx-06K" id="aHk-v4-3F5"/>
                         <outlet property="fontItalicButton" destination="b4f-RS-tQa" id="q53-7h-UWp"/>
                         <outlet property="fontSegmentedControl" destination="CD1-Ij-f7O" id="Ewv-nB-CO5"/>
