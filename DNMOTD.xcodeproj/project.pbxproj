@@ -25,6 +25,7 @@
 		71F699181F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699141F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf */; };
 		71F699191F059CFB00154B52 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699151F059CFB00154B52 /* SF-Pro-Display-Regular.otf */; };
 		71F6991A1F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71F699161F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf */; };
+		71F699251F05CD0100154B52 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F699241F05CD0100154B52 /* TutorialViewController.swift */; };
 		C18FFCF1B7DEC235AA3DBA5A /* Pods_DNMOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		71F699141F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
 		71F699151F059CFB00154B52 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		71F699161F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-RegularItalic.otf"; sourceTree = "<group>"; };
+		71F699241F05CD0100154B52 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		7BCD2C310CF484FF8749C932 /* Pods-DNMOTD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.release.xcconfig"; sourceTree = "<group>"; };
 		89F7FFD2D638D23080CE883B /* Pods_DNMOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DNMOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F643E89F7D90A01523FCCDC /* Pods-DNMOTD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DNMOTD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DNMOTD/Pods-DNMOTD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,10 +142,6 @@
 		711987681EDEC50C00A3A406 /* DNMOTD */ = {
 			isa = PBXGroup;
 			children = (
-				71F699131F059CFB00154B52 /* SF-Pro-Display-Bold.otf */,
-				71F699141F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf */,
-				71F699151F059CFB00154B52 /* SF-Pro-Display-Regular.otf */,
-				71F699161F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf */,
 				7119876D1EDEC50C00A3A406 /* Main.storyboard */,
 				7119876B1EDEC50C00A3A406 /* ViewController.swift */,
 				717F54661F03A22A001260A2 /* UnderContainerViewController.swift */,
@@ -152,9 +150,11 @@
 				71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */,
 				71752BFC1EF42D3D00B68428 /* Utilities.swift */,
 				711987701EDEC50C00A3A406 /* Assets.xcassets */,
+				71F699231F05C4F900154B52 /* SF */,
 				711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */,
 				711987751EDEC50C00A3A406 /* Info.plist */,
 				711987691EDEC50C00A3A406 /* AppDelegate.swift */,
+				71F699241F05CD0100154B52 /* TutorialViewController.swift */,
 			);
 			path = DNMOTD;
 			sourceTree = "<group>";
@@ -167,6 +167,17 @@
 				713C20F61EE13A7300B03338 /* Info.plist */,
 			);
 			path = "DNMOTD-Widget";
+			sourceTree = "<group>";
+		};
+		71F699231F05C4F900154B52 /* SF */ = {
+			isa = PBXGroup;
+			children = (
+				71F699131F059CFB00154B52 /* SF-Pro-Display-Bold.otf */,
+				71F699141F059CFB00154B52 /* SF-Pro-Display-BoldItalic.otf */,
+				71F699151F059CFB00154B52 /* SF-Pro-Display-Regular.otf */,
+				71F699161F059CFB00154B52 /* SF-Pro-Display-RegularItalic.otf */,
+			);
+			name = SF;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +343,7 @@
 			files = (
 				71752BFD1EF42D3D00B68428 /* Utilities.swift in Sources */,
 				717F54671F03A22A001260A2 /* UnderContainerViewController.swift in Sources */,
+				71F699251F05CD0100154B52 /* TutorialViewController.swift in Sources */,
 				71527BD71EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift in Sources */,
 				7119876C1EDEC50C00A3A406 /* ViewController.swift in Sources */,
 				71A5C3691EF1CB160012F966 /* LoadingEffect.swift in Sources */,

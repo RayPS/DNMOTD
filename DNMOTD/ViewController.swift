@@ -38,6 +38,8 @@ class ViewController: UIViewController {
     
     let reachability = Reachability()!
     
+    var isFirstLaunch = false
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -46,16 +48,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         initial()
         initialFont()
-        initialFirstLaunch()
         
         //                    TODO: ParseMedia
         //                    TODO: UserData
         //                    TODO: TodayWidget
-        
-        
-        
-        
     }
+
     
     var underView: UnderContainerViewController!
     
@@ -156,7 +154,11 @@ class ViewController: UIViewController {
                 self.userButton.layer.opacity = 1
             })
             
-            self.underView.renderUserProfile()
+            self.underView.renderUserProfile {
+                if self.isFirstLaunch {
+                    self.showHint()
+                }
+            }
         })
     }
     
@@ -330,8 +332,14 @@ class ViewController: UIViewController {
     }
     
     
-    func initialFirstLaunch() {
-        
+    func showHint() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            if let tutorialViewController = self.storyboard?.instantiateViewController(withIdentifier: "TutorialViewController") {
+                tutorialViewController.modalTransitionStyle = .crossDissolve
+                tutorialViewController.modalPresentationStyle = .overCurrentContext
+                self.present(tutorialViewController, animated: true, completion: nil)
+            }
+        }
     }
     
     func initialFont() {
@@ -339,7 +347,7 @@ class ViewController: UIViewController {
             messageLabel.font = UIFont(name: fontName, size: 32)
             underView.initialFontSettingsUIStates()
         } else {
-            // Is first launch
+            isFirstLaunch = true
             Defaults[.fontIndex] = 0
             Defaults[.fontBold] = true
             Defaults[.fontItalic] = false

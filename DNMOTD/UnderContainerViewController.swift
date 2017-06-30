@@ -111,7 +111,7 @@ class UnderContainerViewController: UIViewController {
     
     // User View:
     
-    func renderUserProfile() {
+    func renderUserProfile(completion: @escaping() -> Void) {
         let first_name = currentUser["first_name"].stringValue
         let last_name = currentUser["last_name"].stringValue
         let full_name = first_name + " " + last_name
@@ -121,6 +121,8 @@ class UnderContainerViewController: UIViewController {
         
         coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
         avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
+        
+        completion()
     }
 }
 
