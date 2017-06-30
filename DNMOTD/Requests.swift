@@ -23,19 +23,15 @@ func getlatestID(completion: @escaping () -> Void) {
     
     let url = URL(string: dn_url)
     
-    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-        if let html = data, let doc = HTML(html: html, encoding: .utf8) {
-            if let result = doc.css("#feed-motd-container").first {
-                let id = result["data-id"]!
-                DispatchQueue.main.async {
-                    latestID = Int(id)!
-                    completion()
-                }
+    if let doc = HTML(url: url!, encoding: .utf8) {
+        if let result = doc.at_css("#feed-motd-container") {
+            let id = result["data-id"]!
+            DispatchQueue.main.async {
+                latestID = Int(id)!
+                completion()
             }
         }
     }
-    
-    task.resume()
 }
 
 
