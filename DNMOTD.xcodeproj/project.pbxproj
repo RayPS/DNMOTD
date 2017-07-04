@@ -542,7 +542,7 @@
 				DEVELOPMENT_TEAM = MGAF98TG33;
 				INFOPLIST_FILE = DNMOTD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rayps.DNMOTD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rayps.DNMOTD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -557,7 +557,7 @@
 				DEVELOPMENT_TEAM = MGAF98TG33;
 				INFOPLIST_FILE = DNMOTD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rayps.DNMOTD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rayps.DNMOTD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -570,7 +570,7 @@
 				DEVELOPMENT_TEAM = MGAF98TG33;
 				INFOPLIST_FILE = "DNMOTD-Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "rayps.DNMOTD.DNMOTD-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rayps.DNMOTD.DNMOTD-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -584,7 +584,7 @@
 				DEVELOPMENT_TEAM = MGAF98TG33;
 				INFOPLIST_FILE = "DNMOTD-Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "rayps.DNMOTD.DNMOTD-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rayps.DNMOTD.DNMOTD-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
