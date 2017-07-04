@@ -17,6 +17,7 @@
 		713C20F21EE13A7300B03338 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713C20F11EE13A7300B03338 /* TodayViewController.swift */; };
 		713C20F51EE13A7300B03338 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 713C20F31EE13A7300B03338 /* MainInterface.storyboard */; };
 		713C20F91EE13A7300B03338 /* DNMOTD-Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 713C20ED1EE13A7300B03338 /* DNMOTD-Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7143D9561F0B9CB00096DE52 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71752BFC1EF42D3D00B68428 /* Utilities.swift */; };
 		71527BD71EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */; };
 		71752BFD1EF42D3D00B68428 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71752BFC1EF42D3D00B68428 /* Utilities.swift */; };
 		717F54671F03A22A001260A2 /* UnderContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717F54661F03A22A001260A2 /* UnderContainerViewController.swift */; };
@@ -396,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7143D9561F0B9CB00096DE52 /* Utilities.swift in Sources */,
 				713C20F21EE13A7300B03338 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

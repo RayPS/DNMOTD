@@ -15,24 +15,30 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     
+    var message = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
         getLatestMOTD { (message, author) in
+            self.message = message
             self.messageLabel.text = message
             self.authorLabel.text = "— " + author
         }
+        
     }
+    
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         switch activeDisplayMode {
-        case .expanded:
-            self.preferredContentSize.height = 200
-//            self.preferredContentSize.height = messageLabel.frame.size.height + authorLabel.frame.size.height + 16 * 3
         case .compact:
-            self.preferredContentSize = maxSize
+            messageLabel.numberOfLines = 2
+            messageLabel.frame.size.height = messageLabel.preferredHeight(withText: "\n")
+        case .expanded:
+            messageLabel.numberOfLines = 0
+            self.preferredContentSize.height = 16 * 4 + messageLabel.preferredHeight()
         }
     }
     
@@ -64,3 +70,25 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
 }
+
+
+extension UILabel {
+    
+    func preferredHeight(withText: String? = nil) -> CGFloat {
+
+        let text = withText ?? self.text ?? "\n"
+        let font = self.font!
+        let width = self.frame.width
+        let insets = UIEdgeInsets.zero
+        
+        let constrainedSize = CGSize(width: width - insets.left - insets.right, height: CGFloat.greatestFiniteMagnitude)
+        let attributes = [NSFontAttributeName: font]
+        let options: NSStringDrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]
+        let bounds = (text as NSString).boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
+        let height = ceil(bounds.height + insets.top + insets.bottom)
+        
+        return height
+    }
+}
+
+

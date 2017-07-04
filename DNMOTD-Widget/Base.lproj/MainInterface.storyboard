@@ -21,25 +21,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
-                                <rect key="frame" x="24" y="16" width="272" height="19.5"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
+                                <rect key="frame" x="24" y="16" width="272" height="38.5"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <string key="text">Loading...
+</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ib-ym-zah">
-                                <rect key="frame" x="245.5" y="51.5" width="50.5" height="19.5"/>
+                                <rect key="frame" x="245.5" y="70" width="50.5" height="16"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="jFB-Pr-Nf9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5Ib-ym-zah" secondAttribute="bottom" constant="16" id="59l-fh-eBV"/>
+                            <constraint firstItem="5Ib-ym-zah" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="16" id="0DE-Uy-wLc"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="24" id="6Vq-gs-PHe"/>
-                            <constraint firstItem="5Ib-ym-zah" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="16" id="INs-RV-EDy"/>
                             <constraint firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" constant="24" id="L8K-9R-egU"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="16" id="mYS-Cv-VNx"/>
                             <constraint firstItem="5Ib-ym-zah" firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" id="oIr-kO-ugV"/>
@@ -58,6 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="33.600000000000001" y="37.781109445277366"/>
         </scene>
     </scenes>
 </document>
