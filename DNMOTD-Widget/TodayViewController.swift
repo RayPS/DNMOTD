@@ -12,6 +12,7 @@ import Kanna
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     
@@ -20,8 +21,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
+        self.view.backgroundColor = UIColor.clear
         self.messageLabel.text = "\n"
         self.authorLabel.text = ""
+        cardView.layer.cornerRadius = 8
         
         getLatestMOTD { (message, author) in
             self.messageLabel.text = message
@@ -42,10 +45,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         switch activeDisplayMode {
         case .compact:
-            messageLabel.frame.size.height = messageLabel.preferredHeight(withText: "\n")
+//            messageLabel.frame.size.height = messageLabel.preferredHeight(withText: "\n")
             self.preferredContentSize.height = maxSize.height
         case .expanded:
-            self.preferredContentSize.height = 16 * 4 + messageLabel.preferredHeight()
+            print("")
+//            self.preferredContentSize.height = maxSize.height
+            self.preferredContentSize.height = 8 * 2 + 16 * 4 + messageLabel.preferredHeight()
         }
     }
     
