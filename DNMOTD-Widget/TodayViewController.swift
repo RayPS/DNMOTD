@@ -15,15 +15,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     
-    var message = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
+        self.messageLabel.text = "\n"
+        self.authorLabel.text = ""
+        
         getLatestMOTD { (message, author) in
-            self.message = message
             self.messageLabel.text = message
             self.authorLabel.text = "— " + author
         }
@@ -31,13 +31,20 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     
+    
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        
+        UIView.animate(withDuration: 0.75) {
+            self.messageLabel.layer.opacity = 0
+            UIView.animate(withDuration: 0.75) {
+                self.messageLabel.layer.opacity = 1
+            }
+        }
         switch activeDisplayMode {
         case .compact:
-            messageLabel.numberOfLines = 2
             messageLabel.frame.size.height = messageLabel.preferredHeight(withText: "\n")
+            self.preferredContentSize.height = maxSize.height
         case .expanded:
-            messageLabel.numberOfLines = 0
             self.preferredContentSize.height = 16 * 4 + messageLabel.preferredHeight()
         }
     }
@@ -53,6 +60,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     
+    @IBAction func tapGesture(_ sender: Any) {
+        if let url = URL(string: "dnmotd://") {
+            extensionContext?.open(url, completionHandler: nil)
+        }
+    }
     
     
     
