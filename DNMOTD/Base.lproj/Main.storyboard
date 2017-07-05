@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -445,7 +446,10 @@
                                             <color key="titleColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4EY-dt-k2H" kind="custom" id="3FO-iZ-5Lv"/>
+                                            <segue destination="4EY-dt-k2H" kind="show" id="3FO-iZ-5Lv">
+                                                <segue key="commit" inheritsFrom="parent" id="70B-G8-Y7m"/>
+                                                <segue key="preview" inheritsFrom="commit" id="jD3-KB-M9O"/>
+                                            </segue>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -565,7 +569,7 @@
         <!--View Controller-->
         <scene sceneID="LAc-1O-7PV">
             <objects>
-                <viewController modalTransitionStyle="partialCurl" id="4EY-dt-k2H" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="4EY-dt-k2H" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xBe-gv-PXQ"/>
                         <viewControllerLayoutGuide type="bottom" id="UHC-9y-4l9"/>
@@ -575,13 +579,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4V7-zn-wqq">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="295" y="0.0" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="PwB-VT-iU8"/>
                                     <constraint firstAttribute="height" constant="80" id="xXu-sE-hXV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                <state key="normal" title="←">
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="✖️">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -591,10 +595,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4V7-zn-wqq" firstAttribute="leading" secondItem="foR-6o-7vY" secondAttribute="leading" id="SMb-9U-fkD"/>
+                            <constraint firstAttribute="trailing" secondItem="4V7-zn-wqq" secondAttribute="trailing" id="cAx-IG-CxJ"/>
                             <constraint firstItem="4V7-zn-wqq" firstAttribute="top" secondItem="xBe-gv-PXQ" secondAttribute="bottom" id="qOO-L4-A8e"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohk-r9-uTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rpm-LH-ZII" userLabel="Exit" sceneMemberID="exit"/>
@@ -602,4 +607,7 @@
             <point key="canvasLocation" x="1869.5999999999999" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3FO-iZ-5Lv"/>
+    </inferredMetricsTieBreakers>
 </document>
