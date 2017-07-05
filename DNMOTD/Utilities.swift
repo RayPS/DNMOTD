@@ -78,3 +78,23 @@ public enum Haptic {
         layer.borderColor = UIColor.black.cgColor
     }
 }
+
+
+extension UILabel {
+    
+    func preferredHeight(withText: String? = nil) -> CGFloat {
+        
+        let text = withText ?? self.text ?? "\n"
+        let font = self.font!
+        let width = self.frame.width
+        let insets = UIEdgeInsets.zero
+        
+        let constrainedSize = CGSize(width: width - insets.left - insets.right, height: CGFloat.greatestFiniteMagnitude)
+        let attributes = [NSFontAttributeName: font]
+        let options: NSStringDrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]
+        let bounds = (text as NSString).boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
+        let height = ceil(bounds.height + insets.top + insets.bottom)
+        
+        return height
+    }
+}
