@@ -19,38 +19,30 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
         self.view.backgroundColor = UIColor.clear
         self.messageLabel.text = "\n"
         self.authorLabel.text = ""
         cardView.layer.cornerRadius = 8
         
+        preferredContentSize = view.systemLayoutSizeFitting(view.bounds.size)
+        
         getLatestMOTD { (message, author) in
             self.messageLabel.text = message
             self.authorLabel.text = "— " + author
         }
-        
     }
     
     
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        
-        UIView.animate(withDuration: 0.75) {
-            self.messageLabel.layer.opacity = 0
-            UIView.animate(withDuration: 0.75) {
-                self.messageLabel.layer.opacity = 1
-            }
-        }
         switch activeDisplayMode {
         case .compact:
-//            messageLabel.frame.size.height = messageLabel.preferredHeight(withText: "\n")
-            self.preferredContentSize.height = maxSize.height
+            preferredContentSize = maxSize
         case .expanded:
-            print("")
-//            self.preferredContentSize.height = maxSize.height
-            self.preferredContentSize.height = 8 * 2 + 16 * 4 + messageLabel.preferredHeight()
+            preferredContentSize = view.systemLayoutSizeFitting(view.bounds.size)
+            
         }
     }
     
@@ -60,7 +52,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        
         completionHandler(NCUpdateResult.newData)
     }
     
@@ -86,26 +77,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     }
     
-}
-
-
-extension UILabel {
-    
-    func preferredHeight(withText: String? = nil) -> CGFloat {
-
-        let text = withText ?? self.text ?? "\n"
-        let font = self.font!
-        let width = self.frame.width
-        let insets = UIEdgeInsets.zero
-        
-        let constrainedSize = CGSize(width: width - insets.left - insets.right, height: CGFloat.greatestFiniteMagnitude)
-        let attributes = [NSFontAttributeName: font]
-        let options: NSStringDrawingOptions = [.usesFontLeading, .usesLineFragmentOrigin]
-        let bounds = (text as NSString).boundingRect(with: constrainedSize, options: options, attributes: attributes, context: nil)
-        let height = ceil(bounds.height + insets.top + insets.bottom)
-        
-        return height
-    }
 }
 
 
