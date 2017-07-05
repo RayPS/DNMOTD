@@ -98,6 +98,11 @@ class UnderContainerViewController: UIViewController {
         URL(string: "http://rayps.com")!.svcOpen(inView: self)
     }
     
+    @IBAction func widgetButtonTapped(_ sender: Any) {
+        
+    }
+    
+    
     @IBAction func userViewTapped(_ sender: Any) {
         let id = currentUser["id"].stringValue
         URL(string: dn_url + "users/" + id)!.svcOpen(inView: self)
