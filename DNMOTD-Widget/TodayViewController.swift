@@ -39,10 +39,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         switch activeDisplayMode {
         case .compact:
-            preferredContentSize = maxSize
+            UIView.animate(withDuration: 0.25, animations: { 
+                self.preferredContentSize = maxSize
+            })
         case .expanded:
-            preferredContentSize = view.systemLayoutSizeFitting(view.bounds.size)
-            
+            UIView.animate(withDuration: 0.25, animations: {
+                self.preferredContentSize = self.view.systemLayoutSizeFitting(self.view.bounds.size)
+            })
         }
     }
     
