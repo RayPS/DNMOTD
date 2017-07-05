@@ -16,37 +16,63 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     
+    let gradient = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
         self.view.backgroundColor = UIColor.clear
         self.messageLabel.text = "\n"
         self.authorLabel.text = ""
         cardView.layer.cornerRadius = 8
         
-        preferredContentSize = view.systemLayoutSizeFitting(view.bounds.size)
-        
         getLatestMOTD { (message, author) in
             self.messageLabel.text = message
             self.authorLabel.text = "— " + author
+            
+            if self.messageLabel.preferredHeight() > self.messageLabel.preferredHeight(withText: "\n") {
+                self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+                self.view.layer.mask = self.gradient
+            } else {
+                self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
+            }
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        gradient.frame = view.frame
+        
+        gradient.colors = [
+            UIColor.black.cgColor,
+            UIColor.black.cgColor,
+            UIColor.clear.cgColor
+        ]
+        
+        gradient.locations = [0.0, 0.75, 0.95]
+    }
     
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        switch activeDisplayMode {
-        case .compact:
-            UIView.animate(withDuration: 0.25, animations: { 
+            
+            
+        UIView.animate(withDuration: 0.25, animations: {
+            switch activeDisplayMode {
+            case .compact:
                 self.preferredContentSize = maxSize
-            })
-        case .expanded:
-            UIView.animate(withDuration: 0.25, animations: {
+            case .expanded:
                 self.preferredContentSize = self.view.systemLayoutSizeFitting(self.view.bounds.size)
-            })
-        }
+            }
+        })
+    
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.5)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+        
+        view.layer.mask?.bounds.size = maxSize
+        
+        CATransaction.commit()
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

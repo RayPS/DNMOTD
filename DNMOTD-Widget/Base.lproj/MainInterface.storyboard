@@ -22,18 +22,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nai-CR-Zhf">
-                                <rect key="frame" x="8" y="8" width="304" height="102.5"/>
+                                <rect key="frame" x="8" y="8" width="304" height="94.5"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please stop posting dribbble shots to DN." lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
                                         <rect key="frame" x="16" y="16" width="272" height="38.5"/>
-                                        <string key="text">Loading...
-</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ib-ym-zah">
-                                        <rect key="frame" x="235" y="70.5" width="45" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="— Author" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ib-ym-zah">
+                                        <rect key="frame" x="217" y="62.5" width="63" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="mD7-NW-QPr"/>
                                         </constraints>
@@ -45,7 +43,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="5Ib-ym-zah" secondAttribute="trailing" constant="24" id="AB5-7F-PMK"/>
-                                    <constraint firstItem="5Ib-ym-zah" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="16" id="Mck-9H-O4m"/>
+                                    <constraint firstItem="5Ib-ym-zah" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="8" id="Mck-9H-O4m"/>
                                     <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="nai-CR-Zhf" secondAttribute="top" constant="16" id="VXO-aY-SMd"/>
                                     <constraint firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" constant="16" id="Y55-SM-q32"/>
                                     <constraint firstAttribute="bottom" secondItem="5Ib-ym-zah" secondAttribute="bottom" constant="16" id="nHd-wd-ARW"/>
