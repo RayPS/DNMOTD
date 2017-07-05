@@ -46,31 +46,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initial()
-        initialFont()
+        load()
         
         //                    TODO: ParseMedia
         //                    TODO: TodayWidget
     }
 
-    
-    var underView: UnderContainerViewController!
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UnderContainerViewSegue" {
-            underView = segue.destination as? UnderContainerViewController
-            underView.setFont = { [weak self] font in
-                self?.contentView.animation = "fadeOut"
-                self?.contentView.duration = 0.25
-                self?.contentView.animateNext {
-                    self?.messageLabel.font = font
-                    self?.contentView.animation = "fadeIn"
-                    self?.contentView.animate()
-                }
+    func load() {
+        networkCheck {
+            getlatestID {
+                currentID = latestID
+                self.renderMOTD()
             }
         }
     }
-    
+
+    var underView: UnderContainerViewController!
     
     func initial() {
         messageLabel.layer.opacity = 0
@@ -83,35 +76,31 @@ class ViewController: UIViewController {
         
         Loader.addLoadersTo(loadingEffectView)
 
-        networkCheck {
-            getlatestID {
-                currentID = latestID
-                self.renderMOTD()
-            }
+        if let fontName = Defaults[.fontName] {
+            messageLabel.font = UIFont(name: fontName, size: 32)
+            underView.initialFontSettingsUIStates()
+        } else {
+            isFirstLaunch = true
+            Defaults[.fontIndex] = 0
+            Defaults[.fontBold] = true
+            Defaults[.fontItalic] = false
         }
-        
-        
     }
     
     
     func networkCheck(success: @escaping() -> Void) {
-        reachability.whenReachable = { reachability in
-            // UI updates must be on the main thread
+        if reachability.isReachable {
+            print("reachability.isReachable")
             success()
-            reachability.stopNotifier()
-        }
-        reachability.whenUnreachable = { reachability in
-            // UI updates must be on the main thread
+        } else {
+            print("else")
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Network Error", message: "Please check your network configurations.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { alert in
+                    self.load()
+                }))
                 self.present(alert, animated: true, completion: nil)
             }
-        }
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
         }
     }
 
@@ -183,7 +172,7 @@ class ViewController: UIViewController {
         }
         containerView.animateTo()
     }
-    
+
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
         
         let translation = sender.translation(in: view)
@@ -284,6 +273,22 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UnderContainerViewSegue" {
+            underView = segue.destination as? UnderContainerViewController
+            underView.setFont = { [weak self] font in
+                self?.contentView.animation = "fadeOut"
+                self?.contentView.duration = 0.25
+                self?.contentView.animateNext {
+                    self?.messageLabel.font = font
+                    self?.contentView.animation = "fadeIn"
+                    self?.contentView.animate()
+                }
+            }
+        }
+    }
 
     
     
@@ -348,16 +353,6 @@ class ViewController: UIViewController {
         }
     }
     
-    func initialFont() {
-        if let fontName = Defaults[.fontName] {
-            messageLabel.font = UIFont(name: fontName, size: 32)
-            underView.initialFontSettingsUIStates()
-        } else {
-            isFirstLaunch = true
-            Defaults[.fontIndex] = 0
-            Defaults[.fontBold] = true
-            Defaults[.fontItalic] = false
-        }
-    }
+    
 }
 
