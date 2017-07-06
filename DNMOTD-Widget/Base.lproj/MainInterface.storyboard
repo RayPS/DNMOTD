@@ -49,6 +49,9 @@
                                     <constraint firstAttribute="bottom" secondItem="5Ib-ym-zah" secondAttribute="bottom" constant="16" id="nHd-wd-ARW"/>
                                     <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="nai-CR-Zhf" secondAttribute="leading" constant="16" id="xuY-dC-4Yd"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eKB-tz-FAB" appends="YES" id="8R1-aR-B4O"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,9 +62,6 @@
                             <constraint firstAttribute="bottom" secondItem="nai-CR-Zhf" secondAttribute="bottom" priority="250" constant="8" id="TdP-Tl-YfM"/>
                             <constraint firstAttribute="trailing" secondItem="nai-CR-Zhf" secondAttribute="trailing" constant="8" id="vse-yp-YaO"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="eKB-tz-FAB" appends="YES" id="LaL-Dq-Oaf"/>
-                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
