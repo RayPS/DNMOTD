@@ -44,6 +44,48 @@ class HintViewController: UIViewController {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class AboutViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.clear
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class WidgetIntroViewController: UIViewController {
 
     @IBOutlet weak var videoView: UIView!
@@ -74,6 +116,8 @@ class WidgetIntroViewController: UIViewController {
 
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.clear
         videoView.backgroundColor = UIColor.clear
         let url = Bundle.main.url(forResource: "Widget-Intro", withExtension: "mov")
         let playerLayer = videoPlayerLayer(fileURL: url!)
