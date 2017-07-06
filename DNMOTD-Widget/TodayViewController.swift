@@ -21,11 +21,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initial()
-        load()
-    }
-
-    func initial() {
         self.view.backgroundColor = UIColor.clear
         self.messageLabel.text = "\n"
         self.authorLabel.text = ""
@@ -38,20 +33,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         ]
 
         gradient.locations = [0.0, 0.75, 0.95]
-    }
-
-    func load() {
-        getLatestMOTD { (message, author) in
-            self.messageLabel.text = message
-            self.authorLabel.text = "— " + author
-
-            if self.messageLabel.preferredHeight() > self.messageLabel.preferredHeight(withText: "\n") {
-                self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-                self.view.layer.mask = self.gradient
-            } else {
-                self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,7 +71,27 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        completionHandler(NCUpdateResult.newData)
+
+        getLatestMOTD { (message, author) in
+
+            if message == self.messageLabel.text {
+                completionHandler(NCUpdateResult.noData)
+            } else {
+                self.messageLabel.text = message
+                self.authorLabel.text = "— " + author
+
+                completionHandler(NCUpdateResult.newData)
+
+                if self.messageLabel.preferredHeight() > self.messageLabel.preferredHeight(withText: "\n") {
+                    self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+                    self.view.layer.mask = self.gradient
+                } else {
+                    self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
+                }
+            }
+        }
+
+
     }
     
     
