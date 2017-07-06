@@ -20,7 +20,7 @@ extension DefaultsKeys {
     static let fontName = DefaultsKey<String?>("fontName")
 }
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var containerView: SpringView!
     @IBOutlet weak var contentView: SpringView!
@@ -90,7 +90,6 @@ class ViewController: UIViewController {
     
     func networkCheck(success: @escaping() -> Void) {
         if reachability.isReachable {
-            print("reachability.isReachable")
             success()
         } else {
             print("else")
