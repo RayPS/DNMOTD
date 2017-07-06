@@ -219,6 +219,7 @@
                         <outlet property="rightCircle" destination="P6E-3u-QyG" id="C4c-QK-xhc"/>
                         <outlet property="userButton" destination="uAe-Bi-qbM" id="Fxt-fr-ZlC"/>
                         <outlet property="votesLabel" destination="rIJ-uv-81y" id="zWl-58-ePg"/>
+                        <segue destination="ynk-7K-E5t" kind="presentation" identifier="Show Hint Segue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="QXT-vQ-Pg6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

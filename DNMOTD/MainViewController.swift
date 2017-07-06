@@ -338,11 +338,7 @@ class MainViewController: UIViewController {
     func showHint(instantly: Bool = false) {
         let delay = DispatchTime.now() + (instantly ? 0 : 2)
         DispatchQueue.main.asyncAfter(deadline: delay) {
-            if let tutorialViewController = self.storyboard?.instantiateViewController(withIdentifier: "TutorialViewController") {
-                tutorialViewController.modalTransitionStyle = .crossDissolve
-                tutorialViewController.modalPresentationStyle = .overCurrentContext
-                self.present(tutorialViewController, animated: true, completion: nil)
-            }
+            self.performSegue(withIdentifier: "Show Hint Segue", sender: self)
         }
     }
     
