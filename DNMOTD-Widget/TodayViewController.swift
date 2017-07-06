@@ -21,15 +21,30 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initial()
+        load()
+    }
+
+    func initial() {
         self.view.backgroundColor = UIColor.clear
         self.messageLabel.text = "\n"
         self.authorLabel.text = ""
         cardView.layer.cornerRadius = 8
-        
+
+        gradient.colors = [
+            UIColor.black.cgColor,
+            UIColor.black.cgColor,
+            UIColor.clear.cgColor
+        ]
+
+        gradient.locations = [0.0, 0.75, 0.95]
+    }
+
+    func load() {
         getLatestMOTD { (message, author) in
             self.messageLabel.text = message
             self.authorLabel.text = "— " + author
-            
+
             if self.messageLabel.preferredHeight() > self.messageLabel.preferredHeight(withText: "\n") {
                 self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
                 self.view.layer.mask = self.gradient
@@ -40,22 +55,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        gradient.frame = view.frame
-        
-        gradient.colors = [
-            UIColor.black.cgColor,
-            UIColor.black.cgColor,
-            UIColor.clear.cgColor
-        ]
-        
-        gradient.locations = [0.0, 0.75, 0.95]
+        if let mode = extensionContext?.widgetActiveDisplayMode,
+           let maxSize = extensionContext?.widgetMaximumSize(for: mode) {
+            gradient.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: maxSize)
+        }
     }
     
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-            
-            
+
         UIView.animate(withDuration: 0.25, animations: {
             switch activeDisplayMode {
             case .compact:
@@ -65,14 +73,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
         })
     
-        
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(0.5)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
-        
-        view.layer.mask?.bounds.size = maxSize
-        
-        CATransaction.commit()
+        if self.extensionContext?.widgetLargestAvailableDisplayMode == .expanded {
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(0.5)
+            CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+
+            gradient.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: maxSize)
+
+            CATransaction.commit()
+        }
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
