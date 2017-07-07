@@ -67,6 +67,10 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.clear
     }
+
+    @IBAction func panelSwiped(_ sender: UISwipeGestureRecognizer) {
+            self.dismiss(animated: true)
+    }
 }
 
 
@@ -125,4 +129,8 @@ class WidgetIntroViewController: UIViewController {
         videoView.layer.insertSublayer(playerLayer, at: 0)
     }
 
+
+    @IBAction func panelSwiped(_ sender: UISwipeGestureRecognizer) {
+        dismiss(animated: true)
+    }
 }

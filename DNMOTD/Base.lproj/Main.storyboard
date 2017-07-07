@@ -445,7 +445,7 @@
                                         <rect key="frame" x="111" y="160" width="87" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="About ›">
+                                        <state key="normal" title="Credit ›">
                                             <color key="titleColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -604,6 +604,7 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="5dy-Sk-bVi" firstAttribute="centerX" secondItem="9cC-Wn-ax2" secondAttribute="centerX" id="7Sl-dD-kN1"/>
                                     <constraint firstItem="4V7-zn-wqq" firstAttribute="top" secondItem="9cC-Wn-ax2" secondAttribute="top" id="IyP-2k-r3L"/>
@@ -614,6 +615,9 @@
                                     <constraint firstItem="5dy-Sk-bVi" firstAttribute="width" secondItem="9cC-Wn-ax2" secondAttribute="width" priority="750" id="m6V-kt-3cE"/>
                                     <constraint firstItem="5dy-Sk-bVi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9cC-Wn-ax2" secondAttribute="leading" constant="16" id="rqp-r1-rEd"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8re-S7-LkY" appends="YES" id="9Db-J1-CGl"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -631,6 +635,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohk-r9-uTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rpm-LH-ZII" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="down" id="8re-S7-LkY">
+                    <connections>
+                        <action selector="panelSwiped:" destination="4EY-dt-k2H" id="i66-Zh-f7x"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1924" y="502"/>
         </scene>
@@ -663,12 +672,49 @@
                                             <segue destination="mu0-eq-0Sr" kind="unwind" unwindAction="unwindToViewController:" id="6Kv-Ws-d7v"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ray" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuP-k1-Cvq">
+                                        <rect key="frame" x="32" y="88" width="57.5" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko5-gq-l4e">
+                                        <rect key="frame" x="32" y="170" width="114" height="30"/>
+                                        <state key="normal" title="http://rayps.com"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designer &amp; Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sZ-zv-maK">
+                                        <rect key="frame" x="32" y="135" width="164.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xc-Kh-dcF">
+                                        <rect key="frame" x="32" y="16" width="63" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="DGU-Dl-n10"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="EuP-k1-Cvq" firstAttribute="top" secondItem="9Xc-Kh-dcF" secondAttribute="bottom" constant="40" id="8Ex-Wu-qAs"/>
+                                    <constraint firstItem="9Xc-Kh-dcF" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="Kn6-4j-5To"/>
+                                    <constraint firstItem="ko5-gq-l4e" firstAttribute="top" secondItem="6sZ-zv-maK" secondAttribute="bottom" constant="16" id="MYe-1a-Ggf"/>
+                                    <constraint firstItem="6sZ-zv-maK" firstAttribute="top" secondItem="EuP-k1-Cvq" secondAttribute="bottom" constant="8" id="Mmy-0P-3f3"/>
+                                    <constraint firstItem="ko5-gq-l4e" firstAttribute="leading" secondItem="6sZ-zv-maK" secondAttribute="leading" id="Sy3-Br-m24"/>
+                                    <constraint firstItem="9Xc-Kh-dcF" firstAttribute="top" secondItem="Gm1-Jy-GxE" secondAttribute="top" constant="16" id="WTf-zt-CRA"/>
+                                    <constraint firstItem="6sZ-zv-maK" firstAttribute="leading" secondItem="EuP-k1-Cvq" secondAttribute="leading" id="afl-Mg-3Kf"/>
                                     <constraint firstItem="KAo-wK-1h3" firstAttribute="top" secondItem="Gm1-Jy-GxE" secondAttribute="top" id="e83-0y-qgs"/>
+                                    <constraint firstItem="EuP-k1-Cvq" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="eYX-ob-tfO"/>
                                     <constraint firstAttribute="trailing" secondItem="KAo-wK-1h3" secondAttribute="trailing" id="z9h-DD-sbT"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="EbC-B5-uQ5" appends="YES" id="ofD-fD-dUd"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -683,8 +729,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J02-eY-QRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mu0-eq-0Sr" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="down" id="EbC-B5-uQ5">
+                    <connections>
+                        <action selector="panelSwiped:" destination="VSD-pm-IBx" id="Trp-uO-1h5"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1924" y="-187"/>
+            <point key="canvasLocation" x="1924" y="-187.55622188905548"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
