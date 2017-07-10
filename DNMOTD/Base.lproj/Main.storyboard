@@ -698,15 +698,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAw-22-z1i">
-                                        <rect key="frame" x="32" y="288" width="147" height="122"/>
+                                        <rect key="frame" x="32" y="288" width="304" height="215"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">Kanna
+                                        <string key="text">Thanks to:
+Google
+Stack Overflow
+
+Kanna
 SwiftyJSON
 SwiftyUserDefaults
 ReachabilitySwift
 Kingfisher
 Spring</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
