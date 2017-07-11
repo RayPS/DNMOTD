@@ -60,17 +60,36 @@ class HintViewController: UIViewController {
 
 
 
-
+import StoreKit
 
 class AboutViewController: UIViewController {
+
+    @IBOutlet weak var reviewButton: UIButton!
+    @IBOutlet weak var rateButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.clear
+        reviewButton.layer.cornerRadius = 4
+        rateButton.layer.cornerRadius = 4
     }
+
 
     @IBAction func panelSwiped(_ sender: UISwipeGestureRecognizer) {
             self.dismiss(animated: true)
     }
+
+    @IBAction func rateButtonTapped(_ sender: UIButton) {
+        SKStoreReviewController.requestReview()
+    }
+
+    @IBAction func reviewButtonTapped(_ sender: UIButton) {
+        let id = "1255404339"
+        if let url = URL(string: "itms-apps://itunes.apple.com/us/app/id\(id)?action=write-review") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+
 }
 
 

@@ -445,7 +445,7 @@
                                         <rect key="frame" x="111" y="160" width="87" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Credit ›">
+                                        <state key="normal" title="About ›">
                                             <color key="titleColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -672,61 +672,100 @@
                                             <segue destination="mu0-eq-0Sr" kind="unwind" unwindAction="unwindToViewController:" id="6Kv-Ws-d7v"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ray" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuP-k1-Cvq">
-                                        <rect key="frame" x="32" y="88" width="57.5" height="38.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Ray" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuP-k1-Cvq">
+                                        <rect key="frame" x="32" y="80" width="57.5" height="38.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko5-gq-l4e">
-                                        <rect key="frame" x="32" y="170" width="114" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko5-gq-l4e">
+                                        <rect key="frame" x="32" y="146.5" width="114" height="30"/>
                                         <state key="normal" title="http://rayps.com"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designer &amp; Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sZ-zv-maK">
-                                        <rect key="frame" x="32" y="135" width="164.5" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Designer &amp; Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sZ-zv-maK">
+                                        <rect key="frame" x="32" y="127" width="164.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xc-Kh-dcF">
-                                        <rect key="frame" x="32" y="16" width="63" height="32"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="x4w-SA-VOk">
+                                        <rect key="frame" x="32" y="491" width="311" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="5AB-3I-QRw">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                <state key="normal" title="Write Review">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="reviewButtonTapped:" destination="VSD-pm-IBx" eventType="touchUpInside" id="FSn-Ff-xzX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Pia-Fp-nkJ">
+                                                <rect key="frame" x="167.5" y="0.0" width="143.5" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                <inset key="titleEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                <state key="normal" title="★★★★★">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rateButtonTapped:" destination="VSD-pm-IBx" eventType="touchUpInside" id="p4q-A3-zn0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="DGU-Dl-n10"/>
+                                            <constraint firstAttribute="height" constant="40" id="5Oh-4n-MAw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAw-22-z1i">
-                                        <rect key="frame" x="32" y="288" width="304" height="215"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">Thanks to:
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAw-22-z1i">
+                                        <rect key="frame" x="32" y="176.5" width="142.5" height="314.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Thanks to:">
+                                                <attributes>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="14" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">
 Google
 Stack Overflow
-
 Kanna
 SwiftyJSON
 SwiftyUserDefaults
 ReachabilitySwift
 Kingfisher
-Spring</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
+Spring
+Designer News API v2</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="EuP-k1-Cvq" firstAttribute="top" secondItem="9Xc-Kh-dcF" secondAttribute="bottom" constant="40" id="8Ex-Wu-qAs"/>
-                                    <constraint firstItem="9Xc-Kh-dcF" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="Kn6-4j-5To"/>
-                                    <constraint firstItem="ko5-gq-l4e" firstAttribute="top" secondItem="6sZ-zv-maK" secondAttribute="bottom" constant="16" id="MYe-1a-Ggf"/>
+                                    <constraint firstItem="EuP-k1-Cvq" firstAttribute="top" secondItem="Gm1-Jy-GxE" secondAttribute="top" constant="80" id="5z6-th-lZO"/>
+                                    <constraint firstItem="x4w-SA-VOk" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="CvC-hh-Sq6"/>
+                                    <constraint firstItem="ko5-gq-l4e" firstAttribute="top" secondItem="6sZ-zv-maK" secondAttribute="bottom" id="MYe-1a-Ggf"/>
                                     <constraint firstItem="6sZ-zv-maK" firstAttribute="top" secondItem="EuP-k1-Cvq" secondAttribute="bottom" constant="8" id="Mmy-0P-3f3"/>
                                     <constraint firstItem="ko5-gq-l4e" firstAttribute="leading" secondItem="6sZ-zv-maK" secondAttribute="leading" id="Sy3-Br-m24"/>
-                                    <constraint firstItem="9Xc-Kh-dcF" firstAttribute="top" secondItem="Gm1-Jy-GxE" secondAttribute="top" constant="16" id="WTf-zt-CRA"/>
                                     <constraint firstItem="6sZ-zv-maK" firstAttribute="leading" secondItem="EuP-k1-Cvq" secondAttribute="leading" id="afl-Mg-3Kf"/>
+                                    <constraint firstItem="x4w-SA-VOk" firstAttribute="top" secondItem="FAw-22-z1i" secondAttribute="bottom" id="dnm-oo-RmN"/>
+                                    <constraint firstItem="FAw-22-z1i" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="e0X-bn-Dyv"/>
                                     <constraint firstItem="KAo-wK-1h3" firstAttribute="top" secondItem="Gm1-Jy-GxE" secondAttribute="top" id="e83-0y-qgs"/>
                                     <constraint firstItem="EuP-k1-Cvq" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="eYX-ob-tfO"/>
+                                    <constraint firstItem="FAw-22-z1i" firstAttribute="top" secondItem="ko5-gq-l4e" secondAttribute="bottom" id="gce-6h-mOp"/>
+                                    <constraint firstAttribute="bottom" secondItem="x4w-SA-VOk" secondAttribute="bottom" constant="32" id="hSU-Ry-xuf"/>
+                                    <constraint firstAttribute="trailing" secondItem="x4w-SA-VOk" secondAttribute="trailing" constant="32" id="pIy-1N-nuc"/>
                                     <constraint firstAttribute="trailing" secondItem="KAo-wK-1h3" secondAttribute="trailing" id="z9h-DD-sbT"/>
                                 </constraints>
                                 <connections>
@@ -743,6 +782,10 @@ Spring</string>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="rateButton" destination="Pia-Fp-nkJ" id="76u-we-4U2"/>
+                        <outlet property="reviewButton" destination="5AB-3I-QRw" id="rC1-xa-Ehq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J02-eY-QRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mu0-eq-0Sr" userLabel="Exit" sceneMemberID="exit"/>
