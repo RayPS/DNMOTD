@@ -119,9 +119,10 @@ class UnderContainerViewController: UIViewController {
         let first_name = currentUser["first_name"].stringValue
         let last_name = currentUser["last_name"].stringValue
         let full_name = first_name + " " + last_name
+        let job = currentUser["job"].stringValue
         
         fullnameLabel.text = " \(full_name) "
-        jobLabel.text = " \(currentUser["job"].stringValue) "
+        jobLabel.text = " \(job == "" ? "No Job Position" : job) "
         
         coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
         avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
