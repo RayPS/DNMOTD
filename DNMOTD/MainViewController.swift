@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
         load()
         
         //                    TODO: ParseMedia
-        //                    TODO: TodayWidget faster mask animation
+
     }
 
     func load() {
