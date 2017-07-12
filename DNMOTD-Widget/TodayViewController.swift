@@ -45,21 +45,29 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
 
-        UIView.animate(withDuration: 0.25, animations: {
-            switch activeDisplayMode {
-            case .compact:
-                self.preferredContentSize = maxSize
-            case .expanded:
-                self.preferredContentSize = self.view.systemLayoutSizeFitting(self.view.bounds.size)
-            }
-        })
-    
-        if self.extensionContext?.widgetLargestAvailableDisplayMode == .expanded {
+        let hasShowMoreButton = extensionContext?.widgetLargestAvailableDisplayMode == .expanded
+
+        let expandedHeight = view.systemLayoutSizeFitting(view.bounds.size).height
+
+        if hasShowMoreButton {
             CATransaction.begin()
-            CATransaction.setAnimationDuration(0.5)
+            CATransaction.setAnimationDuration(0.4)
             CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
 
-            gradient.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: maxSize)
+            gradient.frame.origin = CGPoint.zero
+            gradient.frame.size.width = maxSize.width
+
+            switch activeDisplayMode {
+            case .compact:
+                self.preferredContentSize.height = maxSize.height
+                gradient.frame.size.height = maxSize.height
+            case .expanded:
+                self.preferredContentSize.height = expandedHeight
+                gradient.frame.size.height = expandedHeight + expandedHeight * 0.25
+            }
+
+            // NOTE: gradient == view.layer.mask
+            // view.layer.mask?.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: maxSize)
 
             CATransaction.commit()
         }
