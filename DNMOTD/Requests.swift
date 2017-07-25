@@ -7,13 +7,13 @@
 //
 
 import Kanna
-import SwiftyJSON
-
+import Haneke
 
 var currentID: Int = 0
 var latestID: Int = 0
-var currentUser: JSON = []
 
+let motdsCache = Cache<JSON>(name: "motds")
+let usersCache = Cache<JSON>(name: "users")
 
 let dn_url = "https://www.designernews.co/"
 let api_endpoint = dn_url + "api/v2/"
@@ -35,36 +35,22 @@ func getlatestID(completion: @escaping () -> Void) {
 }
 
 
-func getMOTD(byID id: Int, completion: @escaping (_ json: JSON) -> Void) {
+func getMOTD(byID id: Int, completion: @escaping (_ data: Data) -> Void) {
     
-    let url = URL(string: api_endpoint + "motds/\(id)")
-    
-    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-        
-        if let jsondata = data {
-            DispatchQueue.main.async {
-                completion(JSON(data: jsondata))
-            }
-        }
-    }
+    let url = URL(string: api_endpoint + "motds/\(id)")!
 
-    task.resume()
+    motdsCache.fetch(URL: url).onSuccess { response in
+        completion(response.asData())
+    }
 }
 
 
-func getUser(byID id: Int, completion: @escaping (_ json: JSON) -> Void) {
+func getUser(byID id: Int, completion: @escaping (_ data: Data) -> Void) {
     
-    let url = URL(string: api_endpoint + "users/\(id)")
+    let url = URL(string: api_endpoint + "users/\(id)")!
     
-    let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-        
-        if let jsondata = data {
-            DispatchQueue.main.async {
-                completion(JSON(data: jsondata))
-            }
-        }
+    usersCache.fetch(URL: url).onSuccess { response in
+        completion(response.asData())
     }
-    
-    task.resume()
     
 }

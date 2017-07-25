@@ -8,10 +8,11 @@
 
 import UIKit
 import SwiftyJSON
-import Kingfisher
 import Spring
 import ReachabilitySwift
 import SwiftyUserDefaults
+
+var currentUser: JSON = []
 
 extension DefaultsKeys {
     static let fontIndex = DefaultsKey<Int?>("fontIndex")
@@ -108,15 +109,17 @@ class MainViewController: UIViewController {
         
         startLoadEffect()
         
-        getMOTD(byID: currentID, completion: { (json) in
-            
+        getMOTD(byID: currentID, completion: { data in
+
+            let json = JSON(data: data)
+
             let motd      = json["motds"][0]
             let message   = motd["message"].stringValue
             let upvotes   = motd["links"]["upvotes"]
             let downvotes = motd["links"]["downvotes"]
             let userid    = motd["links"]["user"].intValue
             
-            print("#\(currentID): \n\(message)\n")
+            print("#\(currentID) / \(latestID): \n\(message)\n")
             
             self.messageLabel.text = message
             self.votesLabel.text = "+\(upvotes.count) / -\(downvotes.count)"
@@ -131,8 +134,10 @@ class MainViewController: UIViewController {
 
     func renderUserButton(byID id: Int) {
         
-        getUser(byID: id, completion: { (json) in
-            
+        getUser(byID: id, completion: { data in
+
+            let json = JSON(data: data)
+
             currentUser = json["users"][0]
             
             self.userButtonSetTitle(isTriangle: false, haptic: false)

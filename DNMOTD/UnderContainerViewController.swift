@@ -123,9 +123,11 @@ class UnderContainerViewController: UIViewController {
         
         fullnameLabel.text = " \(full_name) "
         jobLabel.text = " \(job == "" ? "No Job Position" : job) "
-        
-        coverImage.kf.setImage(with: URL(string: currentUser["cover_photo_url"].stringValue))
-        avatarImage.kf.setImage(with: URL(string: currentUser["portrait_url"].stringValue))
+
+        coverImage.image = nil
+        avatarImage.image = nil
+        coverImage.hnk_setImageFromURL(URL(string: currentUser["cover_photo_url"].stringValue)!)
+        avatarImage.hnk_setImageFromURL(URL(string: currentUser["portrait_url"].stringValue)!)
         
 //        let stories = currentUser["links"]["stories"].count
 //        let comments = currentUser["links"]["comments"].count
