@@ -123,8 +123,7 @@ class MainViewController: UIViewController {
             
             self.messageLabel.text = message
             self.votesLabel.text = "+\(upvotes.count) / -\(downvotes.count)"
-            
-            self.showMessageLabel()
+
             self.stopLoadEffect()
             
             self.renderUserButton(byID: userid)
@@ -300,14 +299,6 @@ class MainViewController: UIViewController {
     
     
     // Animation Functions:
-
-    func showMessageLabel() {
-        UIView.animate(withDuration: 0.5) {
-            self.messageLabel.layer.opacity = 1
-            self.votesLabel.layer.opacity = 1
-            self.menuButton.layer.opacity = 1
-        }
-    }
     
     func startLoadEffect() {
         UIView.animate(withDuration: 0.2) { 
