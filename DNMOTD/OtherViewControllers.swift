@@ -66,12 +66,14 @@ class AboutViewController: UIViewController {
 
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var clearCacheButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.clear
         reviewButton.layer.cornerRadius = 4
         rateButton.layer.cornerRadius = 4
+        clearCacheButtonSetSize()
     }
 
 
@@ -90,6 +92,17 @@ class AboutViewController: UIViewController {
         }
     }
 
+    @IBAction func clearCacheButtonTapped(_ sender: Any) {
+//        motdsCache.removeAll()
+//        usersCache.removeAll()
+        clearCacheButtonSetSize()
+    }
+
+    func clearCacheButtonSetSize(){
+        let cacheSizeKB = Float(motdsCache.size + usersCache.size) / 1024
+        let title = String(format: "↺ Clear Cache (%.1fkb)", cacheSizeKB)
+        clearCacheButton.setTitle(title, for: .normal)
+    }
 }
 
 

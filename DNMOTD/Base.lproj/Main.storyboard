@@ -98,7 +98,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="382"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="373"/>
                                                 <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="32"/>
                                                 <nil key="textColor"/>
@@ -721,13 +721,13 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAw-22-z1i">
-                                        <rect key="frame" x="32" y="176.5" width="142.5" height="314.5"/>
+                                        <rect key="frame" x="32" y="216.5" width="142.5" height="169.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Thanks to:">
                                                 <attributes>
                                                     <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
                                                     <font key="NSOriginalFont" size="14" name=".AppleSystemUIFontEmphasized"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment>
@@ -738,34 +738,49 @@ Kanna
 SwiftyJSON
 SwiftyUserDefaults
 ReachabilitySwift
-Kingfisher
+HanekeSwift
 Spring
 Designer News API v2</string>
                                                 <attributes>
                                                     <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8b-5o-gQJ">
+                                        <rect key="frame" x="32" y="386" width="80" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="Mb6-3w-SEn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialUnicodeMS" family="Arial Unicode MS" pointSize="12"/>
+                                        <state key="normal" title="↺ Clear Cache">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearCacheButtonTapped:" destination="VSD-pm-IBx" eventType="touchUpInside" id="EQp-dv-s0H"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="EuP-k1-Cvq" firstAttribute="top" secondItem="Gm1-Jy-GxE" secondAttribute="top" constant="80" id="5z6-th-lZO"/>
+                                    <constraint firstItem="M8b-5o-gQJ" firstAttribute="top" secondItem="FAw-22-z1i" secondAttribute="bottom" id="78W-Xn-jHi"/>
                                     <constraint firstItem="x4w-SA-VOk" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="CvC-hh-Sq6"/>
                                     <constraint firstItem="ko5-gq-l4e" firstAttribute="top" secondItem="6sZ-zv-maK" secondAttribute="bottom" id="MYe-1a-Ggf"/>
                                     <constraint firstItem="6sZ-zv-maK" firstAttribute="top" secondItem="EuP-k1-Cvq" secondAttribute="bottom" constant="8" id="Mmy-0P-3f3"/>
                                     <constraint firstItem="ko5-gq-l4e" firstAttribute="leading" secondItem="6sZ-zv-maK" secondAttribute="leading" id="Sy3-Br-m24"/>
+                                    <constraint firstItem="M8b-5o-gQJ" firstAttribute="leading" secondItem="FAw-22-z1i" secondAttribute="leading" id="Wcn-CL-Rq5"/>
                                     <constraint firstItem="6sZ-zv-maK" firstAttribute="leading" secondItem="EuP-k1-Cvq" secondAttribute="leading" id="afl-Mg-3Kf"/>
-                                    <constraint firstItem="x4w-SA-VOk" firstAttribute="top" secondItem="FAw-22-z1i" secondAttribute="bottom" id="dnm-oo-RmN"/>
                                     <constraint firstItem="FAw-22-z1i" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="e0X-bn-Dyv"/>
                                     <constraint firstItem="KAo-wK-1h3" firstAttribute="top" secondItem="Gm1-Jy-GxE" secondAttribute="top" id="e83-0y-qgs"/>
                                     <constraint firstItem="EuP-k1-Cvq" firstAttribute="leading" secondItem="Gm1-Jy-GxE" secondAttribute="leading" constant="32" id="eYX-ob-tfO"/>
-                                    <constraint firstItem="FAw-22-z1i" firstAttribute="top" secondItem="ko5-gq-l4e" secondAttribute="bottom" id="gce-6h-mOp"/>
+                                    <constraint firstItem="FAw-22-z1i" firstAttribute="top" secondItem="ko5-gq-l4e" secondAttribute="bottom" constant="40" id="gce-6h-mOp"/>
                                     <constraint firstAttribute="bottom" secondItem="x4w-SA-VOk" secondAttribute="bottom" constant="32" id="hSU-Ry-xuf"/>
                                     <constraint firstAttribute="trailing" secondItem="x4w-SA-VOk" secondAttribute="trailing" constant="32" id="pIy-1N-nuc"/>
+                                    <constraint firstItem="5AB-3I-QRw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M8b-5o-gQJ" secondAttribute="bottom" constant="16" id="rOb-BK-Dej"/>
                                     <constraint firstAttribute="trailing" secondItem="KAo-wK-1h3" secondAttribute="trailing" id="z9h-DD-sbT"/>
                                 </constraints>
                                 <connections>
@@ -783,6 +798,7 @@ Designer News API v2</string>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="clearCacheButton" destination="M8b-5o-gQJ" id="G3o-LX-TLg"/>
                         <outlet property="rateButton" destination="Pia-Fp-nkJ" id="76u-we-4U2"/>
                         <outlet property="reviewButton" destination="5AB-3I-QRw" id="rC1-xa-Ehq"/>
                     </connections>
