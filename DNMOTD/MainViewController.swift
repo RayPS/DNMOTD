@@ -109,7 +109,7 @@ class MainViewController: UIViewController {
         
         startLoadEffect()
         
-        getMOTD(byID: currentID, completion: { data in
+        getMOTD(byID: currentID) { data in
 
             let json = JSON(data: data)
 
@@ -127,13 +127,13 @@ class MainViewController: UIViewController {
             self.stopLoadEffect()
             
             self.renderUserButton(byID: userid)
-        })
+        }
     }
 
 
     func renderUserButton(byID id: Int) {
         
-        getUser(byID: id, completion: { data in
+        getUser(byID: id){ data in
 
             let json = JSON(data: data)
 
@@ -150,7 +150,7 @@ class MainViewController: UIViewController {
                     self.showHint()
                 }
             }
-        })
+        }
     }
     
     
