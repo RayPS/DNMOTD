@@ -93,14 +93,18 @@ class AboutViewController: UIViewController {
     }
 
     @IBAction func clearCacheButtonTapped(_ sender: Any) {
-//        motdsCache.removeAll()
-//        usersCache.removeAll()
+        motdsCache.removeAll()
+        usersCache.removeAll()
         clearCacheButtonSetSize()
+        showToast(withTitle: "Done", inView: view)
     }
 
     func clearCacheButtonSetSize(){
-        let cacheSizeKB = Float(motdsCache.size + usersCache.size) / 1024
-        let title = String(format: "↺ Clear Cache (%.1fkb)", cacheSizeKB)
+        let size = ByteCountFormatter.string(
+            fromByteCount: Int64(motdsCache.size + usersCache.size),
+            countStyle: ByteCountFormatter.CountStyle.decimal
+        )
+        let title = String(format: "↺ Clear Cache (%@)", size)
         clearCacheButton.setTitle(title, for: .normal)
     }
 }
