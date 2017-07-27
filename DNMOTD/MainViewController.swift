@@ -258,6 +258,7 @@ class MainViewController: UIViewController {
                             Haptic.impact(.light).generate()
                         } else {
                             Haptic.notification(.error).generate()
+                            showToast(withTitle: "This is the last one", inView: view)
                         }
                     }
 

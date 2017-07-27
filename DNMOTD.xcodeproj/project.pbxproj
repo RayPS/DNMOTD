@@ -19,6 +19,7 @@
 		713C20F91EE13A7300B03338 /* DNMOTD-Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 713C20ED1EE13A7300B03338 /* DNMOTD-Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7143D9561F0B9CB00096DE52 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71752BFC1EF42D3D00B68428 /* Utilities.swift */; };
 		71527BD71EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */; };
+		715CAD081F28C71B006EE5CA /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715CAD071F28C71B006EE5CA /* Toast.swift */; };
 		71752BFD1EF42D3D00B68428 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71752BFC1EF42D3D00B68428 /* Utilities.swift */; };
 		717F54671F03A22A001260A2 /* UnderContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717F54661F03A22A001260A2 /* UnderContainerViewController.swift */; };
 		71A5C3691EF1CB160012F966 /* LoadingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A5C3681EF1CB160012F966 /* LoadingEffect.swift */; };
@@ -72,6 +73,7 @@
 		713C20F41EE13A7300B03338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		713C20F61EE13A7300B03338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer-Extesion.swift"; sourceTree = "<group>"; };
+		715CAD071F28C71B006EE5CA /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		71752BFC1EF42D3D00B68428 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		717F54661F03A22A001260A2 /* UnderContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderContainerViewController.swift; sourceTree = "<group>"; };
 		71A5C3681EF1CB160012F966 /* LoadingEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingEffect.swift; sourceTree = "<group>"; };
@@ -156,17 +158,18 @@
 				7119876D1EDEC50C00A3A406 /* Main.storyboard */,
 				7119876B1EDEC50C00A3A406 /* MainViewController.swift */,
 				717F54661F03A22A001260A2 /* UnderContainerViewController.swift */,
+				71F699241F05CD0100154B52 /* OtherViewControllers.swift */,
 				712683941EDEF4830041EF28 /* Requests.swift */,
 				71A5C3681EF1CB160012F966 /* LoadingEffect.swift */,
-				71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */,
+				715CAD071F28C71B006EE5CA /* Toast.swift */,
 				71752BFC1EF42D3D00B68428 /* Utilities.swift */,
+				71527BD61EF3159D006F08DF /* UIPanGestureRecognizer-Extesion.swift */,
 				711987701EDEC50C00A3A406 /* Assets.xcassets */,
 				71BCD0811F0E80200043AE2A /* Widget-Intro.mov */,
 				71F699231F05C4F900154B52 /* SF */,
 				711987721EDEC50C00A3A406 /* LaunchScreen.storyboard */,
 				711987751EDEC50C00A3A406 /* Info.plist */,
 				711987691EDEC50C00A3A406 /* AppDelegate.swift */,
-				71F699241F05CD0100154B52 /* OtherViewControllers.swift */,
 			);
 			path = DNMOTD;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				7119876C1EDEC50C00A3A406 /* MainViewController.swift in Sources */,
 				71A5C3691EF1CB160012F966 /* LoadingEffect.swift in Sources */,
 				712683951EDEF4830041EF28 /* Requests.swift in Sources */,
+				715CAD081F28C71B006EE5CA /* Toast.swift in Sources */,
 				7119876A1EDEC50C00A3A406 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
