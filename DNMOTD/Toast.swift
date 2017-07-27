@@ -26,7 +26,7 @@ func showToast(withTitle title: String, inView view: UIView) {
     // Auto Layout
     label.translatesAutoresizingMaskIntoConstraints = false
     label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    label.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
+    label.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -160).isActive = true
 
     // Animation
     label.layer.opacity = 0
