@@ -333,8 +333,7 @@ class MainViewController: UIViewController {
     
     
     func showHint(instantly: Bool = false) {
-        let delay = DispatchTime.now() + (instantly ? 0 : 2)
-        DispatchQueue.main.asyncAfter(deadline: delay) {
+        delay(delay: instantly ? 0 : 2) { 
             self.performSegue(withIdentifier: "Show Hint Segue", sender: self)
         }
     }

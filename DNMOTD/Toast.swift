@@ -42,7 +42,7 @@ func showToast(withTitle title: String, inView view: UIView) {
             label.layer.opacity = 1
         },
         completion: { finished in
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            delay(delay: 1) {
                 UIView.animate(withDuration: 0.25, animations: {
                     label.transform = CGAffineTransform.identity
                     label.layer.opacity = 0

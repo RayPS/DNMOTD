@@ -32,6 +32,10 @@ func Modulate(input _input: CGFloat, from: [CGFloat], to: [CGFloat], limit: Bool
     return CGFloat(result)
 }
 
+public func delay(delay:Double, closure: @escaping ()->()) {
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+}
+
 
 public enum Haptic {
     case impact(UIImpactFeedbackStyle)
