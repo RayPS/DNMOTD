@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -98,7 +98,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="373"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="382"/>
                                                 <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="32"/>
                                                 <nil key="textColor"/>
@@ -176,47 +176,25 @@
                                     <outletCollection property="gestureRecognizers" destination="dLD-oM-c9p" appends="YES" id="Prt-M9-h7q"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbR-nM-6hW" userLabel="Left Cicle" customClass="SpringView" customModule="Spring">
-                                <rect key="frame" x="-200" y="233.5" width="200" height="200"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="bIc-nc-CUQ"/>
-                                    <constraint firstAttribute="width" constant="200" id="fwe-zF-QIB"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6E-3u-QyG" userLabel="Right Cicle" customClass="SpringView" customModule="Spring">
-                                <rect key="frame" x="375" y="233" width="200" height="200"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="2eD-NO-sk4"/>
-                                    <constraint firstAttribute="width" constant="200" id="Q9U-fS-jAN"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CLo-Ns-E9C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2pb-TO-Rmy"/>
                             <constraint firstAttribute="trailing" secondItem="CLo-Ns-E9C" secondAttribute="trailing" id="62I-Cy-HAk"/>
-                            <constraint firstItem="P6E-3u-QyG" firstAttribute="leading" secondItem="tfB-5W-ENa" secondAttribute="trailing" id="9fi-iv-j23"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tfB-5W-ENa" secondAttribute="bottom" id="Bjt-iw-uht"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CLo-Ns-E9C" secondAttribute="bottom" id="L6U-5M-qYH"/>
                             <constraint firstItem="CLo-Ns-E9C" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="O7H-4h-Xbl"/>
-                            <constraint firstItem="nbR-nM-6hW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-200" id="VrA-Tp-llr"/>
-                            <constraint firstItem="nbR-nM-6hW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cem-cK-ACy"/>
+                            <constraint firstItem="tfB-5W-ENa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gg7-m5-uwg"/>
                             <constraint firstItem="tfB-5W-ENa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jnm-bh-yTU"/>
-                            <constraint firstItem="P6E-3u-QyG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kFi-oQ-i8E"/>
-                            <constraint firstAttribute="trailing" secondItem="P6E-3u-QyG" secondAttribute="trailing" constant="-200" id="o5u-TR-ce4"/>
-                            <constraint firstItem="tfB-5W-ENa" firstAttribute="leading" secondItem="nbR-nM-6hW" secondAttribute="trailing" id="tf9-ld-Ead"/>
+                            <constraint firstAttribute="trailing" secondItem="tfB-5W-ENa" secondAttribute="trailing" id="th5-F3-fGN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="CLo-Ns-E9C" id="l5n-vr-UgU"/>
                         <outlet property="contentView" destination="ScA-Ij-FOe" id="k2n-aP-FrO"/>
-                        <outlet property="leftCircle" destination="nbR-nM-6hW" id="NrK-O2-7Ca"/>
                         <outlet property="loadingEffectView" destination="ldN-2I-xtv" id="LL7-A7-pou"/>
                         <outlet property="menuButton" destination="O5b-Dr-pYI" id="OWC-a8-Au2"/>
                         <outlet property="messageLabel" destination="vbd-nK-XZ9" id="Ywr-dr-Xg6"/>
-                        <outlet property="rightCircle" destination="P6E-3u-QyG" id="C4c-QK-xhc"/>
                         <outlet property="userButton" destination="uAe-Bi-qbM" id="Fxt-fr-ZlC"/>
                         <outlet property="votesLabel" destination="rIJ-uv-81y" id="zWl-58-ePg"/>
                         <segue destination="ynk-7K-E5t" kind="presentation" identifier="Show Hint Segue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="QXT-vQ-Pg6"/>
