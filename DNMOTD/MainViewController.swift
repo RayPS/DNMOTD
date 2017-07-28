@@ -31,9 +31,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
     
-    @IBOutlet weak var leftCircle: SpringView!
-    @IBOutlet weak var rightCircle: SpringView!
-    
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
@@ -53,6 +50,10 @@ class MainViewController: UIViewController {
         
         //                    TODO: ParseMedia
 
+
+
+
+
     }
 
     func load() {
@@ -71,9 +72,8 @@ class MainViewController: UIViewController {
         votesLabel.layer.opacity = 0
         menuButton.layer.opacity = 0
         userButton.layer.opacity = 0
-        
-        leftCircle.layer.cornerRadius = 100
-        rightCircle.layer.cornerRadius = 100
+
+        drawCircles()
         
         Loader.addLoadersTo(loadingEffectView)
 
@@ -108,7 +108,7 @@ class MainViewController: UIViewController {
     func renderMOTD() {
         
         startLoadEffect()
-        
+
         getMOTD(byID: currentID) { data in
 
             let json = JSON(data: data)
@@ -152,6 +152,54 @@ class MainViewController: UIViewController {
             }
         }
     }
+
+
+    let circles = UIView()
+
+    func drawCircles() {
+
+        let circleSize: CGFloat = 200.0
+
+        view.addSubview(circles)
+        circles.isUserInteractionEnabled = false
+
+        circles.translatesAutoresizingMaskIntoConstraints = false
+        circles.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: circleSize * 2).isActive = true
+        circles.heightAnchor.constraint(equalToConstant: circleSize).isActive = true
+        circles.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        circles.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
+
+        let circleLeft = UIView()
+        circles.addSubview(circleLeft)
+        circleLeft.backgroundColor = .black
+        circleLeft.layer.cornerRadius = circleSize / 2
+
+        circleLeft.translatesAutoresizingMaskIntoConstraints = false
+        circleLeft.widthAnchor.constraint(equalToConstant: circleSize).isActive = true
+        circleLeft.heightAnchor.constraint(equalToConstant: circleSize).isActive = true
+        circleLeft.centerYAnchor.constraint(equalTo: circles.centerYAnchor).isActive = true
+        circleLeft.leftAnchor.constraint(equalTo: circles.leftAnchor).isActive = true
+
+
+        let circleRight = UIView()
+        circles.addSubview(circleRight)
+        circleRight.backgroundColor = .black
+        circleRight.layer.cornerRadius = circleSize / 2
+
+        circleRight.translatesAutoresizingMaskIntoConstraints = false
+        circleRight.widthAnchor.constraint(equalToConstant: circleSize).isActive = true
+        circleRight.heightAnchor.constraint(equalToConstant: circleSize).isActive = true
+        circleRight.centerYAnchor.constraint(equalTo: circles.centerYAnchor).isActive = true
+        circleRight.rightAnchor.constraint(equalTo: circles.rightAnchor).isActive = true
+    }
+
+
+
+
+
+
+    // IBActions
     
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
@@ -204,13 +252,7 @@ class MainViewController: UIViewController {
                     sender.setTranslation(CGPoint.zero, in: view)
                 case .left, .right:
                     if containerViewNotMoved {
-                        leftCircle.x = translation.x / 4
-                        leftCircle.duration = 0
-                        leftCircle.animateTo()
-                        
-                        rightCircle.x = translation.x / 4
-                        rightCircle.duration = 0
-                        rightCircle.animateTo()
+                        circles.transform.tx = translation.x / 4
                     }
                 }
 
@@ -262,13 +304,9 @@ class MainViewController: UIViewController {
                         }
                     }
 
-                    leftCircle.x = -200
-                    leftCircle.duration = 1
-                    leftCircle.animateTo()
-
-                    rightCircle.x = screenWidth + 200
-                    rightCircle.duration = 1
-                    rightCircle.animateTo()
+                    UIView.animate(withDuration: 0.1) {
+                        self.circles.transform.tx = 0
+                    }
                 }
 
                 
