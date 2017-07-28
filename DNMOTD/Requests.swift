@@ -39,8 +39,16 @@ func getMOTD(byID id: Int, completion: @escaping (_ data: Data) -> Void) {
     
     let url = URL(string: api_endpoint + "motds/\(id)")!
 
+    let momentBeforeFetch = Date().timeIntervalSince1970
+
     motdsCache.fetch(URL: url).onSuccess { response in
-        completion(response.asData())
+
+        let fetchElapse = Date().timeIntervalSince1970 - momentBeforeFetch
+        let duration = max(fetchElapse, 0.4)
+
+        delay(delay: duration) {
+            completion(response.asData())
+        }
     }
 }
 

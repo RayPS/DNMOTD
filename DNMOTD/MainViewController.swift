@@ -349,24 +349,16 @@ class MainViewController: UIViewController {
         }) { finished in
             completion?()
         }
-
-        delay(delay: 0.1) {
-            self.loadingEffectView.layer.opacity = 1
-        }
     }
     
     func stopLoadEffect(_ completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: 0.2, animations: {
-//            self.loadingEffectView.layer.opacity = 0
+            self.loadingEffectView.layer.opacity = 0
             self.messageLabel.layer.opacity = 1
             self.votesLabel.layer.opacity = 1
             self.menuButton.layer.opacity = 1
         }) { finished in
             completion?()
-        }
-
-        delay(delay: 0.1) {
-            self.loadingEffectView.layer.opacity = 0
         }
     }
     
