@@ -96,7 +96,7 @@ class AboutViewController: UIViewController {
         motdsCache.removeAll()
         usersCache.removeAll()
         clearCacheButtonSetSize()
-        showToast(withTitle: "Done", inView: view)
+        showToast(withTitle: "👌", inView: view)
         Haptic.impact(.light).generate()
     }
 
