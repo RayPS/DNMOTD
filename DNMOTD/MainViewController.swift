@@ -47,13 +47,6 @@ class MainViewController: UIViewController {
         
         initial()
         load()
-        
-        //                    TODO: ParseMedia
-
-
-
-
-
     }
 
     func load() {
@@ -222,6 +215,15 @@ class MainViewController: UIViewController {
             containerView.y = 0
         }
         containerView.animateTo()
+    }
+
+
+    @IBAction func messageLabelDidLongPress(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            UIPasteboard.general.string = messageLabel.text
+            showToast(withTitle: "Copied", inView: view)
+            Haptic.notification(.success).generate()
+        }
     }
 
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
