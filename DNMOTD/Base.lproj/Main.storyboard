@@ -328,7 +328,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="899.10044977511257"/>
+            <point key="canvasLocation" x="137" y="959"/>
         </scene>
         <!--Under View Controller-->
         <scene sceneID="a1c-Qf-CuV">
@@ -496,26 +496,33 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSN-NC-ulh">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="175.5"/>
+                                        <connections>
+                                            <action selector="userViewOverlayButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="hEv-4t-3ef"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QSN-NC-ulh" secondAttribute="trailing" id="5gi-Tt-f5X"/>
                                     <constraint firstItem="1HW-g0-74a" firstAttribute="top" secondItem="hb8-TM-KGG" secondAttribute="bottom" constant="7.5" id="FKN-NV-0UE"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1HW-g0-74a" secondAttribute="trailing" constant="32" id="L3Z-Ft-fqr"/>
                                     <constraint firstItem="OF8-mZ-1bI" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="top" id="WXS-z5-2yc"/>
                                     <constraint firstItem="OF8-mZ-1bI" firstAttribute="leading" secondItem="gFW-JC-hU7" secondAttribute="leading" id="XA1-mm-jAE"/>
+                                    <constraint firstItem="QSN-NC-ulh" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="top" id="Zh4-TB-yRB"/>
                                     <constraint firstAttribute="width" secondItem="gFW-JC-hU7" secondAttribute="height" multiplier="620:290" id="Zo6-IG-bT5"/>
                                     <constraint firstItem="hb8-TM-KGG" firstAttribute="leading" secondItem="zpt-Nn-9Zm" secondAttribute="trailing" constant="8" id="a7M-wU-wz2"/>
                                     <constraint firstItem="zpt-Nn-9Zm" firstAttribute="leading" secondItem="gFW-JC-hU7" secondAttribute="leading" constant="32" id="cGB-wC-zKs"/>
+                                    <constraint firstItem="QSN-NC-ulh" firstAttribute="leading" secondItem="gFW-JC-hU7" secondAttribute="leading" id="cIW-uQ-2Yi"/>
                                     <constraint firstItem="1HW-g0-74a" firstAttribute="leading" secondItem="hb8-TM-KGG" secondAttribute="leading" id="cyl-co-LwS"/>
                                     <constraint firstAttribute="bottom" secondItem="OF8-mZ-1bI" secondAttribute="bottom" id="dos-gg-Kyb"/>
+                                    <constraint firstAttribute="bottom" secondItem="QSN-NC-ulh" secondAttribute="bottom" id="gDm-Bx-w9u"/>
                                     <constraint firstAttribute="trailing" secondItem="OF8-mZ-1bI" secondAttribute="trailing" id="hcL-hl-tdG"/>
                                     <constraint firstItem="zpt-Nn-9Zm" firstAttribute="top" secondItem="gFW-JC-hU7" secondAttribute="top" constant="32" id="iIr-X7-fMb"/>
                                     <constraint firstItem="hb8-TM-KGG" firstAttribute="top" secondItem="zpt-Nn-9Zm" secondAttribute="top" id="nRp-fW-5s7"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hb8-TM-KGG" secondAttribute="trailing" constant="32" id="riF-OD-5au"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="jZf-DW-vRm" appends="YES" id="kGS-TV-MTO"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -541,11 +548,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-Cg-0fN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="jZf-DW-vRm" userLabel="User View Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="userViewTapped:" destination="2tb-sj-4ZD" id="vef-BK-8wd"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1021.6" y="138.98050974512745"/>
         </scene>
@@ -624,7 +626,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1924" y="502"/>
+            <point key="canvasLocation" x="1924" y="492"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="YcI-BV-llN">

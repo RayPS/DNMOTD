@@ -93,15 +93,13 @@ class UnderContainerViewController: UIViewController {
         Defaults[.fontItalic] = sender.isSelected
         customFont()
     }
+
     
-    
-    @IBAction func userViewTapped(_ sender: Any) {
+    @IBAction func userViewOverlayButtonTapped(_ sender: Any) {
         let id = currentUser["id"].stringValue
         URL(string: dn_url + "users/" + id)!.svcOpen(inView: self)
     }
-    
-    
-    
+
     
     
     
