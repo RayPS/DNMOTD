@@ -70,6 +70,10 @@ class MainViewController: UIViewController {
         
         Loader.addLoadersTo(loadingEffectView)
 
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: containerView)
+        }
+
         if let fontName = Defaults[.fontName] {
             messageLabel.font = UIFont(name: fontName, size: 32)
             underView.initialFontSettingsUIStates()
@@ -415,3 +419,21 @@ class MainViewController: UIViewController {
     
 }
 
+
+extension MainViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AboutViewController") as? AboutViewController else { return nil }
+//        vc.preferredContentSize = CGSize(width: 0, height: 0)
+//        return vc
+        let regex = "(http[s]?:\\/\\/)([^:\\/\\s]+)((\\/\\w+)*\\/)?([^\\s\\[\\]\\(\\)\\<\\>\"\']+)([^\\s\\[\\]\\(\\)\\<\\>\"'.!?~,])([?&](\\S+\\=[\\w\\d\\-_@%+;]+))?(#[\\w\\-_=]+)?"
+        let urls = messageLabel.text!.regex(regex)
+        if urls.count > 0, let url = URL(string: urls.first!) {
+            print(url)
+        }
+        return nil
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        showDetailViewController(viewControllerToCommit, sender: self)
+    }
+}
