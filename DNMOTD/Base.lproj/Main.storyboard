@@ -18,7 +18,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Main View Controller" customClass="MainViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" userLabel="Main View Controller" customClass="MainViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -220,7 +220,7 @@
         <!--Hint View Controller-->
         <scene sceneID="tM3-Wq-8PS">
             <objects>
-                <viewController storyboardIdentifier="TutorialViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="ynk-7K-E5t" userLabel="Hint View Controller" customClass="HintViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HintViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="ynk-7K-E5t" userLabel="Hint View Controller" customClass="HintViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="apx-n8-blm"/>
                         <viewControllerLayoutGuide type="bottom" id="yoW-GQ-aMk"/>
@@ -333,7 +333,7 @@
         <!--Under View Controller-->
         <scene sceneID="a1c-Qf-CuV">
             <objects>
-                <viewController id="2tb-sj-4ZD" userLabel="Under View Controller" customClass="UnderContainerViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UnderViewController" id="2tb-sj-4ZD" userLabel="Under View Controller" customClass="UnderContainerViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="peG-fc-nJF"/>
                         <viewControllerLayoutGuide type="bottom" id="9yj-wr-86J"/>
@@ -552,7 +552,7 @@
         <!--Widget Intro View Controller-->
         <scene sceneID="LAc-1O-7PV">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="4EY-dt-k2H" userLabel="Widget Intro View Controller" customClass="WidgetIntroViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WidgetIntroViewController" modalPresentationStyle="overFullScreen" id="4EY-dt-k2H" userLabel="Widget Intro View Controller" customClass="WidgetIntroViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xBe-gv-PXQ"/>
                         <viewControllerLayoutGuide type="bottom" id="UHC-9y-4l9"/>
@@ -629,7 +629,7 @@
         <!--About View Controller-->
         <scene sceneID="YcI-BV-llN">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="VSD-pm-IBx" userLabel="About View Controller" customClass="AboutViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" modalPresentationStyle="overFullScreen" id="VSD-pm-IBx" userLabel="About View Controller" customClass="AboutViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B7k-wc-exB"/>
                         <viewControllerLayoutGuide type="bottom" id="j2g-EI-s3e"/>
