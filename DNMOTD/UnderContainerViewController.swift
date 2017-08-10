@@ -93,14 +93,6 @@ class UnderContainerViewController: UIViewController {
         Defaults[.fontItalic] = sender.isSelected
         customFont()
     }
-
-    @IBAction func creditButtonTapped(_ sender: Any) {
-        URL(string: "http://rayps.com")!.svcOpen(inView: self)
-    }
-    
-    @IBAction func widgetButtonTapped(_ sender: Any) {
-        
-    }
     
     
     @IBAction func userViewTapped(_ sender: Any) {
