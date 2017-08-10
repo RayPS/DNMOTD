@@ -387,7 +387,28 @@ class MainViewController: UIViewController {
     
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            showHint(instantly: true)
+//            showHint(instantly: true)
+            let message = "Current ID: \(currentID)\nLatest ID:\(latestID)"
+            let alert = UIAlertController(title: "Go to Message by ID", message: message, preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.text = String(currentID)
+                textField.clearsOnBeginEditing = true
+                textField.keyboardType = .numberPad
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+
+            })
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                let textField = alert.textFields!.first
+                if let number = Int(textField!.text!), (1...latestID).contains(number) {
+                    currentID = number
+                    self.renderMOTD()
+                    Haptic.impact(.light).generate()
+                }
+            })
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
