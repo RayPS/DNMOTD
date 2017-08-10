@@ -290,19 +290,22 @@ class MainViewController: UIViewController {
                 
                 
                 if (beganDirection == .left || beganDirection == .right) && containerViewNotMoved {
-                    
-                    let willLoadID = currentID + Int(-translation.x / abs(translation.x))
-                    let overload = willLoadID > latestID || willLoadID == 0
+                    navigateDireaction = Int(-translation.x / abs(translation.x))
+                    let willLoadID = currentID + navigateDireaction
                     let validPanDistance = abs(translation.x) >= 120
                     
                     if validPanDistance {
-                        if !overload {
+                        switch willLoadID {
+                        case 0:
+                            Haptic.notification(.error).generate()
+                            showToast(withTitle: "This is the first one", inView: view)
+                        case latestID + 1:
+                            Haptic.notification(.error).generate()
+                            showToast(withTitle: "This is the latest one", inView: view)
+                        default:
                             currentID = willLoadID
                             renderMOTD()
                             Haptic.impact(.light).generate()
-                        } else {
-                            Haptic.notification(.error).generate()
-                            showToast(withTitle: "This is the last one", inView: view)
                         }
                     }
 
