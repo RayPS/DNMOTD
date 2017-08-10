@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -422,10 +421,7 @@
                                             <color key="titleColor" white="1" alpha="0.25" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4EY-dt-k2H" kind="show" id="3FO-iZ-5Lv">
-                                                <segue key="commit" inheritsFrom="parent" id="70B-G8-Y7m"/>
-                                                <segue key="preview" inheritsFrom="commit" id="jD3-KB-M9O"/>
-                                            </segue>
+                                            <segue destination="4EY-dt-k2H" kind="show" id="3FO-iZ-5Lv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulh-3W-fXh" userLabel="About Button">
@@ -850,7 +846,4 @@ Designer News API v2</string>
             <point key="canvasLocation" x="1924" y="-187.55622188905548"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="3FO-iZ-5Lv"/>
-    </inferredMetricsTieBreakers>
 </document>
