@@ -11,7 +11,7 @@ import Haneke
 
 var currentID: Int = 0
 var latestID: Int = 0
-var navigateDireaction: Int = 0
+var navigateDireaction: Int = -1
 
 let motdsCache = Cache<JSON>(name: "motds")
 let usersCache = Cache<JSON>(name: "users")
