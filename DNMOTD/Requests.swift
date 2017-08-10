@@ -44,11 +44,19 @@ func getMOTD(byID id: Int, completion: @escaping (_ data: Data) -> Void) {
 
     motdsCache.fetch(URL: url).onSuccess { response in
 
-        let fetchElapse = Date().timeIntervalSince1970 - momentBeforeFetch
-        let duration = max(fetchElapse, 0.4)
+        if response.asData().count != 35 {
 
-        delay(delay: duration) {
-            completion(response.asData())
+            let fetchElapse = Date().timeIntervalSince1970 - momentBeforeFetch
+            let duration = max(fetchElapse, 0.4)
+            delay(delay: duration) {
+                completion(response.asData())
+            }
+        } else {
+            currentID += navigateDireaction
+            print("MID: \(id) Has No Data! Retrying MID: \(currentID)...\n")
+            getMOTD(byID: currentID){ response in
+                completion(response.asData())
+            }
         }
     }
 }
