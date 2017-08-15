@@ -97,7 +97,12 @@ class UnderContainerViewController: UIViewController {
     
     @IBAction func userViewOverlayButtonTapped(_ sender: Any) {
         let id = currentUser["id"].stringValue
-        URL(string: dn_url + "users/" + id)!.svcOpen(inView: self)
+//        URL(string: dn_url + "users/" + id)!.svcOpen(inView: self)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "BrowserViewController") as! BrowserViewController
+        if let url = URL(string: dn_url + "users/" + id) {
+            vc.url = url
+            present(vc, animated: true, completion: nil)
+        }
     }
 
     
@@ -130,15 +135,15 @@ class UnderContainerViewController: UIViewController {
     }
 }
 
-
-extension URL {
-    func svcOpen(inView view: UIViewController) {
-        let svc = SFSafariViewController(url: self)
-//        svc.modalPresentationStyle = .overCurrentContext
-        svc.preferredBarTintColor = UIColor.white
-        svc.preferredControlTintColor = UIColor.black
-        view.present(svc, animated: true, completion: nil)
-    }
-}
-
-
+//
+//extension URL {
+//    func svcOpen(inView view: UIViewController) {
+//        let svc = SFSafariViewController(url: self)
+////        svc.modalPresentationStyle = .overCurrentContext
+//        svc.preferredBarTintColor = UIColor.white
+//        svc.preferredControlTintColor = UIColor.black
+//        view.present(svc, animated: true, completion: nil)
+//    }
+//}
+//
+//

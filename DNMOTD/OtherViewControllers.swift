@@ -171,3 +171,48 @@ class WidgetIntroViewController: UIViewController {
         dismiss(animated: true)
     }
 }
+
+
+
+
+
+class BrowserViewController: UIViewController {
+
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var safariOpenButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+
+    @IBOutlet var UIVisualEffectViews: [UIVisualEffectView]!
+
+    var url: URL!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        for v in UIVisualEffectViews {
+            v.layer.cornerRadius = 8
+            v.clipsToBounds = true
+        }
+
+        webView.backgroundColor = .white
+        webView.loadRequest(URLRequest(url: url))
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        webView.scrollView.contentInset = UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: 0, right: 0)
+    }
+
+    @IBAction func openInSafari(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        UIApplication.shared.open(url)
+    }
+}
+
+
+
+
+
+
+
+
+

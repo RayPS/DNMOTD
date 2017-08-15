@@ -330,6 +330,139 @@
             </objects>
             <point key="canvasLocation" x="137" y="959"/>
         </scene>
+        <!--Browser View Controller-->
+        <scene sceneID="T4r-tQ-8Gh">
+            <objects>
+                <viewController storyboardIdentifier="BrowserViewController" id="RuL-ZZ-Nag" userLabel="Browser View Controller" customClass="BrowserViewController" customModule="DNMOTD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9v0-FX-HVw"/>
+                        <viewControllerLayoutGuide type="bottom" id="nva-mr-JF9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9fn-pO-tpx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKF-px-o8c">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAv-j4-NXe" userLabel="Exit Visual Effect View">
+                                <rect key="frame" x="311" y="603" width="40" height="40"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hZx-UX-jRd">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hr-Og-gcO" userLabel="Exit Button">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="3"/>
+                                            <state key="normal" title="×">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="yvw-sj-yOT" kind="unwind" unwindAction="unwindToViewController:" id="caN-fR-Gc8"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Z21-vV-xR3"/>
+                                    <constraint firstAttribute="width" constant="40" id="ghh-GF-lxX"/>
+                                    <constraint firstAttribute="height" constant="40" id="z3r-o9-QYI"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ry-Wl-8g0" userLabel="Back Visual Effect View">
+                                <rect key="frame" x="24" y="603" width="40" height="40"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GHI-fw-ffc">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-6l-eDK" userLabel="Back Button">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <state key="normal" title="←">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6Uz-tg-e4w"/>
+                                    <constraint firstAttribute="width" constant="40" id="O6P-OK-08b"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="t4N-aP-Eu1"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nF9-ST-zz2" userLabel="SFOpen Visual Effect View">
+                                <rect key="frame" x="127" y="603" width="120" height="40"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fVt-TJ-V3r">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH0-ci-Lyv">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                            <state key="normal" title="Open in Safari">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="openInSafari:" destination="RuL-ZZ-Nag" eventType="touchUpInside" id="IAK-Mv-hGT"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Df9-iZ-R5E"/>
+                                    <constraint firstAttribute="height" constant="40" id="NCN-Fg-ilM"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTA-6S-hIp" userLabel="StatusBar Visual Effect View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jno-CW-7qc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JTA-6S-hIp" firstAttribute="leading" secondItem="9fn-pO-tpx" secondAttribute="leading" id="DqX-CH-AJC"/>
+                            <constraint firstAttribute="trailing" secondItem="JTA-6S-hIp" secondAttribute="trailing" id="E1F-Us-vUx"/>
+                            <constraint firstItem="eKF-px-o8c" firstAttribute="leading" secondItem="9fn-pO-tpx" secondAttribute="leading" id="IvH-ez-zTH"/>
+                            <constraint firstAttribute="trailing" secondItem="EAv-j4-NXe" secondAttribute="trailing" constant="24" id="Sal-p7-9Bd"/>
+                            <constraint firstItem="nva-mr-JF9" firstAttribute="top" secondItem="EAv-j4-NXe" secondAttribute="bottom" constant="24" id="UTp-bF-mq7"/>
+                            <constraint firstItem="nva-mr-JF9" firstAttribute="top" secondItem="9Ry-Wl-8g0" secondAttribute="bottom" constant="24" id="XU0-j7-e6P"/>
+                            <constraint firstItem="9Ry-Wl-8g0" firstAttribute="leading" secondItem="9fn-pO-tpx" secondAttribute="leading" constant="24" id="ZLJ-As-ZB9"/>
+                            <constraint firstItem="eKF-px-o8c" firstAttribute="top" secondItem="9fn-pO-tpx" secondAttribute="top" id="aVj-SA-pM2"/>
+                            <constraint firstItem="JTA-6S-hIp" firstAttribute="bottom" secondItem="9v0-FX-HVw" secondAttribute="bottom" id="ecx-PB-kSo"/>
+                            <constraint firstItem="JTA-6S-hIp" firstAttribute="top" secondItem="9fn-pO-tpx" secondAttribute="top" id="fLT-nz-2yE"/>
+                            <constraint firstItem="nva-mr-JF9" firstAttribute="top" secondItem="eKF-px-o8c" secondAttribute="bottom" id="jIm-jJ-Zgj"/>
+                            <constraint firstItem="nF9-ST-zz2" firstAttribute="centerX" secondItem="9fn-pO-tpx" secondAttribute="centerX" id="t6c-ZS-fef"/>
+                            <constraint firstAttribute="trailing" secondItem="eKF-px-o8c" secondAttribute="trailing" id="yM0-rf-J9x"/>
+                            <constraint firstItem="nva-mr-JF9" firstAttribute="top" secondItem="nF9-ST-zz2" secondAttribute="bottom" constant="24" id="ydw-Ri-zsW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="tCr-6l-eDK" id="p3P-EC-pZO"/>
+                        <outlet property="safariOpenButton" destination="mH0-ci-Lyv" id="MaU-VG-9zf"/>
+                        <outlet property="webView" destination="eKF-px-o8c" id="upA-Yp-xQ7"/>
+                        <outletCollection property="UIVisualEffectViews" destination="9Ry-Wl-8g0" collectionClass="NSMutableArray" id="HsL-sZ-riA"/>
+                        <outletCollection property="UIVisualEffectViews" destination="nF9-ST-zz2" collectionClass="NSMutableArray" id="Pef-9m-gm1"/>
+                        <outletCollection property="UIVisualEffectViews" destination="9Ry-Wl-8g0" collectionClass="NSMutableArray" id="aoA-gs-YLh"/>
+                        <outletCollection property="UIVisualEffectViews" destination="EAv-j4-NXe" collectionClass="NSMutableArray" id="T2T-Lp-Bkz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EDW-mj-bxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yvw-sj-yOT" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1021.6" y="957.57121439280365"/>
+        </scene>
         <!--Under View Controller-->
         <scene sceneID="a1c-Qf-CuV">
             <objects>
@@ -499,7 +632,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSN-NC-ulh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="175.5"/>
                                         <connections>
-                                            <action selector="userViewOverlayButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="hEv-4t-3ef"/>
+                                            <action selector="userViewOverlayButtonTapped:" destination="2tb-sj-4ZD" eventType="touchUpInside" id="pNi-CS-l6o"/>
                                         </connections>
                                     </button>
                                 </subviews>
