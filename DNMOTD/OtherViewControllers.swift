@@ -81,6 +81,12 @@ class AboutViewController: UIViewController {
             self.dismiss(animated: true)
     }
 
+    @IBAction func websiteButtonTapped(_ sender: Any) {
+        if let url = URL(string: "http://rayps.com") {
+            UIApplication.shared.open(url)
+        }
+    }
+
     @IBAction func rateButtonTapped(_ sender: UIButton) {
         SKStoreReviewController.requestReview()
     }
@@ -174,37 +180,78 @@ class WidgetIntroViewController: UIViewController {
 
 
 
+import WebKit
 
+class BrowserViewController: UIViewController, WKNavigationDelegate {
 
-class BrowserViewController: UIViewController {
-
-    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var safariOpenButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
 
-    @IBOutlet var UIVisualEffectViews: [UIVisualEffectView]!
+    @IBOutlet var UIVisualEffectViews: [UIVisualEffectView]! {
+        didSet {
+            for v in UIVisualEffectViews {
+                v.layer.cornerRadius = 8
+                v.clipsToBounds = true
+            }
+        }
+    }
 
+    var webView: WKWebView!
     var url: URL!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for v in UIVisualEffectViews {
-            v.layer.cornerRadius = 8
-            v.clipsToBounds = true
-        }
-
-        webView.backgroundColor = .white
-        webView.loadRequest(URLRequest(url: url))
+        webView = WKWebView(frame: view.frame)
+        view.insertSubview(webView, at: 0)
+        webView.load(URLRequest(url: url))
+        webView.navigationDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+//        backButton.alpha = 0
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        webView.scrollView.contentInset = UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: 0, right: 0)
+        webView.scrollView.contentInset.top = topLayoutGuide.length
+        webView.scrollView.scrollIndicatorInsets.top = topLayoutGuide.length
+        progressBar.setProgress(0.1, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        webView.removeObserver(self, forKeyPath: "estimatedProgress")
+    }
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            let progress = Float(webView.estimatedProgress)
+            progressBar.setProgress(progress, animated: true)
+        }
+
     }
 
     @IBAction func openInSafari(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         UIApplication.shared.open(url)
+    }
+
+    @IBAction func backButtonTapped(_ sender: Any) {
+        webView.goBack()
+    }
+    
+
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        progressBar.alpha = 1
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        progressBar.alpha = 0
+        progressBar.setProgress(0.0, animated: false)
+        webView.evaluateJavaScript("window.scrollTo(0, 0)")
+    }
+
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        backButton.superview!.superview!.alpha = webView.canGoBack ? 1 : 0
     }
 }
 

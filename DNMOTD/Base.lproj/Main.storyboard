@@ -342,10 +342,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKF-px-o8c">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAv-j4-NXe" userLabel="Exit Visual Effect View">
                                 <rect key="frame" x="311" y="603" width="40" height="40"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hZx-UX-jRd">
@@ -386,6 +382,9 @@
                                             <state key="normal" title="←">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="backButtonTapped:" destination="RuL-ZZ-Nag" eventType="touchUpInside" id="6Yn-ia-K8p"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -429,32 +428,33 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="nCM-9j-jim">
+                                <rect key="frame" x="0.0" y="19.5" width="375" height="2.5"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JTA-6S-hIp" firstAttribute="leading" secondItem="9fn-pO-tpx" secondAttribute="leading" id="DqX-CH-AJC"/>
                             <constraint firstAttribute="trailing" secondItem="JTA-6S-hIp" secondAttribute="trailing" id="E1F-Us-vUx"/>
-                            <constraint firstItem="eKF-px-o8c" firstAttribute="leading" secondItem="9fn-pO-tpx" secondAttribute="leading" id="IvH-ez-zTH"/>
+                            <constraint firstItem="nCM-9j-jim" firstAttribute="top" secondItem="JTA-6S-hIp" secondAttribute="bottom" id="Eid-p7-Fde"/>
+                            <constraint firstItem="nCM-9j-jim" firstAttribute="leading" secondItem="9fn-pO-tpx" secondAttribute="leading" id="KI4-lK-o0A"/>
+                            <constraint firstAttribute="trailing" secondItem="nCM-9j-jim" secondAttribute="trailing" id="MQd-Qx-Uf7"/>
                             <constraint firstAttribute="trailing" secondItem="EAv-j4-NXe" secondAttribute="trailing" constant="24" id="Sal-p7-9Bd"/>
                             <constraint firstItem="nva-mr-JF9" firstAttribute="top" secondItem="EAv-j4-NXe" secondAttribute="bottom" constant="24" id="UTp-bF-mq7"/>
                             <constraint firstItem="nva-mr-JF9" firstAttribute="top" secondItem="9Ry-Wl-8g0" secondAttribute="bottom" constant="24" id="XU0-j7-e6P"/>
                             <constraint firstItem="9Ry-Wl-8g0" firstAttribute="leading" secondItem="9fn-pO-tpx" secondAttribute="leading" constant="24" id="ZLJ-As-ZB9"/>
-                            <constraint firstItem="eKF-px-o8c" firstAttribute="top" secondItem="9fn-pO-tpx" secondAttribute="top" id="aVj-SA-pM2"/>
                             <constraint firstItem="JTA-6S-hIp" firstAttribute="bottom" secondItem="9v0-FX-HVw" secondAttribute="bottom" id="ecx-PB-kSo"/>
                             <constraint firstItem="JTA-6S-hIp" firstAttribute="top" secondItem="9fn-pO-tpx" secondAttribute="top" id="fLT-nz-2yE"/>
-                            <constraint firstItem="nva-mr-JF9" firstAttribute="top" secondItem="eKF-px-o8c" secondAttribute="bottom" id="jIm-jJ-Zgj"/>
                             <constraint firstItem="nF9-ST-zz2" firstAttribute="centerX" secondItem="9fn-pO-tpx" secondAttribute="centerX" id="t6c-ZS-fef"/>
-                            <constraint firstAttribute="trailing" secondItem="eKF-px-o8c" secondAttribute="trailing" id="yM0-rf-J9x"/>
                             <constraint firstItem="nva-mr-JF9" firstAttribute="top" secondItem="nF9-ST-zz2" secondAttribute="bottom" constant="24" id="ydw-Ri-zsW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="tCr-6l-eDK" id="p3P-EC-pZO"/>
+                        <outlet property="progressBar" destination="nCM-9j-jim" id="HVS-az-P5t"/>
                         <outlet property="safariOpenButton" destination="mH0-ci-Lyv" id="MaU-VG-9zf"/>
-                        <outlet property="webView" destination="eKF-px-o8c" id="upA-Yp-xQ7"/>
                         <outletCollection property="UIVisualEffectViews" destination="9Ry-Wl-8g0" collectionClass="NSMutableArray" id="HsL-sZ-riA"/>
                         <outletCollection property="UIVisualEffectViews" destination="nF9-ST-zz2" collectionClass="NSMutableArray" id="Pef-9m-gm1"/>
-                        <outletCollection property="UIVisualEffectViews" destination="9Ry-Wl-8g0" collectionClass="NSMutableArray" id="aoA-gs-YLh"/>
                         <outletCollection property="UIVisualEffectViews" destination="EAv-j4-NXe" collectionClass="NSMutableArray" id="T2T-Lp-Bkz"/>
                     </connections>
                 </viewController>
@@ -796,9 +796,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko5-gq-l4e">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko5-gq-l4e" userLabel="Website Button">
                                         <rect key="frame" x="32" y="90.5" width="114" height="30"/>
                                         <state key="normal" title="http://rayps.com"/>
+                                        <connections>
+                                            <action selector="websiteButtonTapped:" destination="VSD-pm-IBx" eventType="touchUpInside" id="Gqc-pW-d2X"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Designer &amp; Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sZ-zv-maK">
                                         <rect key="frame" x="32" y="71" width="164.5" height="19.5"/>
