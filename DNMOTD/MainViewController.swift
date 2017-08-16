@@ -37,6 +37,11 @@ class MainViewController: UIViewController {
     let reachability = Reachability()!
     
     var isFirstLaunch = false
+
+    var ty: CGFloat {
+        get { return containerView.transform.ty }
+        set { containerView.transform.ty = newValue}
+    }
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -211,7 +216,7 @@ class MainViewController: UIViewController {
     
     
     @IBAction func userButtonTapped(_ sender: Any) {
-        if containerView.transform.ty == 0 {
+        if ty == 0 {
             userButton.isSelected = true
             containerView.y = -underView.coverImage.frame.height
         } else {
@@ -237,7 +242,6 @@ class MainViewController: UIViewController {
         
         let coverImageHeight = underView.coverImage.frame.height
         let settingsViewHeight = underView.settingsView.frame.maxY
-        let ty = containerView.transform.ty
         
         let isLoading = self.loadingEffectView.layer.opacity != 0
         let containerViewNotMoved = ty == 0.0
@@ -252,7 +256,7 @@ class MainViewController: UIViewController {
             case .changed:
                 switch beganDirection {
                 case .up, .down:
-                    containerView.transform.ty += translation.y / 1.2
+                    ty += translation.y / 1.2
                     sender.setTranslation(CGPoint.zero, in: view)
                 case .left, .right:
                     if containerViewNotMoved {
