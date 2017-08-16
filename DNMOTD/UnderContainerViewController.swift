@@ -97,10 +97,8 @@ class UnderContainerViewController: UIViewController {
     
     @IBAction func userViewOverlayButtonTapped(_ sender: Any) {
         let id = currentUser["id"].stringValue
-        let vc = storyboard?.instantiateViewController(withIdentifier: "BrowserViewController") as! BrowserViewController
         if let url = URL(string: dn_url + "users/" + id) {
-            vc.url = url
-            present(vc, animated: true, completion: nil)
+            browserViewOpen(url: url)
         }
     }
 

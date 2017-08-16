@@ -255,7 +255,13 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
     }
 }
 
-
+extension UIViewController {
+    func browserViewOpen(url: URL!) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BrowserViewController") as! BrowserViewController
+        vc.url = url
+        present(vc, animated: true, completion: nil)
+    }
+}
 
 
 
