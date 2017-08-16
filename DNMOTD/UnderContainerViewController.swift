@@ -17,6 +17,7 @@ class UnderContainerViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
 
+    @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var fontSegmentedControl: UISegmentedControl!
     @IBOutlet weak var fontBoldButton: UIButton!
     @IBOutlet weak var fontItalicButton: UIButton!

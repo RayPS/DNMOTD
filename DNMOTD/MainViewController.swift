@@ -136,7 +136,7 @@ class MainViewController: UIViewController {
 
             currentUser = json["users"][0]
             
-            self.userButtonSetTitle(isTriangle: false, haptic: false)
+            self.userButton.isSelected = false
             
             UIView.animate(withDuration: 0.5, animations: { 
                 self.userButton.layer.opacity = 1
@@ -211,13 +211,14 @@ class MainViewController: UIViewController {
     
     
     @IBAction func userButtonTapped(_ sender: Any) {
-        if containerView.frame.origin.y == 0 {
-            userButtonSetTitle(isTriangle: true, haptic: true)
+        if containerView.transform.ty == 0 {
+            userButton.isSelected = true
             containerView.y = -underView.coverImage.frame.height
         } else {
-            userButtonSetTitle(isTriangle: false, haptic: true)
+            userButton.isSelected = false
             containerView.y = 0
         }
+        Haptic.impact(.light).generate()
         containerView.animateTo()
     }
 
@@ -233,13 +234,13 @@ class MainViewController: UIViewController {
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
         
         let translation = sender.translation(in: view)
-//        let direction = sender.direction(in: view)
         
         let coverImageHeight = underView.coverImage.frame.height
+        let settingsViewHeight = underView.settingsView.frame.maxY
         let ty = containerView.transform.ty
         
         let isLoading = self.loadingEffectView.layer.opacity != 0
-        let containerViewNotMoved = Int(ty) == 0
+        let containerViewNotMoved = ty == 0.0
         
         containerView.duration = 0.5
         
@@ -251,10 +252,7 @@ class MainViewController: UIViewController {
             case .changed:
                 switch beganDirection {
                 case .up, .down:
-                    containerView.transform = CGAffineTransform(
-                        translationX: 0,
-                        y: ty + translation.y / 1.5
-                    )
+                    containerView.transform.ty += translation.y / 1.2
                     sender.setTranslation(CGPoint.zero, in: view)
                 case .left, .right:
                     if containerViewNotMoved {
@@ -263,34 +261,32 @@ class MainViewController: UIViewController {
                 }
 
             case .ended:
-                
-                let triggerProfileOpen  = ty <= -50
-                let triggerProfileClose = ty >= -coverImageHeight + 50
-                let triggerMenuOpen  = ty > 80
-                let triggerMenuClose = ty < 240 - 80
-                
-                if ty < 0 {
-                    if beganDirection == .up && triggerProfileOpen || beganDirection == .down && !triggerProfileClose {
-                        containerView.y = -coverImageHeight
-                        userButtonSetTitle(isTriangle: true, haptic: true)
-                    } else
-                    if beganDirection == .down && triggerProfileClose || beganDirection == .up && !triggerProfileOpen {
-                        containerView.y = 0
-                        userButtonSetTitle(isTriangle: false, haptic: true)
+
+                UIView.animate(
+                    withDuration: 0.5, delay: 0,
+                    usingSpringWithDamping: 0.8,
+                    initialSpringVelocity: 0.0,
+                    options: [.allowUserInteraction],
+                    animations: {
+
+                        let triggerProfileOpen = ty < -coverImageHeight / 2
+                        let triggerMenuOpen    = ty > settingsViewHeight / 2
+
+                        if triggerProfileOpen {
+                            self.containerView.transform.ty = -coverImageHeight
+                            self.userButton.isSelected = true
+                        } else if triggerMenuOpen {
+                            self.containerView.transform.ty = settingsViewHeight
+                        } else {
+                            self.containerView.transform.ty = 0
+                            self.userButton.isSelected = false
+                        }
                     }
-                    containerView.animateTo()
-                } else
-                if ty > 0 {
-                    if beganDirection == .down && triggerMenuOpen {
-                        containerView.y = 240
-                    } else
-                    if beganDirection == .up && triggerMenuClose {
-                        containerView.y = 0
-                    }
-                    Haptic.impact(.light).generate()
-                    containerView.animateTo()
-                }
-                
+                )
+
+                Haptic.impact(.light).generate()
+
+
                 
                 
                 if (beganDirection == .left || beganDirection == .right) && containerViewNotMoved {
@@ -368,17 +364,6 @@ class MainViewController: UIViewController {
             self.menuButton.layer.opacity = 1
         }) { finished in
             completion?()
-        }
-    }
-    
-    func userButtonSetTitle(isTriangle: Bool, haptic: Bool) {
-        if isTriangle {
-            userButton.setTitle("     ▼", for: .normal)
-        } else {
-            userButton.setTitle(currentUser["display_name"].stringValue, for: .normal)
-        }
-        if haptic {
-            Haptic.impact(.light).generate()
         }
     }
     

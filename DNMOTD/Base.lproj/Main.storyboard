@@ -128,11 +128,21 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-Bi-qbM" userLabel="User Button">
-                                                <rect key="frame" x="249" y="0.0" width="62" height="24"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-Bi-qbM" userLabel="User Button">
+                                                <rect key="frame" x="231" y="0.0" width="80" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="npQ-bB-fl1"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Sjors T.">
-                                                    <color key="titleColor" red="0.17254901960784313" green="0.44705882352941173" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.1764705882352941" green="0.44705882352941173" blue="0.85098039215686272" alpha="1" colorSpace="deviceRGB"/>
+                                                </state>
+                                                <state key="selected" title="     ▼">
+                                                    <color key="titleColor" red="0.1764705882352941" green="0.44705882352941173" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" red="0.17254901959999999" green="0.44705882349999998" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="userButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AcF-Hl-go5"/>
@@ -678,6 +688,7 @@
                         <outlet property="fontSegmentedControl" destination="CD1-Ij-f7O" id="Ewv-nB-CO5"/>
                         <outlet property="fullnameLabel" destination="hb8-TM-KGG" id="pF3-hY-6B2"/>
                         <outlet property="jobLabel" destination="1HW-g0-74a" id="7cs-B9-biK"/>
+                        <outlet property="settingsView" destination="jzp-cM-IeQ" id="l7I-0k-rLr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhZ-Cg-0fN" userLabel="First Responder" sceneMemberID="firstResponder"/>
