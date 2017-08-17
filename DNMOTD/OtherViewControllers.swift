@@ -32,14 +32,11 @@ class HintViewController: UIViewController {
 
     @IBAction func viewOnPan(_ sender: UIPanGestureRecognizer) {
         if sender.state == .began {
-            let exit = UIViewPropertyAnimator(duration: 0.2, dampingRatio: 1, animations: {
+            UIViewPropertyAnimator(duration: 0.2, dampingRatio: 1, animations: {
                 self.hintView.alpha = 0
                 self.hintView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-            })
-            exit.addCompletion() { _ in
-                self.dismiss(animated: true, completion: nil)
-            }
-            exit.startAnimation()
+            }).startAnimation()
+            dismiss(animated: true, completion: nil)
         }
     }
     
