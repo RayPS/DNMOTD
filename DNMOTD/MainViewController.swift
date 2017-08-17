@@ -64,10 +64,10 @@ class MainViewController: UIViewController {
     var underView: UnderContainerViewController!
     
     func initial() {
-        messageLabel.layer.opacity = 0
-        votesLabel.layer.opacity = 0
-        menuButton.layer.opacity = 0
-        userButton.layer.opacity = 0
+        messageLabel.alpha = 0
+        votesLabel.alpha = 0
+        menuButton.alpha = 0
+        userButton.alpha = 0
 
         drawCircles()
         
@@ -141,7 +141,7 @@ class MainViewController: UIViewController {
             self.userButton.isSelected = false
             
             UIView.animate(withDuration: 0.5, animations: { 
-                self.userButton.layer.opacity = 1
+                self.userButton.alpha = 1
             })
             
             self.underView.renderUserProfile {
@@ -208,7 +208,7 @@ class MainViewController: UIViewController {
         }).startAnimation()
     }
     
-    
+
     
     @IBAction func userButtonTapped(_ sender: Any) {
         UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.8, animations: {
@@ -234,7 +234,7 @@ class MainViewController: UIViewController {
         let coverImageHeight = underView.coverImage.frame.height
         let settingsViewHeight = underView.settingsView.frame.maxY
         
-        let isLoading = self.loadingEffectView.layer.opacity != 0
+        let isLoading = self.loadingEffectView.alpha != 0
         let containerViewNotMoved = ty == 0.0
         
         if !isLoading {
@@ -334,11 +334,11 @@ class MainViewController: UIViewController {
     
     func startLoadEffect(_ completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: 0.2, animations: {
-            self.loadingEffectView.layer.opacity = 1
-            self.messageLabel.layer.opacity = 0
-            self.votesLabel.layer.opacity = 0
-            self.menuButton.layer.opacity = 0
-            self.userButton.layer.opacity = 0
+            self.loadingEffectView.alpha = 1
+            self.messageLabel.alpha = 0
+            self.votesLabel.alpha = 0
+            self.menuButton.alpha = 0
+            self.userButton.alpha = 0
         }) { finished in
             completion?()
         }
@@ -346,10 +346,10 @@ class MainViewController: UIViewController {
     
     func stopLoadEffect(_ completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: 0.2, animations: {
-            self.loadingEffectView.layer.opacity = 0
-            self.messageLabel.layer.opacity = 1
-            self.votesLabel.layer.opacity = 1
-            self.menuButton.layer.opacity = 1
+            self.loadingEffectView.alpha = 0
+            self.messageLabel.alpha = 1
+            self.votesLabel.alpha = 1
+            self.menuButton.alpha = 1
         }) { finished in
             completion?()
         }

@@ -30,7 +30,7 @@ func showToast(withTitle title: String, inView view: UIView) {
     //    label.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -160).isActive = true
 
     // Animation
-    label.layer.opacity = 0
+    label.alpha = 0
     label.transform = CGAffineTransform(scaleX: 0, y: 0)
     UIView.animate(
         withDuration: 0.5,
@@ -40,13 +40,13 @@ func showToast(withTitle title: String, inView view: UIView) {
         options: [],
         animations: {
             label.transform = CGAffineTransform(scaleX: 1, y: 1)
-            label.layer.opacity = 1
+            label.alpha = 1
         },
         completion: { finished in
             delay(delay: 1) {
                 UIView.animate(withDuration: 0.25, animations: {
                     label.transform = CGAffineTransform.identity
-                    label.layer.opacity = 0
+                    label.alpha = 0
                 }, completion: { finished in
                     label.removeFromSuperview()
                 })
