@@ -99,7 +99,7 @@ class UnderContainerViewController: UIViewController {
     @IBAction func userViewOverlayButtonTapped(_ sender: Any) {
         let id = currentUser["id"].stringValue
         if let url = URL(string: dn_url + "users/" + id) {
-            browserViewOpen(url: url)
+            present(browserView(withURL: url), animated: true)
         }
     }
 

@@ -187,6 +187,8 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
 
+    @IBOutlet weak var webViewFrame: UIView!
+
     @IBOutlet var UIVisualEffectViews: [UIVisualEffectView]! {
         didSet {
             for v in UIVisualEffectViews {
@@ -202,23 +204,30 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webView = WKWebView(frame: view.frame)
+        webView = WKWebView(frame: webViewFrame.frame)
         view.insertSubview(webView, at: 0)
+
+        webView.clipsToBounds = false
+        webView.scrollView.clipsToBounds = false
+
         webView.load(URLRequest(url: url))
         webView.navigationDelegate = self
         webView.allowsBackForwardNavigationGestures = true
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-//        backButton.alpha = 0
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        webView.scrollView.contentInset.top = topLayoutGuide.length
-        webView.scrollView.scrollIndicatorInsets.top = topLayoutGuide.length
         progressBar.setProgress(0.1, animated: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        if webView.observationInfo != nil {
+            webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -235,12 +244,20 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
     }
 
     @IBAction func backButtonTapped(_ sender: Any) {
-        webView.goBack()
+        if webView.canGoBack {
+            webView.goBack()
+        } else {
+            dismiss(animated: true)
+        }
     }
     
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         progressBar.alpha = 1
+        print("Start loading URL: ", url)
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -255,10 +272,10 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
 }
 
 extension UIViewController {
-    func browserViewOpen(url: URL!) {
+    func browserView(withURL url: URL!) -> UIViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "BrowserViewController") as! BrowserViewController
         vc.url = url
-        present(vc, animated: true, completion: nil)
+        return vc
     }
 }
 

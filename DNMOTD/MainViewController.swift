@@ -395,12 +395,15 @@ class MainViewController: UIViewController {
 extension MainViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
 
+        var vc: UIViewController?
+
         let regex = "(http[s]?:\\/\\/)([^:\\/\\s]+)((\\/\\w+)*\\/)?([^\\s\\[\\]\\(\\)\\<\\>\"\']+)([^\\s\\[\\]\\(\\)\\<\\>\"'.!?~,])([?&](\\S+\\=[\\w\\d\\-_@%+;]+))?(#[\\w\\-_=]+)?"
         let urls = messageLabel.text!.regex(regex)
         if urls.count > 0, let url = URL(string: urls.first!) {
-            browserViewOpen(url: url)
+            vc = browserView(withURL: url)
+//            vc.preferredContentSize = CGSize(width: 0, height: 0)
         }
-        return nil
+        return vc
     }
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
