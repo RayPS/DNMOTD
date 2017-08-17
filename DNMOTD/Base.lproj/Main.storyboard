@@ -157,6 +157,22 @@
                                             <constraint firstItem="uAe-Bi-qbM" firstAttribute="top" secondItem="Adt-ia-AUp" secondAttribute="top" id="RZy-kH-hvE"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yai-B3-Zxl">
+                                        <rect key="frame" x="143" y="611" width="88" height="24"/>
+                                        <color key="backgroundColor" red="0.24071618914604187" green="0.44701141119003296" blue="0.86750698089599609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="88" id="256-rY-j3d"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="qoC-Xg-O1V"/>
+                                            <constraint firstAttribute="height" constant="24" id="uKp-vt-n25"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <state key="normal" title="OPEN URL ›">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openMessageURL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lg2-AE-Y9a"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="O5b-Dr-pYI" userLabel="Menu Button">
                                         <rect key="frame" x="32" y="32" width="48" height="32"/>
                                         <constraints>
@@ -176,6 +192,7 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Adt-ia-AUp" firstAttribute="leading" secondItem="CLo-Ns-E9C" secondAttribute="leading" constant="32" id="4eR-vO-4p9"/>
+                                    <constraint firstItem="yai-B3-Zxl" firstAttribute="centerX" secondItem="CLo-Ns-E9C" secondAttribute="centerX" id="G4K-3S-uIL"/>
                                     <constraint firstItem="ScA-Ij-FOe" firstAttribute="top" secondItem="O5b-Dr-pYI" secondAttribute="bottom" constant="16" id="NyX-hR-zZF"/>
                                     <constraint firstAttribute="bottom" secondItem="Adt-ia-AUp" secondAttribute="bottom" constant="32" id="P9W-ff-gzJ"/>
                                     <constraint firstItem="ScA-Ij-FOe" firstAttribute="leading" secondItem="CLo-Ns-E9C" secondAttribute="leading" constant="32" id="TjK-ll-Ee9"/>
@@ -184,6 +201,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ScA-Ij-FOe" secondAttribute="trailing" constant="32" id="aCl-82-IZG"/>
                                     <constraint firstItem="O5b-Dr-pYI" firstAttribute="top" secondItem="CLo-Ns-E9C" secondAttribute="top" constant="32" id="gWO-c0-C9a"/>
                                     <constraint firstAttribute="trailing" secondItem="Adt-ia-AUp" secondAttribute="trailing" constant="32" id="gxN-hC-b4x"/>
+                                    <constraint firstItem="yai-B3-Zxl" firstAttribute="centerY" secondItem="Adt-ia-AUp" secondAttribute="centerY" id="mYw-E6-xXo"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="dLD-oM-c9p" appends="YES" id="Prt-M9-h7q"/>
@@ -208,6 +226,7 @@
                         <outlet property="loadingEffectView" destination="ldN-2I-xtv" id="LL7-A7-pou"/>
                         <outlet property="menuButton" destination="O5b-Dr-pYI" id="OWC-a8-Au2"/>
                         <outlet property="messageLabel" destination="vbd-nK-XZ9" id="Ywr-dr-Xg6"/>
+                        <outlet property="openUrlButton" destination="yai-B3-Zxl" id="FJf-m9-ETt"/>
                         <outlet property="userButton" destination="uAe-Bi-qbM" id="Fxt-fr-ZlC"/>
                         <outlet property="votesLabel" destination="rIJ-uv-81y" id="zWl-58-ePg"/>
                         <segue destination="ynk-7K-E5t" kind="presentation" identifier="Show Hint Segue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="QXT-vQ-Pg6"/>

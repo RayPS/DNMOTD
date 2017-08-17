@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var loadingEffectView: UIView!
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var openUrlButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
     
     let screenWidth = UIScreen.main.bounds.width
@@ -67,6 +68,8 @@ class MainViewController: UIViewController {
         messageLabel.alpha = 0
         votesLabel.alpha = 0
         menuButton.alpha = 0
+        openUrlButton.layer.cornerRadius = 12
+        openUrlButton.alpha = 0
         userButton.alpha = 0
 
         drawCircles()
@@ -124,7 +127,11 @@ class MainViewController: UIViewController {
             self.votesLabel.text = "+\(upvotes.count) / -\(downvotes.count)"
 
             self.stopLoadEffect()
-            
+
+            UIView.animate(withDuration: 0.25) {
+                self.openUrlButton.alpha = message.url() != nil ? 1 : 0
+            }
+
             self.renderUserButton(byID: userid)
         }
     }
@@ -208,14 +215,19 @@ class MainViewController: UIViewController {
         }).startAnimation()
     }
     
-
     
+
     @IBAction func userButtonTapped(_ sender: Any) {
         UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.8, animations: {
             self.userButton.isSelected = self.ty == 0
             self.ty = self.ty == 0 ? -self.underView.coverImage.frame.height : 0
         }).startAnimation()
         Haptic.impact(.light).generate()
+    }
+
+
+    @IBAction func openMessageURL(_ sender: Any) {
+        present(browserView(withURL: messageLabel.text!.url()), animated: true)
     }
 
 
@@ -226,6 +238,7 @@ class MainViewController: UIViewController {
             Haptic.notification(.success).generate()
         }
     }
+
 
     @IBAction func containerViewOnDrag(_ sender: UIPanGestureRecognizer) {
         
@@ -339,6 +352,7 @@ class MainViewController: UIViewController {
             self.votesLabel.alpha = 0
             self.menuButton.alpha = 0
             self.userButton.alpha = 0
+            self.openUrlButton.alpha = 0
         }) { finished in
             completion?()
         }
@@ -397,16 +411,27 @@ extension MainViewController: UIViewControllerPreviewingDelegate {
 
         var vc: UIViewController?
 
-        let regex = "(http[s]?:\\/\\/)([^:\\/\\s]+)((\\/\\w+)*\\/)?([^\\s\\[\\]\\(\\)\\<\\>\"\']+)([^\\s\\[\\]\\(\\)\\<\\>\"'.!?~,])([?&](\\S+\\=[\\w\\d\\-_@%+;]+))?(#[\\w\\-_=]+)?"
-        let urls = messageLabel.text!.regex(regex)
-        if urls.count > 0, let url = URL(string: urls.first!) {
+        if let url = messageLabel.text!.url() {
             vc = browserView(withURL: url)
-//            vc.preferredContentSize = CGSize(width: 0, height: 0)
         }
+
         return vc
     }
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         showDetailViewController(viewControllerToCommit, sender: self)
+    }
+}
+
+
+extension String {
+    func url() -> URL? {
+        let regex = "(http[s]?:\\/\\/)([^:\\/\\s]+)((\\/\\w+)*\\/)?([^\\s\\[\\]\\(\\)\\<\\>\"\']+)([^\\s\\[\\]\\(\\)\\<\\>\"'.!?~,])([?&](\\S+\\=[\\w\\d\\-_@%+;]+))?(#[\\w\\-_=]+)?"
+        let urls = self.regex(regex)
+        if urls.count > 0, let url = URL(string: urls.first!) {
+            return url
+        } else {
+            return nil
+        }
     }
 }
