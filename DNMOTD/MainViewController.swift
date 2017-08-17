@@ -18,6 +18,7 @@ extension DefaultsKeys {
     static let fontBold = DefaultsKey<Bool?>("fontBold")
     static let fontItalic = DefaultsKey<Bool?>("fontItalic")
     static let fontName = DefaultsKey<String?>("fontName")
+    static let isLaunchedBefore = DefaultsKey<Bool?>("isLaunchedBefore")
 }
 
 class MainViewController: UIViewController {
@@ -34,8 +35,6 @@ class MainViewController: UIViewController {
     let screenHeight = UIScreen.main.bounds.height
     
     let reachability = Reachability()!
-    
-    var isFirstLaunch = false
 
     var ty: CGFloat {
         get { return containerView.transform.ty }
@@ -82,7 +81,6 @@ class MainViewController: UIViewController {
             messageLabel.font = UIFont(name: fontName, size: 32)
             underView.initialFontSettingsUIStates()
         } else {
-            isFirstLaunch = true
             Defaults[.fontIndex] = 0
             Defaults[.fontBold] = true
             Defaults[.fontItalic] = false
@@ -147,8 +145,9 @@ class MainViewController: UIViewController {
             })
             
             self.underView.renderUserProfile {
-                if self.isFirstLaunch {
+                if !Defaults["isLaunchedBefore"].boolValue {
                     self.showHint()
+                    Defaults[.isLaunchedBefore] = true
                 }
             }
         }
