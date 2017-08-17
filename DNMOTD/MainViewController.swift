@@ -324,15 +324,19 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UnderContainerViewSegue" {
             underView = segue.destination as? UnderContainerViewController
-            underView.setFont = { [weak self] font in
+            underView.setFont = { font in
                 UIView.animate(withDuration: 0.2, animations: {
-                    self?.contentView.alpha = 0
+                    self.contentView.alpha = 0
                 }) { _ in
-                    self?.messageLabel.font = font
+                    self.messageLabel.font = font
                     UIView.animate(withDuration: 0.2) {
-                        self?.contentView.alpha = 1
+                        self.contentView.alpha = 1
                     }
                 }
+            }
+
+            underView.setName = { name in
+                self.userButton.setTitle(name, for: .normal)
             }
 
         }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 import SwiftyUserDefaults
 
 class UnderContainerViewController: UIViewController {
@@ -22,7 +23,8 @@ class UnderContainerViewController: UIViewController {
     @IBOutlet weak var fontItalicButton: UIButton!
     
     var setFont: ((UIFont) -> Void)?
-    
+    var setName: ((String) -> Void)?
+
     let fonts = ["SF Pro Display", "Georgia", "Avenir Next", "Palatino"]
     
     override func viewDidLoad() {
@@ -108,26 +110,36 @@ class UnderContainerViewController: UIViewController {
     // User View:
     
     func renderUserProfile(completion: @escaping() -> Void) {
-        let first_name = currentUser["first_name"].stringValue
-        let last_name = currentUser["last_name"].stringValue
-        let full_name = first_name + " " + last_name
-        let job = currentUser["job"].stringValue
-        
-        fullnameLabel.text = " \(full_name) "
-        jobLabel.text = " \(job == "" ? "No Job Position" : job) "
 
         coverImage.image = nil
         avatarImage.image = nil
-        coverImage.hnk_setImageFromURL(URL(string: currentUser["cover_photo_url"].stringValue)!)
-        avatarImage.hnk_setImageFromURL(URL(string: currentUser["portrait_url"].stringValue)!)
-        
-//        let stories = currentUser["links"]["stories"].count
-//        let comments = currentUser["links"]["comments"].count
-//        let upvotes = currentUser["links"]["upvotes"].count
-//        let karma = currentUser["karma"].stringValue
-        
-//        dataLabel.text = "\(stories) stories, \(comments) comments, \(upvotes) upvotes, \(karma) karma"
-        
+
+        if currentUser != JSON.null {
+            let first_name = currentUser["first_name"].stringValue
+            let last_name = currentUser["last_name"].stringValue
+            let full_name = first_name + " " + last_name
+            let job = currentUser["job"].stringValue
+
+            setName?(currentUser["display_name"].stringValue)
+
+            fullnameLabel.text = " \(full_name) "
+            jobLabel.text = " \(job == "" ? "No Job Position" : job) "
+
+            coverImage.hnk_setImageFromURL(URL(string: currentUser["cover_photo_url"].stringValue)!)
+            avatarImage.hnk_setImageFromURL(URL(string: currentUser["portrait_url"].stringValue)!)
+
+            //        let stories = currentUser["links"]["stories"].count
+            //        let comments = currentUser["links"]["comments"].count
+            //        let upvotes = currentUser["links"]["upvotes"].count
+            //        let karma = currentUser["karma"].stringValue
+
+            //        dataLabel.text = "\(stories) stories, \(comments) comments, \(upvotes) upvotes, \(karma) karma"
+        } else {
+            setName?("[Deleted]")
+            fullnameLabel.text = " [Deleted] "
+            jobLabel.text = " Null "
+        }
+
         completion()
     }
 }
