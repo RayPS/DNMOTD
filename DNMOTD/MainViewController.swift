@@ -373,7 +373,7 @@ class MainViewController: UIViewController {
                 textField.keyboardType = .numberPad
             }
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
-                self.showHint(instantly: true)
+//                self.showHint(instantly: true)
             })
             let ok = UIAlertAction(title: "OK", style: .default, handler: { _ in
                 let textField = alert.textFields!.first
@@ -395,13 +395,11 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "AboutViewController") as? AboutViewController else { return nil }
-//        vc.preferredContentSize = CGSize(width: 0, height: 0)
-//        return vc
+
         let regex = "(http[s]?:\\/\\/)([^:\\/\\s]+)((\\/\\w+)*\\/)?([^\\s\\[\\]\\(\\)\\<\\>\"\']+)([^\\s\\[\\]\\(\\)\\<\\>\"'.!?~,])([?&](\\S+\\=[\\w\\d\\-_@%+;]+))?(#[\\w\\-_=]+)?"
         let urls = messageLabel.text!.regex(regex)
         if urls.count > 0, let url = URL(string: urls.first!) {
-            print(url)
+            browserViewOpen(url: url)
         }
         return nil
     }
