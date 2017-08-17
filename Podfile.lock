@@ -2,7 +2,6 @@ PODS:
   - HanekeSwift (0.10.1)
   - Kanna (2.1.1)
   - ReachabilitySwift (3)
-  - Spring (1.0.3)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
 
@@ -10,7 +9,6 @@ DEPENDENCIES:
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift`, branch `feature/swift-3`)
   - Kanna (~> 2.1.0)
   - ReachabilitySwift (~> 3)
-  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyJSON
   - SwiftyUserDefaults
 
@@ -18,26 +16,19 @@ EXTERNAL SOURCES:
   HanekeSwift:
     :branch: feature/swift-3
     :git: https://github.com/Haneke/HanekeSwift
-  Spring:
-    :branch: swift3
-    :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
   HanekeSwift:
     :commit: 2f6d87f1f725d204d85cb34492e8c399cd5a200f
     :git: https://github.com/Haneke/HanekeSwift
-  Spring:
-    :commit: 8201b5c93bd7ebdf4cd18160bcde1e6e88c2be64
-    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
-  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: c04ac733f6d625981c94d43160f45f2de1c65204
+PODFILE CHECKSUM: f40454824eabae26beb857b4f14bea998c279185
 
 COCOAPODS: 1.2.1

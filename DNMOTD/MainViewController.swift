@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftyJSON
-import Spring
 import ReachabilitySwift
 import SwiftyUserDefaults
 
@@ -23,8 +22,8 @@ extension DefaultsKeys {
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var containerView: SpringView!
-    @IBOutlet weak var contentView: SpringView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var votesLabel: UILabel!
     @IBOutlet weak var loadingEffectView: UIView!
@@ -205,26 +204,19 @@ class MainViewController: UIViewController {
     
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
-        if containerView.frame.origin.y == 0 {
-            containerView.y = 240
-        } else {
-            containerView.y = 0
-        }
-        containerView.animateTo()
+        UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.8, animations: {
+            self.ty = self.ty == 0 ? 240 : 0
+        }).startAnimation()
     }
     
     
     
     @IBAction func userButtonTapped(_ sender: Any) {
-        if ty == 0 {
-            userButton.isSelected = true
-            containerView.y = -underView.coverImage.frame.height
-        } else {
-            userButton.isSelected = false
-            containerView.y = 0
-        }
+        UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.8, animations: {
+            self.userButton.isSelected = self.ty == 0
+            self.ty = self.ty == 0 ? -self.underView.coverImage.frame.height : 0
+        }).startAnimation()
         Haptic.impact(.light).generate()
-        containerView.animateTo()
     }
 
 
@@ -246,8 +238,6 @@ class MainViewController: UIViewController {
         let isLoading = self.loadingEffectView.layer.opacity != 0
         let containerViewNotMoved = ty == 0.0
         
-        containerView.duration = 0.5
-        
         if !isLoading {
             switch sender.state {
             case .began:
@@ -266,27 +256,20 @@ class MainViewController: UIViewController {
 
             case .ended:
 
-                UIView.animate(
-                    withDuration: 0.5, delay: 0,
-                    usingSpringWithDamping: 0.8,
-                    initialSpringVelocity: 0.0,
-                    options: [.allowUserInteraction],
-                    animations: {
+                let triggerProfileOpen = ty < -coverImageHeight / 2
+                let triggerMenuOpen    = ty > settingsViewHeight / 2
 
-                        let triggerProfileOpen = ty < -coverImageHeight / 2
-                        let triggerMenuOpen    = ty > settingsViewHeight / 2
-
-                        if triggerProfileOpen {
-                            self.containerView.transform.ty = -coverImageHeight
-                            self.userButton.isSelected = true
-                        } else if triggerMenuOpen {
-                            self.containerView.transform.ty = settingsViewHeight
-                        } else {
-                            self.containerView.transform.ty = 0
-                            self.userButton.isSelected = false
-                        }
+                UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.8, animations: {
+                    if triggerProfileOpen {
+                        self.ty = -coverImageHeight
+                        self.userButton.isSelected = true
+                    } else if triggerMenuOpen {
+                        self.ty = settingsViewHeight
+                    } else {
+                        self.ty = 0
+                        self.userButton.isSelected = false
                     }
-                )
+                }).startAnimation()
 
                 Haptic.impact(.light).generate()
 
@@ -313,9 +296,9 @@ class MainViewController: UIViewController {
                         }
                     }
 
-                    UIView.animate(withDuration: 0.1) {
+                    UIViewPropertyAnimator(duration: 0.1, dampingRatio: 1, animations: {
                         self.circles.transform.tx = 0
-                    }
+                    }).startAnimation()
                 }
 
                 
@@ -330,14 +313,16 @@ class MainViewController: UIViewController {
         if segue.identifier == "UnderContainerViewSegue" {
             underView = segue.destination as? UnderContainerViewController
             underView.setFont = { [weak self] font in
-                self?.contentView.animation = "fadeOut"
-                self?.contentView.duration = 0.25
-                self?.contentView.animateNext {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self?.contentView.alpha = 0
+                }) { _ in
                     self?.messageLabel.font = font
-                    self?.contentView.animation = "fadeIn"
-                    self?.contentView.animate()
+                    UIView.animate(withDuration: 0.2) {
+                        self?.contentView.alpha = 1
+                    }
                 }
             }
+
         }
     }
 
@@ -380,7 +365,6 @@ class MainViewController: UIViewController {
     
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-//            showHint(instantly: true)
             let message = "Current ID: \(currentID)\nLatest ID:\(latestID)"
             let alert = UIAlertController(title: "Go to Message by ID", message: message, preferredStyle: .alert)
             alert.addTextField { (textField) in
@@ -389,7 +373,7 @@ class MainViewController: UIViewController {
                 textField.keyboardType = .numberPad
             }
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { _ in
-
+                self.showHint(instantly: true)
             })
             let ok = UIAlertAction(title: "OK", style: .default, handler: { _ in
                 let textField = alert.textFields!.first

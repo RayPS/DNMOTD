@@ -7,37 +7,39 @@
 //
 
 import UIKit
-import Spring
 import AVFoundation
 
 class HintViewController: UIViewController {
 
-    @IBOutlet weak var hintView: DesignableView!
+    @IBOutlet weak var hintView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.window?.backgroundColor = UIColor.clear
-        
-        hintView.layer.opacity = 0
+
+        hintView.layer.cornerRadius = 128
+        hintView.alpha = 0
         hintView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        hintView.opacity = 1
-        hintView.scaleX = 1
-        hintView.scaleY = 1
-        hintView.animateTo()
+        UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.8, animations: {
+            self.hintView.alpha = 1
+            self.hintView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }).startAnimation()
     }
 
     @IBAction func viewOnPan(_ sender: UIPanGestureRecognizer) {
         if sender.state == .began {
-            hintView.opacity = 0
-            hintView.scaleX = 0.5
-            hintView.scaleY = 0.5
-            hintView.duration = 0.5
-            hintView.animateTo()
-            self.dismiss(animated: true, completion: nil)
+            let exit = UIViewPropertyAnimator(duration: 0.2, dampingRatio: 1, animations: {
+                self.hintView.alpha = 0
+                self.hintView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            })
+            exit.addCompletion() { _ in
+                self.dismiss(animated: true, completion: nil)
+            }
+            exit.startAnimation()
         }
     }
     

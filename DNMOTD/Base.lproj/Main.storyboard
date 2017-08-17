@@ -33,10 +33,10 @@
                                     <segue destination="2tb-sj-4ZD" kind="embed" identifier="UnderContainerViewSegue" id="yH8-Da-EbB"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLo-Ns-E9C" userLabel="Container View" customClass="SpringView" customModule="Spring">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLo-Ns-E9C" userLabel="Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScA-Ij-FOe" userLabel="Content View" customClass="SpringView" customModule="Spring">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScA-Ij-FOe" userLabel="Content View">
                                         <rect key="frame" x="32" y="80" width="311" height="499"/>
                                         <subviews>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-2I-xtv" userLabel="Loading Effect View">
@@ -239,7 +239,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKY-d3-X91" customClass="DesignableView" customModule="Spring">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKY-d3-X91">
                                 <rect key="frame" x="59.5" y="205" width="256" height="256"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7X-d4-vvv">
@@ -284,6 +284,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ed7-ME-rZ8" firstAttribute="centerY" secondItem="ZKY-d3-X91" secondAttribute="centerY" id="5ej-Dp-LZw"/>
                                     <constraint firstItem="D7X-d4-vvv" firstAttribute="centerX" secondItem="ZKY-d3-X91" secondAttribute="centerX" id="AJg-sH-7M9"/>
@@ -296,11 +297,6 @@
                                     <constraint firstAttribute="trailing" secondItem="YbQ-S2-w5g" secondAttribute="trailing" constant="16" id="xbz-tx-Ga5"/>
                                     <constraint firstItem="D7X-d4-vvv" firstAttribute="top" secondItem="ZKY-d3-X91" secondAttribute="top" constant="16" id="xso-y9-F9O"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="128"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try Swiping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEo-8x-aPQ" customClass="DesignableLabel" customModule="Spring">
                                 <rect key="frame" x="142" y="324.5" width="91.5" height="19.5"/>
@@ -853,7 +849,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAw-22-z1i">
-                                        <rect key="frame" x="32" y="160.5" width="134" height="220"/>
+                                        <rect key="frame" x="32" y="160.5" width="134" height="206"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Tips:">
                                                 <attributes>
@@ -919,7 +915,6 @@ SwiftyJSON
 SwiftyUserDefaults
 ReachabilitySwift
 HanekeSwift
-Spring
 Designer News API v2</string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -931,7 +926,7 @@ Designer News API v2</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8b-5o-gQJ">
-                                        <rect key="frame" x="32" y="396.5" width="80" height="32"/>
+                                        <rect key="frame" x="32" y="382.5" width="80" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="Mb6-3w-SEn"/>
                                         </constraints>
