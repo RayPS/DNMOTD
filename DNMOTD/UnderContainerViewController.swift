@@ -115,8 +115,8 @@ class UnderContainerViewController: UIViewController {
         avatarImage.image = nil
 
         if currentUser != JSON.null {
-            let first_name = currentUser["first_name"].stringValue
-            let last_name = currentUser["last_name"].stringValue
+            let first_name = currentUser["first_name"].string ?? ""
+            let last_name = currentUser["last_name"].string ?? ""
             let full_name = first_name + " " + last_name
             let job = currentUser["job"].stringValue
 
@@ -125,8 +125,15 @@ class UnderContainerViewController: UIViewController {
             fullnameLabel.text = " \(full_name) "
             jobLabel.text = " \(job == "" ? "No Job Position" : job) "
 
-            coverImage.hnk_setImageFromURL(URL(string: currentUser["cover_photo_url"].stringValue)!)
-            avatarImage.hnk_setImageFromURL(URL(string: currentUser["portrait_url"].stringValue)!)
+            if let urlString = currentUser["cover_photo_url"].string,
+                let corverImageUrl = URL(string: urlString) {
+                coverImage.hnk_setImageFromURL(corverImageUrl)
+            }
+
+            if let urlString = currentUser["portrait_url"].string,
+                let avatarImageUrl = URL(string: urlString) {
+                avatarImage.hnk_setImageFromURL(avatarImageUrl)
+            }
 
             //        let stories = currentUser["links"]["stories"].count
             //        let comments = currentUser["links"]["comments"].count
