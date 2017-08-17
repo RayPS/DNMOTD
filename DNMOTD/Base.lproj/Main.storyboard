@@ -119,26 +119,38 @@
                                             <constraint firstItem="vbd-nK-XZ9" firstAttribute="top" secondItem="ScA-Ij-FOe" secondAttribute="top" id="uZI-on-SIk"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Adt-ia-AUp" userLabel="Bottom Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Adt-ia-AUp" userLabel="Bottom Stack View">
                                         <rect key="frame" x="32" y="611" width="311" height="24"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+40 / -14" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIJ-uv-81y" userLabel="Votes Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+40 / -14" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="rIJ-uv-81y" userLabel="Votes Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-Bi-qbM" userLabel="User Button">
-                                                <rect key="frame" x="231" y="0.0" width="80" height="24"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yai-B3-Zxl">
+                                                <rect key="frame" x="111.5" y="0.0" width="88" height="24"/>
+                                                <color key="backgroundColor" red="0.24071618914604187" green="0.44701141119003296" blue="0.86750698089599609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="npQ-bB-fl1"/>
+                                                    <constraint firstAttribute="width" constant="88" id="256-rY-j3d"/>
+                                                    <constraint firstAttribute="height" constant="24" id="uKp-vt-n25"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <state key="normal" title="OPEN URL ›">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="openMessageURL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lg2-AE-Y9a"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAe-Bi-qbM" userLabel="User Button">
+                                                <rect key="frame" x="199.5" y="0.0" width="111.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Sjors T.">
                                                     <color key="titleColor" red="0.1764705882352941" green="0.44705882352941173" blue="0.85098039215686272" alpha="1" colorSpace="deviceRGB"/>
                                                 </state>
-                                                <state key="selected" title="     ▼">
+                                                <state key="selected" title="       ▼">
                                                     <color key="titleColor" red="0.1764705882352941" green="0.44705882352941173" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <state key="highlighted">
@@ -150,6 +162,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="yai-B3-Zxl" firstAttribute="centerX" secondItem="Adt-ia-AUp" secondAttribute="centerX" id="3KW-cv-iQu"/>
                                             <constraint firstAttribute="bottom" secondItem="rIJ-uv-81y" secondAttribute="bottom" id="4L2-0D-vZE"/>
                                             <constraint firstAttribute="height" constant="24" id="G7l-Br-YT6"/>
                                             <constraint firstAttribute="bottom" secondItem="uAe-Bi-qbM" secondAttribute="bottom" id="HVW-Ie-CUc"/>
@@ -157,22 +170,6 @@
                                             <constraint firstItem="uAe-Bi-qbM" firstAttribute="top" secondItem="Adt-ia-AUp" secondAttribute="top" id="RZy-kH-hvE"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yai-B3-Zxl">
-                                        <rect key="frame" x="143" y="611" width="88" height="24"/>
-                                        <color key="backgroundColor" red="0.24071618914604187" green="0.44701141119003296" blue="0.86750698089599609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="88" id="256-rY-j3d"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="qoC-Xg-O1V"/>
-                                            <constraint firstAttribute="height" constant="24" id="uKp-vt-n25"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                        <state key="normal" title="OPEN URL ›">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="openMessageURL:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lg2-AE-Y9a"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="O5b-Dr-pYI" userLabel="Menu Button">
                                         <rect key="frame" x="32" y="32" width="48" height="32"/>
                                         <constraints>
@@ -192,7 +189,6 @@
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Adt-ia-AUp" firstAttribute="leading" secondItem="CLo-Ns-E9C" secondAttribute="leading" constant="32" id="4eR-vO-4p9"/>
-                                    <constraint firstItem="yai-B3-Zxl" firstAttribute="centerX" secondItem="CLo-Ns-E9C" secondAttribute="centerX" id="G4K-3S-uIL"/>
                                     <constraint firstItem="ScA-Ij-FOe" firstAttribute="top" secondItem="O5b-Dr-pYI" secondAttribute="bottom" constant="16" id="NyX-hR-zZF"/>
                                     <constraint firstAttribute="bottom" secondItem="Adt-ia-AUp" secondAttribute="bottom" constant="32" id="P9W-ff-gzJ"/>
                                     <constraint firstItem="ScA-Ij-FOe" firstAttribute="leading" secondItem="CLo-Ns-E9C" secondAttribute="leading" constant="32" id="TjK-ll-Ee9"/>
@@ -201,7 +197,6 @@
                                     <constraint firstAttribute="trailing" secondItem="ScA-Ij-FOe" secondAttribute="trailing" constant="32" id="aCl-82-IZG"/>
                                     <constraint firstItem="O5b-Dr-pYI" firstAttribute="top" secondItem="CLo-Ns-E9C" secondAttribute="top" constant="32" id="gWO-c0-C9a"/>
                                     <constraint firstAttribute="trailing" secondItem="Adt-ia-AUp" secondAttribute="trailing" constant="32" id="gxN-hC-b4x"/>
-                                    <constraint firstItem="yai-B3-Zxl" firstAttribute="centerY" secondItem="Adt-ia-AUp" secondAttribute="centerY" id="mYw-E6-xXo"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="dLD-oM-c9p" appends="YES" id="Prt-M9-h7q"/>
@@ -227,6 +222,7 @@
                         <outlet property="menuButton" destination="O5b-Dr-pYI" id="OWC-a8-Au2"/>
                         <outlet property="messageLabel" destination="vbd-nK-XZ9" id="Ywr-dr-Xg6"/>
                         <outlet property="openUrlButton" destination="yai-B3-Zxl" id="FJf-m9-ETt"/>
+                        <outlet property="openUrlButtonWidth" destination="256-rY-j3d" id="z87-rC-YaS"/>
                         <outlet property="userButton" destination="uAe-Bi-qbM" id="Fxt-fr-ZlC"/>
                         <outlet property="votesLabel" destination="rIJ-uv-81y" id="zWl-58-ePg"/>
                         <segue destination="ynk-7K-E5t" kind="presentation" identifier="Show Hint Segue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="QXT-vQ-Pg6"/>

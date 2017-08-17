@@ -31,6 +31,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var openUrlButton: UIButton!
     @IBOutlet weak var userButton: UIButton!
+
+    @IBOutlet weak var openUrlButtonWidth: NSLayoutConstraint!
     
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
@@ -70,6 +72,7 @@ class MainViewController: UIViewController {
         menuButton.alpha = 0
         openUrlButton.layer.cornerRadius = 12
         openUrlButton.alpha = 0
+        openUrlButtonWidth.constant = 0
         userButton.alpha = 0
 
         drawCircles()
@@ -130,6 +133,7 @@ class MainViewController: UIViewController {
 
             UIView.animate(withDuration: 0.25) {
                 self.openUrlButton.alpha = message.url() != nil ? 1 : 0
+                self.openUrlButtonWidth.constant = message.url() != nil ? 88 : 0
             }
 
             self.renderUserButton(byID: userid)
@@ -358,6 +362,7 @@ class MainViewController: UIViewController {
             self.userButton.alpha = 0
             self.openUrlButton.alpha = 0
         }) { finished in
+            self.openUrlButtonWidth.constant = 0
             completion?()
         }
     }
