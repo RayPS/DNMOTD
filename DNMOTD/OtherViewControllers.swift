@@ -105,6 +105,10 @@ class AboutViewController: UIViewController {
         Haptic.impact(.light).generate()
     }
 
+    @IBAction func exit(_ sender: Any) {
+        dismiss(animated: true)
+    }
+
     func clearCacheButtonSetSize(){
         let size = ByteCountFormatter.string(
             fromByteCount: Int64(motdsCache.size + usersCache.size),
@@ -173,6 +177,10 @@ class WidgetIntroViewController: UIViewController {
 
 
     @IBAction func panelSwiped(_ sender: UISwipeGestureRecognizer) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func exit(_ sender: Any) {
         dismiss(animated: true)
     }
 }

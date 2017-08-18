@@ -97,7 +97,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="382"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="373"/>
                                                 <gestureRecognizers/>
                                                 <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="32"/>
@@ -747,7 +747,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="rpm-LH-ZII" kind="unwind" unwindAction="unwindToViewController:" id="8cw-A4-IcF"/>
+                                            <action selector="exit:" destination="4EY-dt-k2H" eventType="touchUpInside" id="wX3-Cz-cYH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -758,6 +758,7 @@
                                     <constraint firstItem="4V7-zn-wqq" firstAttribute="top" secondItem="9cC-Wn-ax2" secondAttribute="top" id="IyP-2k-r3L"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5dy-Sk-bVi" secondAttribute="bottom" constant="16" id="KOp-cm-rb8"/>
                                     <constraint firstAttribute="trailing" secondItem="4V7-zn-wqq" secondAttribute="trailing" id="Kr6-5w-3RI"/>
+                                    <constraint firstItem="5dy-Sk-bVi" firstAttribute="centerY" secondItem="9cC-Wn-ax2" secondAttribute="centerY" id="c2Z-mm-byW"/>
                                     <constraint firstItem="5dy-Sk-bVi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9cC-Wn-ax2" secondAttribute="top" constant="16" id="cJM-Ej-V90"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5dy-Sk-bVi" secondAttribute="trailing" constant="16" id="j6v-kh-pzl"/>
                                     <constraint firstItem="5dy-Sk-bVi" firstAttribute="width" secondItem="9cC-Wn-ax2" secondAttribute="width" priority="750" id="m6V-kt-3cE"/>
@@ -782,7 +783,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohk-r9-uTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="rpm-LH-ZII" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="down" id="8re-S7-LkY">
                     <connections>
                         <action selector="panelSwiped:" destination="4EY-dt-k2H" id="i66-Zh-f7x"/>
@@ -817,7 +817,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="mu0-eq-0Sr" kind="unwind" unwindAction="unwindToViewController:" id="6Kv-Ws-d7v"/>
+                                            <action selector="exit:" destination="VSD-pm-IBx" eventType="touchUpInside" id="ZUz-jx-Rrt"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Ray" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuP-k1-Cvq">
@@ -1003,7 +1003,6 @@ Designer News API v2</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J02-eY-QRi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="mu0-eq-0Sr" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="down" id="EbC-B5-uQ5">
                     <connections>
                         <action selector="panelSwiped:" destination="VSD-pm-IBx" id="Trp-uO-1h5"/>
