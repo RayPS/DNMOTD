@@ -201,8 +201,6 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var progressBar: UIProgressView!
 
-    @IBOutlet weak var webViewFrame: UIView!
-
     @IBOutlet var UIVisualEffectViews: [UIVisualEffectView]! {
         didSet {
             for v in UIVisualEffectViews {
@@ -212,13 +210,12 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
         }
     }
 
-    var webView: WKWebView!
+    var webView: WKWebView = WKWebView()
     var url: URL!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webView = WKWebView(frame: webViewFrame.frame)
         view.insertSubview(webView, at: 0)
 
         webView.clipsToBounds = false
@@ -230,9 +227,12 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
+    override func viewDidLayoutSubviews() {
+        webView.frame = view.bounds
+        webView.frame.size.height -= topLayoutGuide.length
+        webView.frame.origin.y += topLayoutGuide.length
     }
+
 
     override func viewDidAppear(_ animated: Bool) {
         progressBar.setProgress(0.1, animated: true)
