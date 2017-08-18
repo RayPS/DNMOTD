@@ -140,6 +140,8 @@ class WidgetIntroViewController: UIViewController {
 
     @IBOutlet weak var videoView: UIView!
 
+    var playerLayer = AVPlayerLayer()
+
     fileprivate var player: AVPlayer? {
         didSet { player?.play() }
     }
@@ -167,12 +169,16 @@ class WidgetIntroViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.backgroundColor = UIColor.clear
         videoView.backgroundColor = UIColor.clear
         let url = Bundle.main.url(forResource: "Widget-Intro", withExtension: "mov")
-        let playerLayer = videoPlayerLayer(fileURL: url!)
-        playerLayer.frame = videoView.bounds
+        playerLayer = videoPlayerLayer(fileURL: url!)
         videoView.layer.insertSublayer(playerLayer, at: 0)
+    }
+
+    override func viewDidLayoutSubviews() {
+        playerLayer.frame = videoView.bounds
     }
 
 

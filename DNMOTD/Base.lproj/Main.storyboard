@@ -97,7 +97,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-nK-XZ9" userLabel="Message Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="373"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="382"/>
                                                 <gestureRecognizers/>
                                                 <string key="text">“If you do good work for good clients, it will lead to other good work for other good clients. If you do bad work for bad clients, it will lead to other bad work for other bad clients.” – Michael Bierut</string>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="32"/>
@@ -730,10 +730,12 @@
                                 <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dy-Sk-bVi" userLabel="Video">
-                                        <rect key="frame" x="40" y="16" width="295.5" height="531"/>
-                                        <color key="backgroundColor" white="0.94766971982758619" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="31.5" y="0.5" width="313" height="563"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="1CE-4X-Acs"/>
                                             <constraint firstAttribute="width" secondItem="5dy-Sk-bVi" secondAttribute="height" multiplier="500:900" id="7YL-dF-BnD"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="900" id="biM-Jj-p1D"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4V7-zn-wqq">
@@ -756,13 +758,10 @@
                                 <constraints>
                                     <constraint firstItem="5dy-Sk-bVi" firstAttribute="centerX" secondItem="9cC-Wn-ax2" secondAttribute="centerX" id="7Sl-dD-kN1"/>
                                     <constraint firstItem="4V7-zn-wqq" firstAttribute="top" secondItem="9cC-Wn-ax2" secondAttribute="top" id="IyP-2k-r3L"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5dy-Sk-bVi" secondAttribute="bottom" constant="16" id="KOp-cm-rb8"/>
                                     <constraint firstAttribute="trailing" secondItem="4V7-zn-wqq" secondAttribute="trailing" id="Kr6-5w-3RI"/>
                                     <constraint firstItem="5dy-Sk-bVi" firstAttribute="centerY" secondItem="9cC-Wn-ax2" secondAttribute="centerY" id="c2Z-mm-byW"/>
-                                    <constraint firstItem="5dy-Sk-bVi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9cC-Wn-ax2" secondAttribute="top" constant="16" id="cJM-Ej-V90"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5dy-Sk-bVi" secondAttribute="trailing" constant="16" id="j6v-kh-pzl"/>
-                                    <constraint firstItem="5dy-Sk-bVi" firstAttribute="width" secondItem="9cC-Wn-ax2" secondAttribute="width" priority="750" id="m6V-kt-3cE"/>
-                                    <constraint firstItem="5dy-Sk-bVi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9cC-Wn-ax2" secondAttribute="leading" constant="16" id="rqp-r1-rEd"/>
+                                    <constraint firstItem="5dy-Sk-bVi" firstAttribute="width" secondItem="9cC-Wn-ax2" secondAttribute="width" priority="750" id="qGM-sB-d8m"/>
+                                    <constraint firstItem="5dy-Sk-bVi" firstAttribute="height" relation="lessThanOrEqual" secondItem="9cC-Wn-ax2" secondAttribute="height" id="xjL-53-cTt"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="8re-S7-LkY" appends="YES" id="9Db-J1-CGl"/>
