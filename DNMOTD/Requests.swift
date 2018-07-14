@@ -23,8 +23,9 @@ let api_endpoint = dn_url + "api/v2/"
 func getlatestID(completion: @escaping () -> Void) {
     
     let url = URL(string: dn_url)
-    
-    if let doc = HTML(url: url!, encoding: .utf8) {
+
+    do {
+        let doc = try HTML(url: url!, encoding: .utf8)
         if let result = doc.at_css("#feed-motd-container") {
             let id = result["data-id"]!
             DispatchQueue.main.async {
@@ -32,6 +33,8 @@ func getlatestID(completion: @escaping () -> Void) {
                 completion()
             }
         }
+    } catch {
+        print(error)
     }
 }
 

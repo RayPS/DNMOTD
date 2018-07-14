@@ -114,14 +114,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func getLatestMOTD(completion: @escaping(_ message: String, _ author: String) -> Void) {
         
         let url = URL(string: "https://www.designernews.co/")
-        
-        if let doc = HTML(url: url!, encoding: .utf8) {
+
+        do {
+            let doc = try HTML(url: url!, encoding: .utf8)
             if let message = doc.at_css("#feed-motd-message"),
                 let author = doc.at_css("#feed-motd-author a") {
                 completion(message.text!, author.text!)
             }
+        } catch {
+            print(error)
         }
-        
     }
     
 }

@@ -1,34 +1,46 @@
 PODS:
   - HanekeSwift (0.10.1)
-  - Kanna (2.1.1)
+  - Kanna (3.0.0)
   - ReachabilitySwift (3)
   - SwiftyJSON (3.1.4)
   - SwiftyUserDefaults (3.0.0)
 
 DEPENDENCIES:
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift`, branch `feature/swift-3`)
-  - Kanna (~> 2.1.0)
+  - Kanna (from `https://github.com/tid-kijyun/Kanna`, branch `feature/v3.0.0`)
   - ReachabilitySwift (~> 3)
   - SwiftyJSON
   - SwiftyUserDefaults
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ReachabilitySwift
+    - SwiftyJSON
+    - SwiftyUserDefaults
 
 EXTERNAL SOURCES:
   HanekeSwift:
     :branch: feature/swift-3
     :git: https://github.com/Haneke/HanekeSwift
+  Kanna:
+    :branch: feature/v3.0.0
+    :git: https://github.com/tid-kijyun/Kanna
 
 CHECKOUT OPTIONS:
   HanekeSwift:
     :commit: 2f6d87f1f725d204d85cb34492e8c399cd5a200f
     :git: https://github.com/Haneke/HanekeSwift
+  Kanna:
+    :commit: 50b2fa6c8d2341a693b5256624257c58c4502142
+    :git: https://github.com/tid-kijyun/Kanna
 
 SPEC CHECKSUMS:
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
-  Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
+  Kanna: 93a9af3643d46425e48899a8b033a2da44af2b49
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: f40454824eabae26beb857b4f14bea998c279185
+PODFILE CHECKSUM: 52de10a7f5d732cafa09a062f6aa34af39028937
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3
